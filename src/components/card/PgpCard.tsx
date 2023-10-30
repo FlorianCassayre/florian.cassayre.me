@@ -1,13 +1,13 @@
 import React from 'react';
-import { Card, IconButton, Input, Typography } from '@mui/joy';
-import { ContentCopy, Key } from '@mui/icons-material';
+import { Card, Input, Typography } from '@mui/joy';
+import { Key } from '@mui/icons-material';
+import { CopyButton } from '../CopyButton.tsx';
 
 interface PgpCardProps {
-
+  fingerprint: string;
 }
 
-export const PgpCard: React.FC<PgpCardProps> = () => {
-  const value = '15F2 D0CC 0424 6F32 25EC 9AAD B280 01E0 4138 B6FE';
+export const PgpCard: React.FC<PgpCardProps> = ({ fingerprint }) => {
   return (
     <Card>
       <Typography level="title-lg">
@@ -15,8 +15,8 @@ export const PgpCard: React.FC<PgpCardProps> = () => {
       </Typography>
       <Input
         startDecorator={<Key />}
-        endDecorator={<IconButton><ContentCopy /></IconButton>}
-        value={value}
+        endDecorator={<CopyButton content={fingerprint} />}
+        value={fingerprint}
         readOnly
       />
     </Card>

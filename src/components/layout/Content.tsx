@@ -1,21 +1,33 @@
 import {
   Avatar,
   Box,
-  Card,
-  CardContent, Chip,
+  Card, CardContent,
   Container, Grid,
   IconButton,
   Stack,
   Typography,
 } from '@mui/joy';
-import { Email, FormatQuote, GitHub, LinkedIn } from '@mui/icons-material';
+import { Email, GitHub, LinkedIn } from '@mui/icons-material';
+import { LanguageCardContent } from '../../content/card/LanguageCardContent.tsx';
+import { EmailCardContent } from '../../content/card/EmailCardContent.tsx';
+import { PgpCardContent } from '../../content/card/PgpCardContent.tsx';
+import { PublicationsCardContent } from '../../content/card/PublicationsCardContent.tsx';
+import { ProjectCardsContent } from '../../content/card/ProjectCardsContent.tsx';
+import { AdventOfCodeCardContent } from '../../content/card/AdventOfCodeCardContent.tsx';
+import React from 'react';
+import { BioQuoteCardContent } from '../../content/card/BioQuoteCardContent.tsx';
+import { CodeGolfCardContent } from '../../content/card/CodeGolfCardContent.tsx';
 import { SoftLink } from '../SoftLink.tsx';
-import { ProjectCard } from '../card/ProjectCard.tsx';
-import { AdventOfCodeCard } from '../card/AdventOfCodeCard.tsx';
-import { PgpCard } from '../card/PgpCard.tsx';
-import { LanguageCard } from '../card/LanguageCard.tsx';
-import { PublicationsCard } from '../card/PublicationsCard.tsx';
-import { EmailCard } from '../card/EmailCard.tsx';
+
+interface CategoryHeadingProps {
+  children: React.ReactNode;
+}
+
+const CategoryHeading: React.FC<CategoryHeadingProps> = ({ children }) => (
+  <Typography level="h2" fontSize="xl" fontWeight="lg">
+    {children}
+  </Typography>
+)
 
 export const Content = () => {
   return (
@@ -46,81 +58,76 @@ export const Content = () => {
               "--Avatar-size": "80px"
             }}
           />
-          <Typography level="h1" fontWeight="sm">
+          <Typography level="h1" fontWeight="sm" fontFamily="Bitter">
             Florian Cassayre
           </Typography>
           <Typography level="title-lg" fontWeight="sm">
             \<em>flɔ.ʁi.ɑ̃ ka.sɛʁ</em>\
           </Typography>
         </Stack>
-        <Card sx={{ mb: 4 }}>
-          <CardContent>
-            <Box>
-              <FormatQuote sx={{ transform: 'rotate(180deg)', mr: 1, verticalAlign: 'bottom' }} />
-              I am currently employed by <SoftLink href="https://home.cern">CERN</SoftLink> as a full-stack web developer.
-              I graduated in 2022 from <SoftLink href="https://epfl.ch">EPFL</SoftLink> as a computer scientist, with a focus on formal methods.
-              I have a diverse range of interests including (but not limited to) open source, genealogy and sustainability.
-              <FormatQuote sx={{ ml: 1, verticalAlign: 'bottom' }} />
-            </Box>
-          </CardContent>
-        </Card>
+        <Box sx={{ mb: 4 }}>
+          <BioQuoteCardContent />
+        </Box>
 
-        <Typography level="h2" fontSize="xl" fontWeight="lg" sx={{ mb: 1 }}>
-          Current projects
-        </Typography>
-        <Grid container spacing={2}>
-          <Grid xs={12} lg={4}>
-            <ProjectCard title="arbre.app" />
-          </Grid>
-          <Grid xs={12} lg={4}>
-            <ProjectCard title="Yoga Sof" />
-          </Grid>
-          <Grid xs={12} lg={4}>
-            <ProjectCard title="a" />
-          </Grid>
-        </Grid>
-
-
-        <Typography level="h2" fontSize="xl" fontWeight="lg" sx={{ mb: 1 }}>
-          Contributed projects
-        </Typography>
-
-        <Typography level="h2" fontSize="xl" fontWeight="lg" sx={{ mb: 1 }}>
-          Publications
-        </Typography>
-        <PublicationsCard />
-
-        <Typography level="h2" fontSize="xl" fontWeight="lg" sx={{ mb: 1 }}>
-          Programming challenges
-        </Typography>
-        <Grid container spacing={2}>
-          <Grid xs={6}>
-            <AdventOfCodeCard />
-          </Grid>
-          <Grid xs={6}>
-            <Card>
-              <Typography level="title-lg">
-                <SoftLink href="#">Code Golf</SoftLink>
-              </Typography>
-              <Typography>
-                My entries are mainly targeting the languages <Chip component="span">python</Chip> and <Chip component="span">brainfuck</Chip>.
-              </Typography>
-            </Card>
-          </Grid>
-        </Grid>
-
-        <Typography level="h2" fontSize="xl" fontWeight="lg" sx={{ mb: 1 }}>
-          Social
-        </Typography>
         <Grid container spacing={2}>
           <Grid xs={12}>
-            <PgpCard />
+            <CategoryHeading>Current projects</CategoryHeading>
+          </Grid>
+
+          <Grid xs={12}>
+            <ProjectCardsContent />
+          </Grid>
+          <Grid xs={12}>
+            <CategoryHeading>Contributed projects</CategoryHeading>
+          </Grid>
+          <Grid xs={12}>
+            <CategoryHeading>Publications</CategoryHeading>
+          </Grid>
+          <Grid xs={12}>
+            <PublicationsCardContent />
+          </Grid>
+          <Grid xs={12}>
+            <CategoryHeading>Programming challenges</CategoryHeading>
           </Grid>
           <Grid xs={6}>
-            <LanguageCard />
+            <AdventOfCodeCardContent />
           </Grid>
           <Grid xs={6}>
-            <EmailCard />
+            <CodeGolfCardContent />
+          </Grid>
+          <Grid xs={12}>
+            <CategoryHeading>Highlights</CategoryHeading>
+          </Grid>
+          <Grid xs={12}>
+            <Card>
+              <CardContent>
+                <ul style={{ margin: 0 }}>
+                  <li><SoftLink href="https://swerc.eu/2022/">SWERC 2022</SoftLink>: qualified among 50,000 participants, ranked 35<sup>th</sup></li>
+                  <li><SoftLink href="https://ieeextreme.org/">IEEEXtreme 15.0 2021</SoftLink>: ranked 56<sup>th</sup> among 5,500 teams</li>
+                  <li><SoftLink href="https://www.bloomberg.com/company/stories/get-ready-for-bloombergs-summer-of-puzzles-2021/">BPuzzled 2021</SoftLink>: qualified for the final</li>
+                  <li><SoftLink href="https://2020.lauzhack.com/">LauzHack 2020</SoftLink>: <em>AdMotiv</em>, second place winners</li>
+                  <li><SoftLink href="https://2019.lauzhack.com/">LauzHack 2019</SoftLink>: <em>Sentiment-U</em>, organizers' favourite hack, Logitech prize</li>
+                </ul>
+                <Typography>
+                  Honorable mentions:
+                </Typography>
+                <ul style={{ margin: 0 }}>
+                  <li><SoftLink href="https://www.youtube.com/live/yfXu9_Za_mg?t=2003">Hash Code 2022</SoftLink>: fastest submission of the competition</li>
+                </ul>
+              </CardContent>
+            </Card>
+          </Grid>
+          <Grid xs={12}>
+            <CategoryHeading>Social</CategoryHeading>
+          </Grid>
+          <Grid xs={12}>
+            <PgpCardContent />
+          </Grid>
+          <Grid xs={3}>
+            <LanguageCardContent />
+          </Grid>
+          <Grid xs={9}>
+            <EmailCardContent />
           </Grid>
         </Grid>
       </Container>

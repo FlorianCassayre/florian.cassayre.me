@@ -1,26 +1,45 @@
 import React from 'react';
-import { AspectRatio, Card, CardContent, CardOverflow, Divider, Typography } from '@mui/joy';
+import { AspectRatio, Card, CardContent, CardOverflow, Chip, ChipProps, Divider, Stack, Typography } from '@mui/joy';
+import { IconType } from 'react-icons';
+
+type Technology = string | {
+  name: string;
+  icon: IconType;
+  color?: ChipProps['color'];
+};
 
 interface ProjectCardProps {
   title: string;
+  description: string;
+  technologies?: Technology[];
 }
 
-export const ProjectCard: React.FC<ProjectCardProps> = ({ title }) => {
+export const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, technologies }) => {
+  const renderIcon = (Icon: IconType) => <Icon />;
   return (
     <Card variant="outlined">
       <CardOverflow>
         <AspectRatio ratio="2">
-          <img
-            src="https://images.unsplash.com/photo-1532614338840-ab30cf10ed36?auto=format&fit=crop&w=318"
-            srcSet="https://images.unsplash.com/photo-1532614338840-ab30cf10ed36?auto=format&fit=crop&w=318&dpr=2 2x"
-            loading="lazy"
-            alt=""
-          />
+          {/* <img/> */}
         </AspectRatio>
       </CardOverflow>
       <CardContent>
         <Typography level="title-md">{title}</Typography>
-        <Typography level="body-sm">California</Typography>
+        <Typography level="body-sm">{description}</Typography>
+        {!!technologies?.length && (
+          <Stack direction="row" spacing={1} flexWrap="wrap">
+            {(technologies ?? []).map((technology, i) => (
+              <Chip
+                key={i}
+                variant="outlined"
+                startDecorator={typeof technology === 'string' ? undefined : renderIcon(technology.icon)}
+                color={typeof technology === 'string' ? undefined : technology.color}
+              >
+                {typeof technology === 'string' ? technology : technology.name}
+              </Chip>
+            ))}
+          </Stack>
+        )}
       </CardContent>
       <CardOverflow variant="soft" sx={{ bgcolor: 'background.level1' }}>
         <Divider inset="context" />
