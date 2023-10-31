@@ -1,5 +1,4 @@
 import {
-  Avatar,
   Box,
   Card, CardContent,
   Container, Grid,
@@ -18,6 +17,7 @@ import React from 'react';
 import { BioQuoteCardContent } from '../../content/card/BioQuoteCardContent.tsx';
 import { CodeGolfCardContent } from '../../content/card/CodeGolfCardContent.tsx';
 import { SoftLink } from '../SoftLink.tsx';
+import { ProfileLogo } from '../ProfileLogo.tsx';
 
 interface CategoryHeadingProps {
   children: React.ReactNode;
@@ -51,13 +51,7 @@ export const Content = () => {
         </Stack>
 
         <Stack direction="column" spacing={1} alignItems="center" sx={{ mt: 2, mb: 2 }}>
-          <Avatar
-            alt="Florian Cassayre"
-            src="/profile.jpg"
-            sx={{
-              "--Avatar-size": "80px"
-            }}
-          />
+          <ProfileLogo />
           <Typography level="h1" fontWeight="sm" fontFamily="Bitter">
             Florian Cassayre
           </Typography>
