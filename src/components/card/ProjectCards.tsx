@@ -8,9 +8,9 @@ interface ProjectCardsProps {
 
 export const ProjectCards: React.FC<ProjectCardsProps> = ({ projects }) => {
   return (
-    <Grid container spacing={2} sx={{ justifyContent: 'center' }}>
+    <Grid container direction="row" spacing={2} justifyContent="center" alignItems="stretch">
       {projects.map((project, i) => (
-        <Grid key={i} xs={12} lg={4}>
+        <Grid key={i} xs={12} sm={6} md={4}>
           <ProjectCard {...project} />
         </Grid>
       ))}
