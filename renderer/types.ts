@@ -1,3 +1,5 @@
+import { LOCALES } from './i18n';
+
 export type {
   PageContextServer,
   /*
@@ -19,6 +21,8 @@ declare global {
       Page: Page
       pageProps?: PageProps
       urlPathname: string
+      urlOriginal: string;
+      locale: typeof LOCALES[number];
       exports: {
         documentProps?: {
           title?: string

@@ -18,6 +18,7 @@ import { BioQuoteCardContent } from '../../content/card/BioQuoteCardContent';
 import { CodeGolfCardContent } from '../../content/card/CodeGolfCardContent';
 import { SoftLink } from '../SoftLink';
 import { ProfileLogo } from '../ProfileLogo';
+import { LanguageToggle } from '../LanguageToggle';
 
 interface CategoryHeadingProps {
   children: React.ReactNode;
@@ -47,6 +48,7 @@ export const Content = () => {
             <IconButton>
               <Email />
             </IconButton>
+            <LanguageToggle />
           </Stack>
         </Stack>
 

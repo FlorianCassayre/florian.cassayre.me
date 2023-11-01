@@ -1,23 +1,28 @@
 export { render }
 
-import { hydrateRoot } from 'react-dom/client'
+import { createRoot, hydrateRoot, Root } from 'react-dom/client';
 import { PageShell } from './PageShell'
 import type { PageContextClient } from './types'
 
-// This render() hook only supports SSR, see https://vike.dev/render-modes for how to modify render() to support SPA
+let root: Root;
+
 async function render(pageContext: PageContextClient) {
   const { Page, pageProps } = pageContext
-  if (!Page) throw new Error('Client-side render() hook expects pageContext.Page to be defined')
-  const root = document.getElementById('react-root')
-  if (!root) throw new Error('DOM element #react-root not found')
-  hydrateRoot(
-    root,
+  const page = (
     <PageShell pageContext={pageContext}>
       <Page {...pageProps} />
     </PageShell>
-  )
+  );
+  const container = document.getElementById('react-root')!;
+  if (pageContext.isHydration) {
+    root = hydrateRoot(container, page)
+  } else {
+    if (!root) {
+      root = createRoot(container)
+    }
+    root.render(page)
+  }
 }
 
-/* To enable Client-side Routing:
-export const clientRouting = true
-// !! WARNING !! Before doing so, read https://vike.dev/clientRouting */
+export const clientRouting = true;
+export const hydrationCanBeAborted = true;

@@ -1,13 +1,15 @@
-export { render }
+import { PageContext } from './types';
+
 // See https://vike.dev/data-fetching
-export const passToClient = ['pageProps', 'urlPathname']
+export const passToClient = ['pageProps', 'locale'];
 
 import ReactDOMServer from 'react-dom/server'
 import { PageShell } from './PageShell'
 import { escapeInject, dangerouslySkipEscape } from 'vike/server'
 import type { PageContextServer } from './types'
+import { DEFAULT_LOCALE, LOCALES } from './i18n';
 
-async function render(pageContext: PageContextServer) {
+export async function render(pageContext: PageContextServer) {
   const { Page, pageProps } = pageContext
   // This render() hook only supports SSR, see https://vike.dev/render-modes for how to modify render() to support SPA
   if (!Page) throw new Error('My render() hook expects pageContext.Page to be defined')
@@ -23,7 +25,7 @@ async function render(pageContext: PageContextServer) {
   const desc = (documentProps && documentProps.description) || 'App using Vite + Vike'
 
   const documentHtml = escapeInject`<!DOCTYPE html>
-    <html lang="en">
+    <html lang="${pageContext.locale}">
       <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -39,6 +41,30 @@ async function render(pageContext: PageContextServer) {
     documentHtml,
     pageContext: {
       // We can add some `pageContext` here, which is useful if we want to do page redirection https://vike.dev/page-redirection
+    }
+  }
+}
+
+export function onBeforePrerender(prerenderContext: { pageContexts: PageContext[] }) {
+  const pageContexts: PageContext[] = []
+  prerenderContext.pageContexts.forEach((pageContext) => {
+    // Duplicate pageContext for each locale
+    LOCALES.forEach((locale) => {
+      // Localize URL
+      let { urlOriginal } = pageContext
+      if (locale !== DEFAULT_LOCALE) {
+        urlOriginal = `/${locale}${pageContext.urlOriginal}`
+      }
+      pageContexts.push({
+        ...pageContext,
+        urlOriginal,
+        locale
+      })
+    })
+  })
+  return {
+    prerenderContext: {
+      pageContexts
     }
   }
 }
