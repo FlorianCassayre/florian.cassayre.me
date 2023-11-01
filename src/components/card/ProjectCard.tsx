@@ -11,8 +11,8 @@ import {
   Stack, Tooltip,
   Typography,
 } from '@mui/joy';
-import { IconType } from 'react-icons';
 import { GitHub, Launch, VisibilityOff } from '@mui/icons-material';
+import { IconType } from '@react-icons/all-files';
 
 type Technology = string | {
   name: string;

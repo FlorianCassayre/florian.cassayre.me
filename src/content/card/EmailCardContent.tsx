@@ -1,5 +1,5 @@
 import React from 'react';
-import { EmailCard } from '../../components/card/EmailCard.tsx';
+import { EmailCard } from '../../components/card/EmailCard';
 
 export const EmailCardContent: React.FC = () => {
   return (

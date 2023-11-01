@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { Card, CardContent, Stack, Typography } from '@mui/joy';
-import { SoftLink } from '../SoftLink.tsx';
+import { SoftLink } from '../SoftLink';
 
 interface AdventOfCodeCardProps {
   description: React.ReactNode;

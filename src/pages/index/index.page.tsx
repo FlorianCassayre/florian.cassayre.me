@@ -1,7 +1,7 @@
 import { CssBaseline, CssVarsProvider } from '@mui/joy';
-import { Content } from './components/layout/Content.tsx';
+import { Content } from '../../components/layout/Content';
 
-export const App = () => {
+export function Page() {
   return (
     <CssVarsProvider>
       {/* CssBaseline must appear as the first child */}
@@ -10,4 +10,4 @@ export const App = () => {
       <Content />
     </CssVarsProvider>
   )
-};
+}

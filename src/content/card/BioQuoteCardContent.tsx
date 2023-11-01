@@ -1,6 +1,6 @@
 import React from 'react';
-import { SoftLink } from '../../components/SoftLink.tsx';
-import { QuoteCard } from '../../components/card/QuoteCard.tsx';
+import { SoftLink } from '../../components/SoftLink';
+import { QuoteCard } from '../../components/card/QuoteCard';
 
 export const BioQuoteCardContent: React.FC = () => (
   <QuoteCard>

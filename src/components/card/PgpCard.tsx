@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, Input, Typography } from '@mui/joy';
 import { Key } from '@mui/icons-material';
-import { CopyButton } from '../CopyButton.tsx';
+import { CopyButton } from '../CopyButton';
 
 interface PgpCardProps {
   fingerprint: string;

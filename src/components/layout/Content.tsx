@@ -7,17 +7,17 @@ import {
   Typography,
 } from '@mui/joy';
 import { Email, GitHub, LinkedIn } from '@mui/icons-material';
-import { LanguageCardContent } from '../../content/card/LanguageCardContent.tsx';
-import { EmailCardContent } from '../../content/card/EmailCardContent.tsx';
-import { PgpCardContent } from '../../content/card/PgpCardContent.tsx';
-import { PublicationsCardContent } from '../../content/card/PublicationsCardContent.tsx';
-import { ProjectCardsContent } from '../../content/card/ProjectCardsContent.tsx';
-import { AdventOfCodeCardContent } from '../../content/card/AdventOfCodeCardContent.tsx';
+import { LanguageCardContent } from '../../content/card/LanguageCardContent';
+import { EmailCardContent } from '../../content/card/EmailCardContent';
+import { PgpCardContent } from '../../content/card/PgpCardContent';
+import { PublicationsCardContent } from '../../content/card/PublicationsCardContent';
+import { ProjectCardsContent } from '../../content/card/ProjectCardsContent';
+import { AdventOfCodeCardContent } from '../../content/card/AdventOfCodeCardContent';
 import React from 'react';
-import { BioQuoteCardContent } from '../../content/card/BioQuoteCardContent.tsx';
-import { CodeGolfCardContent } from '../../content/card/CodeGolfCardContent.tsx';
-import { SoftLink } from '../SoftLink.tsx';
-import { ProfileLogo } from '../ProfileLogo.tsx';
+import { BioQuoteCardContent } from '../../content/card/BioQuoteCardContent';
+import { CodeGolfCardContent } from '../../content/card/CodeGolfCardContent';
+import { SoftLink } from '../SoftLink';
+import { ProfileLogo } from '../ProfileLogo';
 
 interface CategoryHeadingProps {
   children: React.ReactNode;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, CardContent, Input, Typography } from '@mui/joy';
 import { Email } from '@mui/icons-material';
-import { CopyButton } from '../CopyButton.tsx';
+import { CopyButton } from '../CopyButton';
 
 interface EmailCardProps {
   description: React.ReactNode;
