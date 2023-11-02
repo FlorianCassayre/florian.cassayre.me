@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  AspectRatio,
+  AspectRatio, Avatar, Box,
   Card,
   CardContent,
   CardOverflow,
@@ -22,6 +22,7 @@ type Technology = string | {
 
 interface ProjectCardProps {
   image?: string;
+  logo?: string;
   title: string;
   description: string;
   technologies?: Technology[];
@@ -31,16 +32,24 @@ interface ProjectCardProps {
   pro?: boolean;
 }
 
-export const ProjectCard: React.FC<ProjectCardProps> = ({ image, title, description, technologies, status, homepage, github, pro }) => {
+export const ProjectCard: React.FC<ProjectCardProps> = ({ image, logo, title, description, technologies, status, homepage, github, pro }) => {
   const renderIcon = (Icon: IconType) => <Icon />;
   return (
     <Card variant="outlined" sx={{ height: '100%' }}>
-      <CardOverflow>
+      <CardOverflow sx={{ mb: logo ? { xs: 3, sm: 2 } : undefined }}>
         <AspectRatio ratio="2">
           {!!image && (
             <img src={image} alt="Illustration" />
           )}
+
         </AspectRatio>
+        {!!logo && (
+          <Box sx={{ position: 'relative', mx: 'auto' }}>
+            <Box sx={{ p: 1, position: 'absolute', transform: 'translate(-50%, -50%)', backgroundColor: 'white', borderRadius: '100%', border: '2px solid #f0f4f8', height: '68px', filter: 'drop-shadow(0px 2px 4px #00000030)' }}>
+              <img src={logo} alt="Logo" width="48px" height="48px" />
+            </Box>
+          </Box>
+        )}
       </CardOverflow>
       <CardContent>
         <Stack direction="row" spacing={1}>

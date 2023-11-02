@@ -20,7 +20,8 @@ export const ProjectCardsContent: React.FC = () => {
     <ProjectCards
       projects={[
         {
-          image: '/projects/arbre.app.png',
+          image: '/projects/rfg-arbre.app.jpg',
+          logo: '/projects/arbre.app-logo.svg',
           title: 'arbre.app',
           description: 'Tools for genealogists',
           technologies: [SCALA, REACT],
@@ -30,6 +31,7 @@ export const ProjectCardsContent: React.FC = () => {
         },
         {
           image: '/projects/yoga-sof.fr.png',
+          logo: '/projects/yoga-sof.fr-logo.svg',
           title: 'Yoga Sof',
           description: 'Site to schedule classes, manage registrations and handle payments',
           technologies: [NEXTJS, MYSQL],
@@ -38,7 +40,8 @@ export const ProjectCardsContent: React.FC = () => {
           github: 'https://github.com/FlorianCassayre/yoga-sof.fr',
         },
         {
-          image: '/projects/impact.cern.ch.png',
+          image: '/projects/cern-lhc.jpg',
+          logo: '/projects/impact.cern.ch-logo.svg',
           title: 'IMPACT',
           description: 'Manage interventions at CERN',
           technologies: [JAVA, ORACLE_DB, CAMUNDA, REACT],
