@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardContent, Stack, SvgIcon, Table, Typography } from '@mui/joy';
+import { Box, Card, CardContent, Chip, Stack, SvgIcon, Table, Typography } from '@mui/joy';
 import { FlagComponent } from 'country-flag-icons/react/3x2';
 
 interface Language {
@@ -15,7 +15,7 @@ interface LanguageCardProps {
 export const LanguageCard: React.FC<LanguageCardProps> = ({ languages }) => {
   return (
     <Card>
-      <Typography level="title-lg">
+      <Typography level="title-lg" fontWeight="sm">
         Languages
       </Typography>
       <CardContent>
@@ -34,9 +34,11 @@ export const LanguageCard: React.FC<LanguageCardProps> = ({ languages }) => {
                   </Stack>
                 </td>
                 <td>
-                  <Typography textAlign="right">
-                    {level}
-                  </Typography>
+                  <Box textAlign="right">
+                    <Chip variant="outlined">
+                      {level}
+                    </Chip>
+                  </Box>
                 </td>
               </tr>
             ))}

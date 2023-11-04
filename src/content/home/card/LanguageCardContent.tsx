@@ -1,5 +1,5 @@
 import React from 'react';
-import { LanguageCard } from '../../components/card/LanguageCard';
+import { LanguageCard } from '../../../components/card/LanguageCard';
 import { DE, FR, GB, SE } from 'country-flag-icons/react/3x2';
 
 export const LanguageCardContent: React.FC = () => {

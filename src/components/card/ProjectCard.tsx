@@ -90,7 +90,11 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ image, logo, title, de
                 </IconButton>
               ) : (
                 <Tooltip title="Closed-source">
-                  <VisibilityOff />
+                  <span>
+                    <IconButton disabled size="sm">
+                      <VisibilityOff />
+                    </IconButton>
+                  </span>
                 </Tooltip>
               )}
               {!!homepage && (

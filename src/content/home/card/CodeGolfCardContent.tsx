@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, Chip, Typography } from '@mui/joy';
-import { SoftLink } from '../../components/SoftLink';
+import { SoftLink } from '../../../components/SoftLink';
 
 export const CodeGolfCardContent: React.FC = () => (
   <Card>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { AdventOfCodeCard } from '../../components/card/AdventOfCodeCard';
+import { AdventOfCodeCard } from '../../../components/card/AdventOfCodeCard';
 
 export const AdventOfCodeCardContent: React.FC = () => (
   <AdventOfCodeCard

@@ -10,7 +10,7 @@ interface PgpCardProps {
 export const PgpCard: React.FC<PgpCardProps> = ({ fingerprint }) => {
   return (
     <Card>
-      <Typography level="title-lg">
+      <Typography level="title-lg" fontWeight="sm">
         PGP key
       </Typography>
       <Input

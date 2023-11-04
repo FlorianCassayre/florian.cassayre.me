@@ -1,5 +1,5 @@
 import React from 'react';
-import { PgpCard } from '../../components/card/PgpCard';
+import { PgpCard } from '../../../components/card/PgpCard';
 
 export const PgpCardContent: React.FC = () => {
   return (

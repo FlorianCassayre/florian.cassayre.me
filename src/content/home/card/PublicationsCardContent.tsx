@@ -1,5 +1,5 @@
 import React from 'react';
-import { PublicationsCard } from '../../components/card/PublicationsCard';
+import { PublicationsCard } from '../../../components/card/PublicationsCard';
 
 export const PublicationsCardContent: React.FC = () => (
   <PublicationsCard
