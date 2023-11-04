@@ -4,7 +4,7 @@ import { SoftLink } from '../../../components/SoftLink';
 
 export const CodeGolfCardContent: React.FC = () => (
   <Card>
-    <Typography level="title-lg">
+    <Typography level="title-lg" fontWeight="sm">
       <SoftLink href="#">Code Golf</SoftLink>
     </Typography>
     <Typography>

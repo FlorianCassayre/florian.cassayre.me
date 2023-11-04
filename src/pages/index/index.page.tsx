@@ -12,6 +12,7 @@ import { EmailCardContent } from '../../content/home/card/EmailCardContent';
 import { PgpCardContent } from '../../content/home/card/PgpCardContent';
 import { AppCardsContent } from '../../content/home/card/AppCardsContent';
 import React from 'react';
+import { ProfessionalTimelineContent } from '../../content/home/ProfessionalTimelineContent';
 
 interface CategoryHeadingProps {
   children: React.ReactNode;
@@ -34,9 +35,14 @@ export function Page() {
         <Grid xs={12}>
           <CategoryHeading>Current projects</CategoryHeading>
         </Grid>
-
         <Grid xs={12}>
           <ProjectCardsContent />
+        </Grid>
+        <Grid xs={12}>
+          <CategoryHeading>Career path</CategoryHeading>
+        </Grid>
+        <Grid xs={12}>
+          <ProfessionalTimelineContent />
         </Grid>
         <Grid xs={12}>
           <CategoryHeading>Contributed projects</CategoryHeading>

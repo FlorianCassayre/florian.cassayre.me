@@ -11,7 +11,7 @@ interface AdventOfCodeCardProps {
 export const AdventOfCodeCard: React.FC<AdventOfCodeCardProps> = ({ description, years, repository }) => {
   return (
     <Card>
-      <Typography level="title-lg">
+      <Typography level="title-lg" fontWeight="sm">
         <SoftLink href="#">Advent of Code</SoftLink>
       </Typography>
       <CardContent>

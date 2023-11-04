@@ -41,7 +41,6 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ image, logo, title, de
           {!!image && (
             <img src={image} alt="Illustration" />
           )}
-
         </AspectRatio>
         {!!logo && (
           <Box sx={{ position: 'relative', mx: 'auto' }}>
