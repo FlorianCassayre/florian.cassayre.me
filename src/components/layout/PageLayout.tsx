@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, CssBaseline, CssVarsProvider } from '@mui/joy';
+import { Container, CssBaseline, CssVarsProvider, Stack } from '@mui/joy';
 import { HeaderContent } from '../../content/layout/HeaderContent';
 import { FooterContent } from '../../content/layout/FooterContent';
 
@@ -13,11 +13,13 @@ export const PageLayout: React.FC<PageLayoutProps> = ({ children }) => {
       {/* CssBaseline must appear as the first child */}
       <CssBaseline />
 
-      <Container sx={{ py: 2 }}>
-        <HeaderContent />
-        {children}
-      </Container>
-      <FooterContent />
+      <Stack direction="column" sx={{ minHeight: '100vh' }}>
+        <Container sx={{ py: 2, flexGrow: 1 }}>
+          <HeaderContent />
+          {children}
+        </Container>
+        <FooterContent />
+      </Stack>
     </CssVarsProvider>
   );
 };

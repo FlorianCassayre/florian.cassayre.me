@@ -1,12 +1,9 @@
-export { Page }
+import { PageNotFound } from "../src/pages/404";
 
-function Page({ is404 }: { is404: boolean }) {
+export function Page({ is404 }: { is404: boolean }) {
   if (is404) {
     return (
-      <>
-        <h1>404 Page Not Found</h1>
-        <p>This page could not be found.</p>
-      </>
+        <PageNotFound />
     )
   } else {
     return (
