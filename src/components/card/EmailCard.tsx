@@ -17,7 +17,7 @@ export const EmailCard: React.FC<EmailCardProps> = ({ description, email, smallt
         <Typography sx={{ mb: 1 }}>
           {description}
         </Typography>
-        <Input value={email} readOnly startDecorator={<Email />} endDecorator={<CopyButton content={email} />} />
+        <Input value={email} readOnly startDecorator={<Email color="action" />} endDecorator={<CopyButton content={email} />} />
         <Typography level="body-xs">
           {smalltext}
         </Typography>

@@ -10,13 +10,13 @@ interface AdventOfCodeCardProps {
 
 export const AdventOfCodeCard: React.FC<AdventOfCodeCardProps> = ({ description, years, repository }) => {
   return (
-    <Card>
+    <Card sx={{ height: '100%' }}>
       <Typography level="title-lg" fontWeight="sm">
         <SoftLink href="#">Advent of Code</SoftLink>
       </Typography>
       <CardContent>
         <Typography sx={{ mb: 1 }}>{description}</Typography>
-        <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
+        <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap justifyContent="center">
           {years.map((year, i) => (
             <Fragment key={year}>
               <SoftLink href={repository(year)}>{year}</SoftLink>

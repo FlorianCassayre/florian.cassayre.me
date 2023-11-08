@@ -24,7 +24,7 @@ export const AppCard: React.FC<AppCardProps> = ({ name, icon: Icon, description,
             </Typography>
           </Box>
           <IconButton component="a" href={homepage}>
-            <Launch />
+            <Launch color="action" />
           </IconButton>
         </Stack>
       </CardContent>

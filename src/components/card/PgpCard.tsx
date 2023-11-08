@@ -14,7 +14,7 @@ export const PgpCard: React.FC<PgpCardProps> = ({ fingerprint }) => {
         PGP key
       </Typography>
       <Input
-        startDecorator={<Key />}
+        startDecorator={<Key color="action" />}
         endDecorator={<CopyButton content={fingerprint} />}
         value={fingerprint}
         readOnly

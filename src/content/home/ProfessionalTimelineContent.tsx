@@ -10,7 +10,7 @@ export const ProfessionalTimelineContent: React.FC = () => {
   };
   const KTH = {
     name: 'KTH',
-    fullname: 'Kungliga Tekniska högskolan',
+    fullname: 'Kungliga Tekniska Högskolan',
     logo: '/institutions/kth-logo.svg',
     logoScale: 1.1,
   };

@@ -15,7 +15,7 @@ export const CopyButton: React.FC<CopyButtonProps> = ({ content }) => {
   };
   return (
     <Tooltip title={!copied ? 'Copy?' : 'Copied!'} onMouseLeave={handleMouseLeave}>
-      <IconButton onClick={handleClick}>{!copied ? <ContentCopy /> : <Check />}</IconButton>
+      <IconButton onClick={handleClick}>{!copied ? <ContentCopy color="action" /> : <Check />}</IconButton>
     </Tooltip>
   );
 };

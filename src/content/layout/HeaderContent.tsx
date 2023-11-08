@@ -13,13 +13,13 @@ export const HeaderContent: React.FC = () => {
       </Typography>
       <Stack direction="row" spacing={0.5}>
         <IconButton component="a" href="https://github.com/FlorianCassayre">
-          <GitHub />
+          <GitHub color="action" />
         </IconButton>
         <IconButton component="a" href="https://www.linkedin.com/in/florian-cassayre">
-          <LinkedIn />
+          <LinkedIn color="action" />
         </IconButton>
         <IconButton component="a" href="mailto:florian@cassayre.me">
-          <Email />
+          <Email color="action" />
         </IconButton>
         <LanguageToggle />
       </Stack>

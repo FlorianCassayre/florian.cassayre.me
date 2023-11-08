@@ -11,9 +11,9 @@ export const QuoteCard: React.FC<QuoteCardProps> = ({ children }) => {
     <Card>
       <CardContent>
         <Box>
-          <FormatQuote sx={{ transform: 'rotate(180deg)', mr: 1, verticalAlign: 'bottom' }} />
+          <FormatQuote color="action" sx={{ transform: 'rotate(180deg)', mr: 1, verticalAlign: 'bottom' }} />
           {children}
-          <FormatQuote sx={{ ml: 1, verticalAlign: 'bottom' }} />
+          <FormatQuote color="action" sx={{ ml: 1, verticalAlign: 'bottom' }} />
         </Box>
       </CardContent>
     </Card>

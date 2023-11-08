@@ -11,7 +11,7 @@ import {
   Stack, Tooltip,
   Typography,
 } from '@mui/joy';
-import { GitHub, Launch, VisibilityOff } from '@mui/icons-material';
+import { FiberManualRecord, GitHub, Launch, VisibilityOff } from '@mui/icons-material';
 import { IconType } from '@react-icons/all-files';
 
 type Technology = string | {
@@ -26,13 +26,14 @@ interface ProjectCardProps {
   title: string;
   description: string;
   technologies?: Technology[];
-  status: string;
+  status: boolean | null;
+  statusText: string;
   homepage?: string;
   github?: string;
   pro?: boolean;
 }
 
-export const ProjectCard: React.FC<ProjectCardProps> = ({ image, logo, title, description, technologies, status, homepage, github, pro }) => {
+export const ProjectCard: React.FC<ProjectCardProps> = ({ image, logo, title, description, technologies, status, statusText, homepage, github, pro }) => {
   const renderIcon = (Icon: IconType) => <Icon />;
   return (
     <Card variant="outlined" sx={{ height: '100%' }}>
@@ -51,7 +52,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ image, logo, title, de
         )}
       </CardOverflow>
       <CardContent>
-        <Stack direction="row" spacing={1}>
+        <Stack direction="row" spacing={1} alignItems="center">
           <Typography level="title-md">{title}</Typography>
           {!!pro && (
             <Tooltip title="This project is part of my current job" sx={{ cursor: 'help' }}>
@@ -79,13 +80,16 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ image, logo, title, de
         <Divider inset="context" />
         <CardContent orientation="horizontal" sx={{ py: 1 }}>
           <Stack direction="row" justifyContent="space-between" alignItems="center" width="100%">
-            <Typography level="body-xs" fontWeight="md" textColor="text.secondary">
-              {status}
-            </Typography>
+            <Stack direction="row" spacing={0.5} alignItems="center">
+              <FiberManualRecord color={status === true ? 'success' : status === false ? 'error' : 'warning'} sx={{ fontSize: 16 }} />
+              <Typography level="body-xs" fontWeight="md" textColor="text.secondary">
+                {statusText}
+              </Typography>
+            </Stack>
             <Stack direction="row" spacing={0.5}>
               {github ? (
                 <IconButton component="a" href={github} size="sm">
-                  <GitHub />
+                  <GitHub color="action" />
                 </IconButton>
               ) : (
                 <Tooltip title="Closed-source">
@@ -98,7 +102,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ image, logo, title, de
               )}
               {!!homepage && (
                 <IconButton component="a" href={homepage} size="sm">
-                  <Launch />
+                  <Launch color="action" />
                 </IconButton>
               )}
             </Stack>

@@ -13,11 +13,11 @@ export const FooterContent: React.FC = () => {
             </Typography>
           </Box>
           <IconButton component="a" href="https://github.com/FlorianCassayre/florian.cassayre.me" sx={{ textAlign: 'center' }}>
-            <Code />
+            <Code color="action" />
           </IconButton>
           <Box sx={{ flexGrow: 1, flexBasis: 0, textAlign: 'right' }}>
             <IconButton onClick={() => window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })} sx={{ textAlign: 'right' }}>
-              <Straight />
+              <Straight color="action" />
             </IconButton>
           </Box>
         </Stack>
