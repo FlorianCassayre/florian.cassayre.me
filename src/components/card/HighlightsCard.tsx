@@ -5,11 +5,9 @@ import {
   AccordionGroup,
   AccordionSummary,
   Card,
-  ListItem,
   Stack,
   Typography,
 } from '@mui/joy';
-import { SoftLink } from '../SoftLink';
 import { SvgIconComponent } from '@mui/icons-material';
 
 interface Highlight {

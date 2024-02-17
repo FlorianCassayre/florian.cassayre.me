@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  AspectRatio, Avatar, Box,
+  AspectRatio, Box,
   Card,
   CardContent,
   CardOverflow,
