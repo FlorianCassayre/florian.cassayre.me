@@ -1,18 +1,16 @@
-export { render }
-
 import { createRoot, hydrateRoot, Root } from 'react-dom/client';
-import { PageShell } from './PageShell'
-import type { PageContextClient } from './types'
+import type { PageContextClient } from './types';
+import { PageShell } from './PageShell';
 
 let root: Root;
 
-async function render(pageContext: PageContextClient) {
+export async function onRenderClient(pageContext: PageContextClient) {
   const { Page, pageProps } = pageContext
   const page = (
     <PageShell pageContext={pageContext}>
       <Page {...pageProps} />
-    </PageShell>
-  );
+  </PageShell>
+);
   const container = document.getElementById('react-root')!;
   if (pageContext.isHydration) {
     root = hydrateRoot(container, page)
@@ -23,6 +21,3 @@ async function render(pageContext: PageContextClient) {
     root.render(page)
   }
 }
-
-export const clientRouting = true;
-export const hydrationCanBeAborted = true;

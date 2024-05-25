@@ -8,7 +8,7 @@ export function onBeforeRoute(pageContext: PageContextServer) {
       // We make `locale` available as `pageContext.locale`
       locale,
       // We overwrite `pageContext.urlOriginal`
-      urlOriginal: urlWithoutLocale
+      urlLogical: urlWithoutLocale
     }
   }
 }
