@@ -1,4 +1,4 @@
-import { Box, Grid, Typography } from '@mui/joy';
+import { Box, Divider, Grid, Stack, Typography } from '@mui/joy';
 import { PageLayout } from '../../components/layout/PageLayout';
 import { ProfileContent } from '../../content/home/ProfileContent';
 import { BioQuoteCardContent } from '../../content/home/card/BioQuoteCardContent';
@@ -14,15 +14,31 @@ import { AppCardsContent } from '../../content/home/card/AppCardsContent';
 import React from 'react';
 import { ProfessionalTimelineContent } from '../../content/home/ProfessionalTimelineContent';
 import { ContributedProjectsCardContent } from '../../content/home/card/ContributedProjectsCardContent';
+import {
+  Apps,
+  EmojiObjects, Flag,
+  Flare,
+  Group,
+  Route,
+  School,
+  Workspaces,
+} from '@mui/icons-material';
+import SvgIcon from '@mui/material/SvgIcon';
 
 interface CategoryHeadingProps {
+  icon: typeof SvgIcon;
   children: React.ReactNode;
 }
 
-const CategoryHeading: React.FC<CategoryHeadingProps> = ({ children }) => (
-  <Typography level="h2" fontSize="xl" sx={{ fontWeight: 1 }}>
-    {children}
-  </Typography>
+const CategoryHeading: React.FC<CategoryHeadingProps> = ({ children, icon: Icon }) => (
+  <Divider sx={{ '--Divider-childPosition': '2%', mt: 2 }}>
+    <Stack direction="row" spacing={0.75} alignItems="center">
+      <Icon sx={{ color: 'gray' }} />
+      <Typography level="h2" fontSize="xl" sx={{ fontWeight: 1 }}>
+        {children}
+      </Typography>
+    </Stack>
+  </Divider>
 );
 
 export function Page() {
@@ -34,31 +50,31 @@ export function Page() {
       </Box>
       <Grid container spacing={2}>
         <Grid xs={12}>
-          <CategoryHeading>Current projects</CategoryHeading>
+          <CategoryHeading icon={Flare}>Current projects</CategoryHeading>
         </Grid>
         <Grid xs={12}>
           <ProjectCardsContent />
         </Grid>
         <Grid xs={12}>
-          <CategoryHeading>Career path</CategoryHeading>
+          <CategoryHeading icon={Route}>Career path</CategoryHeading>
         </Grid>
         <Grid xs={12}>
           <ProfessionalTimelineContent />
         </Grid>
         <Grid xs={12}>
-          <CategoryHeading>Contributed projects</CategoryHeading>
+          <CategoryHeading icon={Workspaces}>Contributed projects</CategoryHeading>
         </Grid>
         <Grid xs={12}>
           <ContributedProjectsCardContent />
         </Grid>
         <Grid xs={12}>
-          <CategoryHeading>Publications</CategoryHeading>
+          <CategoryHeading icon={School}>Publications</CategoryHeading>
         </Grid>
         <Grid xs={12}>
           <PublicationsCardContent />
         </Grid>
         <Grid xs={12}>
-          <CategoryHeading>Programming challenges</CategoryHeading>
+          <CategoryHeading icon={Flag}>Programming challenges</CategoryHeading>
         </Grid>
         <Grid xs={6}>
           <AdventOfCodeCardContent />
@@ -67,13 +83,13 @@ export function Page() {
           <CodeGolfCardContent />
         </Grid>
         <Grid xs={12}>
-          <CategoryHeading>Highlights</CategoryHeading>
+          <CategoryHeading icon={EmojiObjects}>Highlights</CategoryHeading>
         </Grid>
         <Grid xs={12}>
           <HighlightsCardContent />
         </Grid>
         <Grid xs={12}>
-          <CategoryHeading>Social</CategoryHeading>
+          <CategoryHeading icon={Group}>Social</CategoryHeading>
         </Grid>
         <Grid xs={3}>
           <LanguageCardContent />
@@ -85,7 +101,7 @@ export function Page() {
           <PgpCardContent />
         </Grid>
         <Grid xs={12}>
-          <CategoryHeading>Apps</CategoryHeading>
+          <CategoryHeading icon={Apps}>Apps</CategoryHeading>
         </Grid>
         <Grid xs={12}>
           <AppCardsContent />
