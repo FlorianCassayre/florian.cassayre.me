@@ -1,7 +1,9 @@
-export const LOCALES = ['en', 'fr'] as const;
-export const DEFAULT_LOCALE = LOCALES[0] satisfies (typeof LOCALES)[number];
+import { Locale } from './Locale';
 
-export const localizeUrl = (urlPathname: string, locale: (typeof LOCALES)[number]): string => {
+export const LOCALES = [Locale.English, Locale.French] as const satisfies Locale[];
+export const DEFAULT_LOCALE = Locale.English satisfies Locale;
+
+export const localizeUrl = (urlPathname: string, locale: Locale): string => {
   const normalized = extractLocale(urlPathname).urlWithoutLocale;
   const target = locale === DEFAULT_LOCALE ? normalized : `/${locale}${normalized}`;
   return target !== '/' && target.endsWith('/') ? target.slice(0, target.length - 1) : target;

@@ -1,5 +1,5 @@
 import { PageContext } from './types';
-import { DEFAULT_LOCALE, LOCALES } from './i18n';
+import { DEFAULT_LOCALE, LOCALES } from '../src/i18n/utils';
 
 export function onPrerenderStart(prerenderContext: { pageContexts: PageContext[] }) {
   const pageContexts: PageContext[] = []

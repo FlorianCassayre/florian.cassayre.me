@@ -10,6 +10,7 @@ import {
   THEME_ID as MATERIAL_THEME_ID,
 } from '@mui/material/styles';
 import { CssVarsProvider as JoyCssVarsProvider } from '@mui/joy/styles';
+import { I18nProvider } from '../src/i18n/I18nProvider';
 
 export function PageShell({ children, pageContext }: { children: React.ReactNode; pageContext: PageContext }) {
   const materialTheme = materialExtendTheme();
@@ -18,7 +19,9 @@ export function PageShell({ children, pageContext }: { children: React.ReactNode
       <PageContextProvider pageContext={pageContext}>
         <MaterialCssVarsProvider theme={{ [MATERIAL_THEME_ID]: materialTheme }}>
           <JoyCssVarsProvider>
-            {children}
+            <I18nProvider>
+              {children}
+            </I18nProvider>
           </JoyCssVarsProvider>
         </MaterialCssVarsProvider>
       </PageContextProvider>

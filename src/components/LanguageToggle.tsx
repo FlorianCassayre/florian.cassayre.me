@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, ToggleButtonGroup } from '@mui/joy';
-import { LOCALES, localizeUrl } from '../../renderer/i18n';
 import { usePageContext } from '../../renderer/usePageContext';
+import { LOCALES, localizeUrl } from '../i18n/utils';
 
 export const LanguageToggle: React.FC = () => {
   const { locale, urlPathname } = usePageContext();

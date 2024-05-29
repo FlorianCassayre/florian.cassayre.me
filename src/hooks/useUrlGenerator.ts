@@ -1,5 +1,5 @@
 import { usePageContext } from '../../renderer/usePageContext';
-import { localizeUrl } from '../../renderer/i18n';
+import { localizeUrl } from '../i18n/utils';
 
 export const useUrlGenerator = () => {
   const { locale } = usePageContext();

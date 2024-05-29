@@ -1,4 +1,4 @@
-import { LOCALES } from './i18n';
+import { Locale } from '../src/i18n/Locale';
 
 export type {
   PageContextServer,
@@ -22,7 +22,7 @@ declare global {
       pageProps?: PageProps
       urlPathname: string
       urlOriginal: string;
-      locale: typeof LOCALES[number];
+      locale: Locale;
       exports: {
         documentProps?: {
           title?: string

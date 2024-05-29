@@ -1,5 +1,5 @@
 import type { PageContextServer } from './types';
-import { extractLocale } from './i18n';
+import { extractLocale } from '../src/i18n/utils';
 
 export function onBeforeRoute(pageContext: PageContextServer) {
   const { urlWithoutLocale, locale } = extractLocale(pageContext.urlOriginal);

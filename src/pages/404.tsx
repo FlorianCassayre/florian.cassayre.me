@@ -5,7 +5,7 @@ import { NotFoundFallbackContent } from '../content/layout/notfound/NotFoundFall
 import { usePageContext } from '../../renderer/usePageContext';
 import { useMemo } from 'react';
 import { getLegacyVisibleRedirection } from '../content/redirect/legacy';
-import { extractLocale } from '../../renderer/i18n';
+import { extractLocale } from '../i18n/utils';
 
 export const PageNotFound = () => {
   const { urlPathname } = usePageContext();
