@@ -40,13 +40,13 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ image, logo, title, de
       <CardOverflow sx={{ mb: logo ? { xs: 3, sm: 2 } : undefined }}>
         <AspectRatio ratio="2">
           {!!image && (
-            <img src={image} alt="Illustration" />
+            <img src={image} alt="Illustration" style={{ pointerEvents: 'none', userSelect: 'none' }} />
           )}
         </AspectRatio>
         {!!logo && (
           <Box sx={{ position: 'relative', mx: 'auto' }}>
             <Box sx={{ p: 1, position: 'absolute', transform: 'translate(-50%, -50%)', backgroundColor: 'white', borderRadius: '100%', border: '2px solid #f0f4f8', height: '68px', filter: 'drop-shadow(0px 2px 4px #00000030)' }}>
-              <img src={logo} alt="Logo" width="48px" height="48px" />
+              <img src={logo} alt="Logo" width="48px" height="48px" style={{ pointerEvents: 'none', userSelect: 'none' }} />
             </Box>
           </Box>
         )}

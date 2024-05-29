@@ -1,4 +1,4 @@
-import { Box, Divider, Grid, Stack, Typography } from '@mui/joy';
+import { Box, Grid } from '@mui/joy';
 import { PageLayout } from '../../components/layout/PageLayout';
 import { ProfileContent } from '../../content/home/ProfileContent';
 import { BioQuoteCardContent } from '../../content/home/card/BioQuoteCardContent';
@@ -11,7 +11,6 @@ import { LanguageCardContent } from '../../content/home/card/LanguageCardContent
 import { EmailCardContent } from '../../content/home/card/EmailCardContent';
 import { PgpCardContent } from '../../content/home/card/PgpCardContent';
 import { AppCardsContent } from '../../content/home/card/AppCardsContent';
-import React from 'react';
 import { ProfessionalTimelineContent } from '../../content/home/ProfessionalTimelineContent';
 import { ContributedProjectsCardContent } from '../../content/home/card/ContributedProjectsCardContent';
 import {
@@ -23,29 +22,13 @@ import {
   School,
   Workspaces,
 } from '@mui/icons-material';
-import SvgIcon from '@mui/material/SvgIcon';
-
-interface CategoryHeadingProps {
-  icon: typeof SvgIcon;
-  children: React.ReactNode;
-}
-
-const CategoryHeading: React.FC<CategoryHeadingProps> = ({ children, icon: Icon }) => (
-  <Divider sx={{ '--Divider-childPosition': '2%', mt: 2 }}>
-    <Stack direction="row" spacing={0.75} alignItems="center">
-      <Icon sx={{ color: 'gray' }} />
-      <Typography level="h2" fontSize="xl" sx={{ fontWeight: 1 }}>
-        {children}
-      </Typography>
-    </Stack>
-  </Divider>
-);
+import { CategoryHeading } from '../../components/CategoryHeading';
 
 export function Page() {
   return (
     <PageLayout>
       <ProfileContent />
-      <Box sx={{ mb: 4 }}>
+      <Box sx={{ mb: 1 }}>
         <BioQuoteCardContent />
       </Box>
       <Grid container spacing={2}>
@@ -91,10 +74,10 @@ export function Page() {
         <Grid xs={12}>
           <CategoryHeading icon={Group}>Social</CategoryHeading>
         </Grid>
-        <Grid xs={3}>
+        <Grid xs={12} sm={5} md={4} lg={3}>
           <LanguageCardContent />
         </Grid>
-        <Grid xs={9}>
+        <Grid xs={12} sm={7} md={8} lg={9}>
           <EmailCardContent />
         </Grid>
         <Grid xs={12}>

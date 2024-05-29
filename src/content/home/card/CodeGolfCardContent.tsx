@@ -8,7 +8,7 @@ export const CodeGolfCardContent: React.FC = () => (
       <SoftLink href="#">Code Golf</SoftLink>
     </Typography>
     <Typography>
-      My entries are mainly targeting the languages <Chip component="span">python</Chip> and <Chip component="span">brainfuck</Chip>.
+      My entries are mainly targeting the languages <Chip component="span">python</Chip> and <Chip component="span">brainf<span style={{ filter: 'blur(2px)' }}>uc</span>k</Chip>.
     </Typography>
   </Card>
 );

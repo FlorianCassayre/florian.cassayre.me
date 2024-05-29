@@ -61,7 +61,7 @@ export const ProfessionalTimelineStatic: React.FC<ProfessionalTimelineProps> = (
           <TimelineSeparator>
             <TimelineDot sx={{ backgroundColor: { sm: 'white' } }}>
                 <Box sx={{ display: { xs: 'none', sm: 'flex' }, borderRadius: '100%', width: '48px', height: '48px', backgroundColor: 'white', justifyContent: 'center', alignItems: 'center' }}>
-                  <img src={institution.logo} alt={institution.fullname} width={computeSize(institution.logoScale)} height={computeSize(institution.logoScale)} />
+                  <img src={institution.logo} alt={institution.fullname} width={computeSize(institution.logoScale)} height={computeSize(institution.logoScale)}  style={{ pointerEvents: 'none', userSelect: 'none' }} />
                 </Box>
             </TimelineDot>
             <TimelineConnector />
