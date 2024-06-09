@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Card, CardContent, Chip, Stack, SvgIcon, Table, Typography } from '@mui/joy';
 import { FlagComponent } from 'country-flag-icons/react/3x2';
+import { FormattedMessage } from 'react-intl';
 
 interface Language {
   name: string;
@@ -16,7 +17,7 @@ export const LanguageCard: React.FC<LanguageCardProps> = ({ languages }) => {
   return (
     <Card>
       <Typography level="title-lg" fontWeight="sm">
-        Languages
+        <FormattedMessage id="home.social.languages.title" />
       </Typography>
       <CardContent>
         <Table>

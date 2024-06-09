@@ -8,8 +8,8 @@ export const BioQuoteCardContent: React.FC = () => (
     <FormattedMessage
       id="home.biography"
       values={{
-        aCern: chunk => <SoftLink href="https://home.cern">{chunk}</SoftLink>,
-        aEpfl: chunk => <SoftLink href="https://epfl.ch">{chunk}</SoftLink>
+        aCern: chunk => <SoftLink href="https://home.cern" target="_blank" rel="noopener">{chunk}</SoftLink>,
+        aEpfl: chunk => <SoftLink href="https://epfl.ch" target="_blank" rel="noopener">{chunk}</SoftLink>
       }}
     />
   </QuoteCard>

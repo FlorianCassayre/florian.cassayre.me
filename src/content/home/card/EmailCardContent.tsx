@@ -1,12 +1,16 @@
 import React from 'react';
 import { EmailCard } from '../../../components/card/EmailCard';
+import { useIntl } from 'react-intl';
+
+const Key = 'home.social.contact';
 
 export const EmailCardContent: React.FC = () => {
+  const { $t } = useIntl();
   return (
     <EmailCard
-      description="Don't hesitate to drop me a message at:"
+      description={$t({ id: `${Key}.description` })}
       email={'florian' + '@' + 'cassayre.me'}
-      smalltext="I receive about one message a day, I try my best to reply quickly but don't always manage. Please do not hesitate to remind me if I missed yours."
+      smalltext={$t({ id: `${Key}.disclaimer` })}
     />
   );
 };

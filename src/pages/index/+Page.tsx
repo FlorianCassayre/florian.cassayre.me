@@ -23,6 +23,8 @@ import {
   Workspaces,
 } from '@mui/icons-material';
 import { CategoryHeading } from '../../components/CategoryHeading';
+import { FormattedMessage } from 'react-intl';
+import { CernVisitCardContent } from '../../content/home/card/CernVisitCardContent';
 
 export function Page() {
   return (
@@ -33,31 +35,31 @@ export function Page() {
       </Box>
       <Grid container spacing={2}>
         <Grid xs={12}>
-          <CategoryHeading icon={Flare}>Current projects</CategoryHeading>
+          <CategoryHeading icon={Flare}><FormattedMessage id="home.sections.currentProjects" /></CategoryHeading>
         </Grid>
         <Grid xs={12}>
           <ProjectCardsContent />
         </Grid>
         <Grid xs={12}>
-          <CategoryHeading icon={Route}>Career path</CategoryHeading>
+          <CategoryHeading icon={Route}><FormattedMessage id="home.sections.careerPath" /></CategoryHeading>
         </Grid>
         <Grid xs={12}>
           <ProfessionalTimelineContent />
         </Grid>
         <Grid xs={12}>
-          <CategoryHeading icon={Workspaces}>Contributed projects</CategoryHeading>
+          <CategoryHeading icon={Workspaces}><FormattedMessage id="home.sections.contributedProjects" /></CategoryHeading>
         </Grid>
         <Grid xs={12}>
           <ContributedProjectsCardContent />
         </Grid>
         <Grid xs={12}>
-          <CategoryHeading icon={School}>Publications</CategoryHeading>
+          <CategoryHeading icon={School}><FormattedMessage id="home.sections.publications" /></CategoryHeading>
         </Grid>
         <Grid xs={12}>
           <PublicationsCardContent />
         </Grid>
         <Grid xs={12}>
-          <CategoryHeading icon={Flag}>Programming challenges</CategoryHeading>
+          <CategoryHeading icon={Flag}><FormattedMessage id="home.sections.programmingChallenges" /></CategoryHeading>
         </Grid>
         <Grid xs={6}>
           <AdventOfCodeCardContent />
@@ -66,13 +68,13 @@ export function Page() {
           <CodeGolfCardContent />
         </Grid>
         <Grid xs={12}>
-          <CategoryHeading icon={EmojiObjects}>Highlights</CategoryHeading>
+          <CategoryHeading icon={EmojiObjects}><FormattedMessage id="home.sections.highlights" /></CategoryHeading>
         </Grid>
         <Grid xs={12}>
           <HighlightsCardContent />
         </Grid>
         <Grid xs={12}>
-          <CategoryHeading icon={Group}>Social</CategoryHeading>
+          <CategoryHeading icon={Group}><FormattedMessage id="home.sections.social" /></CategoryHeading>
         </Grid>
         <Grid xs={12} sm={5} md={4} lg={3}>
           <LanguageCardContent />
@@ -84,7 +86,10 @@ export function Page() {
           <PgpCardContent />
         </Grid>
         <Grid xs={12}>
-          <CategoryHeading icon={Apps}>Apps</CategoryHeading>
+          <CernVisitCardContent />
+        </Grid>
+        <Grid xs={12}>
+          <CategoryHeading icon={Apps}><FormattedMessage id="home.sections.apps" /></CategoryHeading>
         </Grid>
         <Grid xs={12}>
           <AppCardsContent />

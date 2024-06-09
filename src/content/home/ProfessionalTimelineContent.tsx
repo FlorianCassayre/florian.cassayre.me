@@ -1,8 +1,13 @@
 import React from 'react';
 import { ProfessionalTimeline } from '../../components/ProfessionalTimeline';
+import { useIntl } from 'react-intl';
+
+const Key = 'home.career';
 
 export const ProfessionalTimelineContent: React.FC = () => {
+  const { $t } = useIntl();
   const EPFL = {
+    // Do not translate "EPFL": https://www.epfl.ch/about/overview/identity/
     name: 'EPFL',
     fullname: 'École Polytechnique Fédérale de Lausanne',
     logo: '/institutions/epfl-logo.svg',
@@ -16,7 +21,7 @@ export const ProfessionalTimelineContent: React.FC = () => {
   };
   const CERN = {
     name: 'CERN',
-    fullname: 'European Laboratory for Particle Physics',
+    fullname: $t({ id: `${Key}.institutions.cern` }),
     logo: '/institutions/cern-logo.svg',
     logoScale: 0.8,
   };
@@ -24,33 +29,33 @@ export const ProfessionalTimelineContent: React.FC = () => {
     <ProfessionalTimeline
       events={[
         {
-          date: '2022 - now',
+          date: `2022 - ${$t({ id: `${Key}.timeNow` })}`,
           institution: CERN,
-          title: 'Full-stack Software Engineer',
+          title: $t({ id: `${Key}.positions.fullStackSoftwareEngineer` }),
           work: true,
         },
         {
           date: '2020',
           institution: CERN,
-          title: 'Full-stack Software Engineer Intern',
+          title: $t({ id: `${Key}.positions.fullStackSoftwareEngineerIntern` }),
           work: true,
         },
         {
           date: '2019 - 2022',
           institution: EPFL,
-          title: 'Master in Computer Science',
+          title: $t({ id: `${Key}.positions.masterInComputerScience` }),
           work: false,
         },
         {
           date: '2018 - 2019',
           institution: KTH,
-          title: 'Exchange year',
+          title: $t({ id: `${Key}.positions.exchangeYear` }),
           work: false,
         },
         {
           date: '2016 - 2019',
           institution: EPFL,
-          title: 'Bachelor in Computer Science',
+          title: $t({ id: `${Key}.positions.bachelorInComputerScience` }),
           work: false,
         },
       ]}

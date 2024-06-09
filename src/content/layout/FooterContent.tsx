@@ -12,7 +12,7 @@ export const FooterContent: React.FC = () => {
               Florian Cassayre
             </Typography>
           </Box>
-          <IconButton component="a" href="https://github.com/FlorianCassayre/florian.cassayre.me" sx={{ textAlign: 'center' }}>
+          <IconButton component="a" href="https://github.com/FlorianCassayre/florian.cassayre.me" target="_blank" rel="noopener" sx={{ textAlign: 'center' }}>
             <Code color="action" />
           </IconButton>
           <Box sx={{ flexGrow: 1, flexBasis: 0, textAlign: 'right' }}>

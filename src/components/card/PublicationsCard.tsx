@@ -16,6 +16,7 @@ interface Publication {
   year: number;
   conference?: string;
   authors: string[];
+  context?: string;
   description: string;
   link: string;
 }
@@ -28,7 +29,7 @@ export const PublicationsCard: React.FC<PublicationsCardProps> = ({ publications
   return (
     <Card sx={{ p: 0, overflow: 'hidden' }}>
       <AccordionGroup>
-        {publications.map(({ title, year, conference, authors, description, link }, i) => (
+        {publications.map(({ title, year, conference, authors, context, description, link }, i) => (
           <Accordion key={i}>
             <AccordionSummary>
               <Stack direction="row" spacing={1}>
@@ -45,13 +46,13 @@ export const PublicationsCard: React.FC<PublicationsCardProps> = ({ publications
               <Stack direction="row" spacing={1}>
                 <Stack direction="column" spacing={1} sx={{ width: '100%' }}>
                   <Typography level="body-sm">{authors.join(', ')}</Typography>
-                  <Typography>{description}</Typography>
+                  <Typography textAlign="justify">{description}</Typography>
+                  {!!context && <Typography level="body-sm" fontStyle="italic">{context}</Typography>}
                 </Stack>
                 <IconButton component="a" href={link} target="_blank" rel="noopener" sx={{ flexShrink: 0 }}>
-                  <Launch />
+                  <Launch color="action" />
                 </IconButton>
               </Stack>
-
             </AccordionDetails>
           </Accordion>
         ))}

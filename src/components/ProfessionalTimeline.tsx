@@ -13,6 +13,7 @@ import { Box, Button, Chip, Typography } from '@mui/joy';
 import { grey } from '@mui/material/colors';
 import { Collapse, Fade, useMediaQuery } from '@mui/material';
 import { Add } from '@mui/icons-material';
+import { FormattedMessage } from 'react-intl';
 
 interface TimelineEventInstitution {
   name: string;
@@ -90,7 +91,7 @@ export const ProfessionalTimeline: React.FC<ProfessionalTimelineProps> = (props)
         </Fade>
       </Box>
       <Collapse in={!expanded} unmountOnExit>
-        <Button variant="plain" startDecorator={<Add />} onClick={() => setExpanded(true)} sx={{ mt: 2, width: '100%' }}>View more</Button>
+        <Button variant="plain" startDecorator={<Add />} onClick={() => setExpanded(true)} sx={{ mt: 2, width: '100%' }}><FormattedMessage id="common.action.viewMore" /></Button>
       </Collapse>
     </Box>
   )

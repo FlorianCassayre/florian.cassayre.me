@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import {
   AspectRatio, Box,
   Card,
@@ -13,6 +13,7 @@ import {
 } from '@mui/joy';
 import { FiberManualRecord, GitHub, Launch, VisibilityOff } from '@mui/icons-material';
 import { IconType } from '@react-icons/all-files';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 type Technology = string | {
   name: string;
@@ -34,19 +35,20 @@ interface ProjectCardProps {
 }
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({ image, logo, title, description, technologies, status, statusText, homepage, github, pro }) => {
-  const renderIcon = (Icon: IconType) => <Icon />;
+  const { $t } = useIntl();
+  const renderIcon = useCallback((Icon: IconType) => <Icon />, []);
   return (
     <Card variant="outlined" sx={{ height: '100%' }}>
       <CardOverflow sx={{ mb: logo ? { xs: 3, sm: 2 } : undefined }}>
         <AspectRatio ratio="2">
           {!!image && (
-            <img src={image} alt="Illustration" style={{ pointerEvents: 'none', userSelect: 'none' }} />
+            <img src={image} alt={$t({ id: 'home.project.illustrationAlt' })} style={{ pointerEvents: 'none', userSelect: 'none' }} />
           )}
         </AspectRatio>
         {!!logo && (
           <Box sx={{ position: 'relative', mx: 'auto' }}>
             <Box sx={{ p: 1, position: 'absolute', transform: 'translate(-50%, -50%)', backgroundColor: 'white', borderRadius: '100%', border: '2px solid #f0f4f8', height: '68px', filter: 'drop-shadow(0px 2px 4px #00000030)' }}>
-              <img src={logo} alt="Logo" width="48px" height="48px" style={{ pointerEvents: 'none', userSelect: 'none' }} />
+              <img src={logo} alt={$t({ id: 'home.logoAlt' })} width="48px" height="48px" style={{ pointerEvents: 'none', userSelect: 'none' }} />
             </Box>
           </Box>
         )}
@@ -55,8 +57,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ image, logo, title, de
         <Stack direction="row" spacing={1} alignItems="center">
           <Typography level="title-md">{title}</Typography>
           {!!pro && (
-            <Tooltip title="This project is part of my current job" sx={{ cursor: 'help' }}>
-              <Chip variant="soft" color="primary">Pro</Chip>
+            <Tooltip title={$t({ id: 'home.project.types.pro.description' })} sx={{ cursor: 'help' }}>
+              <Chip variant="soft" color="primary"><FormattedMessage id="home.project.types.pro.label" /></Chip>
             </Tooltip>
           )}
         </Stack>
@@ -88,11 +90,11 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ image, logo, title, de
             </Stack>
             <Stack direction="row" spacing={0.5}>
               {github ? (
-                <IconButton component="a" href={github} size="sm">
+                <IconButton component="a" href={github} target="_blank" rel="noopener" size="sm">
                   <GitHub color="action" />
                 </IconButton>
               ) : (
-                <Tooltip title="Closed-source">
+                <Tooltip title={$t({ id: 'home.project.closedSource' })}>
                   <span>
                     <IconButton disabled size="sm">
                       <VisibilityOff />
@@ -101,7 +103,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ image, logo, title, de
                 </Tooltip>
               )}
               {!!homepage && (
-                <IconButton component="a" href={homepage} size="sm">
+                <IconButton component="a" href={homepage} target="_blank" rel="noopener" size="sm">
                   <Launch color="action" />
                 </IconButton>
               )}

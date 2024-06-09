@@ -1,14 +1,23 @@
 import React from 'react';
 import { Card, Chip, Typography } from '@mui/joy';
 import { SoftLink } from '../../../components/SoftLink';
+import { FormattedMessage } from 'react-intl';
+
+const Key = 'home.challenges.codeGolf';
 
 export const CodeGolfCardContent: React.FC = () => (
   <Card sx={{ height: '100%' }}>
     <Typography level="title-lg" fontWeight="sm">
-      <SoftLink href="#">Code Golf</SoftLink>
+      <SoftLink href="https://code.golf" target="_blank" rel="noopener">Code Golf</SoftLink>
     </Typography>
     <Typography>
-      My entries are mainly targeting the languages <Chip component="span">python</Chip> and <Chip component="span">brainf<span style={{ filter: 'blur(2px)' }}>uc</span>k</Chip>.
+      <FormattedMessage
+        id={`${Key}.description`}
+        values={{
+          python: <Chip component="span">python</Chip>,
+          brainfuck: <Chip component="span">brainf<span style={{ filter: 'blur(2px)' }}>uc</span>k</Chip>
+        }}
+      />
     </Typography>
   </Card>
 );

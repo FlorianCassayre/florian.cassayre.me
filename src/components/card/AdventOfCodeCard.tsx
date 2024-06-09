@@ -12,14 +12,14 @@ export const AdventOfCodeCard: React.FC<AdventOfCodeCardProps> = ({ description,
   return (
     <Card sx={{ height: '100%' }}>
       <Typography level="title-lg" fontWeight="sm">
-        <SoftLink href="#">Advent of Code</SoftLink>
+        <SoftLink href="https://adventofcode.com" target="_blank" rel="noopener">Advent of Code</SoftLink>
       </Typography>
       <CardContent>
         <Typography sx={{ mb: 1 }}>{description}</Typography>
         <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap justifyContent="center">
           {years.map((year, i) => (
             <Fragment key={year}>
-              <SoftLink href={repository(year)}>{year}</SoftLink>
+              <SoftLink href={repository(year)} target="_blank" rel="noopener">{year}</SoftLink>
               {i < years.length - 1 ? '·' : null}
             </Fragment>
           ))}

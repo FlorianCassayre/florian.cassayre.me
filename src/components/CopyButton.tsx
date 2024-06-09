@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
 import { IconButton, Tooltip } from '@mui/joy';
 import { Check, ContentCopy } from '@mui/icons-material';
+import { useIntl } from 'react-intl';
+
+const Key = 'common.copy';
 
 interface CopyButtonProps {
   content: string;
 }
 
 export const CopyButton: React.FC<CopyButtonProps> = ({ content }) => {
+  const { $t } = useIntl();
   const [copied, setCopied] = useState(false);
   const handleMouseLeave = () => setCopied(false);
   const handleClick = () => {
@@ -14,7 +18,7 @@ export const CopyButton: React.FC<CopyButtonProps> = ({ content }) => {
     return window.navigator.clipboard.writeText(content);
   };
   return (
-    <Tooltip title={!copied ? 'Copy?' : 'Copied!'} onMouseLeave={handleMouseLeave}>
+    <Tooltip title={!copied ? $t({ id: `${Key}.copy` }) : $t({ id: `${Key}.copied` })} onMouseLeave={handleMouseLeave}>
       <IconButton onClick={handleClick}>{!copied ? <ContentCopy color="action" /> : <Check />}</IconButton>
     </Tooltip>
   );

@@ -3,6 +3,9 @@ import { HighlightsCard } from '../../../components/card/HighlightsCard';
 import { List, ListItem, styled, Typography } from '@mui/joy';
 import { SoftLink } from '../../../components/SoftLink';
 import { Campaign, EmojiEvents } from '@mui/icons-material';
+import { FormattedMessage, useIntl } from 'react-intl';
+
+const Key = 'home.highlights';
 
 const DenseList = styled(List)(() => ({
   '--ListItem-paddingY': 0,
@@ -11,33 +14,101 @@ const DenseList = styled(List)(() => ({
 }));
 
 export const HighlightsCardContent: React.FC = () => {
+  const { $t } = useIntl();
   return (
     <HighlightsCard
       highlights={[
         {
-          title: 'Competitions and awards',
+          title: $t({ id: `${Key}.competitionsAndAwards.title` }),
           icon: EmojiEvents,
           content: (
             <>
               <DenseList marker="disc">
-                <ListItem><SoftLink href="https://swerc.eu/2022/">SWERC 2022</SoftLink>: qualified among 50,000 participants, ranked 35<sup>th</sup></ListItem>
-                <ListItem><SoftLink href="https://ieeextreme.org/">IEEEXtreme 15.0 2021</SoftLink>: ranked 56<sup>th</sup> among 5,500 teams</ListItem>
-                <ListItem><SoftLink href="https://www.bloomberg.com/company/stories/get-ready-for-bloombergs-summer-of-puzzles-2021/">BPuzzled 2021</SoftLink>: qualified for the final</ListItem>
-                <ListItem><SoftLink href="https://2020.lauzhack.com/">LauzHack 2020</SoftLink>: <em>AdMotiv</em>, second place winners</ListItem>
-                {/* eslint-disable-next-line react/no-unescaped-entities */}
-                <ListItem><SoftLink href="https://2019.lauzhack.com/">LauzHack 2019</SoftLink>: <em>Sentiment-U</em>, organizers' favourite hack, Logitech prize</ListItem>
+                <ListItem>
+                  <FormattedMessage
+                    id="common.labelColonValue"
+                    values={{
+                      label: <SoftLink href="https://swerc.eu/2022/" target="_blank" rel="noopener">SWERC 2022</SoftLink>,
+                      value:
+                        <FormattedMessage
+                          id={`${Key}.competitionsAndAwards.items.swerc22`}
+                          values={{ sup: chunk => <sup>{chunk}</sup> }}
+                        />
+                    }}
+                  />
+                </ListItem>
+                <ListItem>
+                  <FormattedMessage
+                    id="common.labelColonValue"
+                    values={{
+                      label: <SoftLink href="https://ieeextreme.org/" target="_blank" rel="noopener">IEEEXtreme 15.0 2021</SoftLink>,
+                      value:
+                        <FormattedMessage
+                          id={`${Key}.competitionsAndAwards.items.ieeextreme21`}
+                          values={{ sup: chunk => <sup>{chunk}</sup> }}
+                        />
+                    }}
+                  />
+                </ListItem>
+                <ListItem>
+                  <FormattedMessage
+                    id="common.labelColonValue"
+                    values={{
+                      label: <SoftLink href="https://www.bloomberg.com/company/stories/get-ready-for-bloombergs-summer-of-puzzles-2021/" target="_blank" rel="noopener">BPuzzled 2021</SoftLink>,
+                      value:
+                        <FormattedMessage
+                          id={`${Key}.competitionsAndAwards.items.bpuzzled21`}
+                          values={{ sup: chunk => <sup>{chunk}</sup> }}
+                        />
+                    }}
+                  />
+                </ListItem>
+                <ListItem>
+                  <FormattedMessage
+                    id="common.labelColonValue"
+                    values={{
+                      label: <SoftLink href="https://2020.lauzhack.com/" target="_blank" rel="noopener">LauzHack 2020</SoftLink>,
+                      value:
+                        <FormattedMessage
+                          id={`${Key}.competitionsAndAwards.items.lauzhack20`}
+                          values={{ admotiv: <em>AdMotiv</em> }}
+                        />
+                    }}
+                  />
+                </ListItem>
+                <ListItem>
+                  <FormattedMessage
+                    id="common.labelColonValue"
+                    values={{
+                      label: <SoftLink href="https://2019.lauzhack.com/" target="_blank" rel="noopener">LauzHack 2019</SoftLink>,
+                      value:
+                        <FormattedMessage
+                          id={`${Key}.competitionsAndAwards.items.lauzhack19`}
+                          values={{ sentimentU: <em>Sentiment-U</em> }}
+                        />
+                    }}
+                  />
+                </ListItem>
               </DenseList>
               <Typography>
-                Honorable mentions:
+                <FormattedMessage id={`${Key}.competitionsAndAwards.honorableMentions`} />
               </Typography>
               <DenseList marker="disc">
-                <ListItem><SoftLink href="https://www.youtube.com/live/yfXu9_Za_mg?t=2003">Hash Code 2022</SoftLink>: fastest submission of the competition</ListItem>
+                <ListItem>
+                  <FormattedMessage
+                    id="common.labelColonValue"
+                    values={{
+                      label: <SoftLink href="https://www.youtube.com/live/yfXu9_Za_mg?t=2003" target="_blank" rel="noopener">Hash Code 2022</SoftLink>,
+                      value: $t({ id: `${Key}.competitionsAndAwards.items.hashcode22` })
+                    }}
+                  />
+                </ListItem>
               </DenseList>
             </>
           ),
         },
         {
-          title: 'They mention my work',
+          title: $t({ id: 'home.highlights.citations.title' }),
           icon: Campaign,
           content: (
             <>
@@ -47,20 +118,20 @@ export const HighlightsCardContent: React.FC = () => {
                   <DenseList marker="disc">
                     <ListItem>
                       {/* eslint-disable-next-line react/no-unescaped-entities */}
-                      <SoftLink href="https://www.rfgenealogie.com/magazine/248">"Mémoire des lieux" (n°248), p. 31</SoftLink>
+                      <SoftLink href="https://www.rfgenealogie.com/magazine/248" target="_blank" rel="noopener">"Mémoire des lieux" (n°248), p. 31</SoftLink>
                     </ListItem>
                     <ListItem>
                       {/* eslint-disable-next-line react/no-unescaped-entities */}
-                      <SoftLink href="https://www.rfgenealogie.com/le-magazine/247-les-logiciels-et-applications-made-in-france">"Les logiciels et applications Made in France" (n°247), p. 50</SoftLink>
+                      <SoftLink href="https://www.rfgenealogie.com/le-magazine/247-les-logiciels-et-applications-made-in-france" target="_blank" rel="noopener">"Les logiciels et applications Made in France" (n°247), p. 50</SoftLink>
                     </ListItem>
                     <ListItem>
                       {/* eslint-disable-next-line react/no-unescaped-entities */}
-                      <SoftLink href="https://www.rfgenealogie.com/le-magazine/244-corse-les-archives-a-consulter">"Corse : les archives à consulter" (n°244), p. 58</SoftLink>
+                      <SoftLink href="https://www.rfgenealogie.com/le-magazine/244-corse-les-archives-a-consulter" target="_blank" rel="noopener">"Corse : les archives à consulter" (n°244), p. 58</SoftLink>
                     </ListItem>
                   </DenseList>
                 </ListItem>
                 <ListItem>
-                  <SoftLink href="https://www.paris.fr/pages/vos-demarches-administratives-au-cimetiere-du-pere-lachaise-17511">Ville de Paris - Cimetière du Père-Lachaise</SoftLink>
+                  <SoftLink href="https://www.paris.fr/pages/vos-demarches-administratives-au-cimetiere-du-pere-lachaise-17511" target="_blank" rel="noopener">Ville de Paris - Cimetière du Père-Lachaise</SoftLink>
                 </ListItem>
               </DenseList>
             </>

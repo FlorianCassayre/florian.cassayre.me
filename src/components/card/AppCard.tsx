@@ -23,7 +23,7 @@ export const AppCard: React.FC<AppCardProps> = ({ name, icon: Icon, description,
               {description}
             </Typography>
           </Box>
-          <IconButton component="a" href={homepage}>
+          <IconButton component="a" href={homepage} target="_blank" rel="noopener">
             <Launch color="action" />
           </IconButton>
         </Stack>

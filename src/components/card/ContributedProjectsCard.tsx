@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ContributedProjectCard } from './ContributedProjectCard';
 import { Button, Grid } from '@mui/joy';
 import { Add } from '@mui/icons-material';
+import { FormattedMessage } from 'react-intl';
 
 interface ContributedProjectsCardProps {
   projects: Parameters<typeof ContributedProjectCard>[0][];
@@ -19,7 +20,7 @@ export const ContributedProjectsCard: React.FC<ContributedProjectsCardProps> = (
         ))}
         {!expanded && (
           <Grid xs={12} sx={{ textAlign: 'center' }}>
-            <Button variant="plain" startDecorator={<Add />} onClick={() => setExpanded(true)}>View more</Button>
+            <Button variant="plain" startDecorator={<Add />} onClick={() => setExpanded(true)}><FormattedMessage id="common.action.viewMore" /></Button>
           </Grid>
         )}
       </Grid>
