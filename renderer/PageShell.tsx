@@ -8,8 +8,8 @@ import {
   experimental_extendTheme as materialExtendTheme,
   Experimental_CssVarsProvider as MaterialCssVarsProvider,
   THEME_ID as MATERIAL_THEME_ID,
-} from '@mui/material/styles';
-import { CssVarsProvider as JoyCssVarsProvider } from '@mui/joy/styles';
+} from '@mui/material';
+import { CssVarsProvider as JoyCssVarsProvider } from '@mui/joy';
 import { I18nProvider } from '../src/i18n/I18nProvider';
 
 export function PageShell({ children, pageContext }: { children: React.ReactNode; pageContext: PageContext }) {

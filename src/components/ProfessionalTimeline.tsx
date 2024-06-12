@@ -9,8 +9,7 @@ import {
   timelineOppositeContentClasses,
   TimelineSeparator,
 } from '@mui/lab';
-import { Box, Button, Chip, Typography } from '@mui/joy';
-import { grey } from '@mui/material/colors';
+import { Box, Button, Chip, Typography, useTheme } from '@mui/joy';
 import { Collapse, Fade, useMediaQuery } from '@mui/material';
 import { Add } from '@mui/icons-material';
 import { FormattedMessage } from 'react-intl';
@@ -36,6 +35,7 @@ interface ProfessionalTimelineProps {
 
 export const ProfessionalTimelineStatic: React.FC<ProfessionalTimelineProps> = ({ events }) => {
   // TODO problems with SSR (obviously)
+  const theme = useTheme();
   const isDesktop = useMediaQuery('(min-width:600px)', { defaultMatches: true });
   const computeSize = (scale: number | undefined): string => `${(scale ?? 1) * 48}px`;
   return (
@@ -50,7 +50,7 @@ export const ProfessionalTimelineStatic: React.FC<ProfessionalTimelineProps> = (
         <TimelineItem key={i}>
           <TimelineOppositeContent sx={{ py: { sm: 4 }, maxWidth: '34vw', ml: 'auto', mr: 0 }}>
             <Chip variant="outlined" sx={{ mb: 0.5 }}>{date}</Chip>
-            <Typography level="title-sm" sx={{ color: grey[800] }}>
+            <Typography level="title-sm" sx={{ color: theme.palette.text.tertiary }}>
               <Typography sx={{ display: { xs: 'none', sm: 'inline' } }}>
                 {institution.fullname}
               </Typography>

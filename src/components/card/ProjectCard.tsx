@@ -10,6 +10,7 @@ import {
   IconButton,
   Stack, Tooltip,
   Typography,
+  useTheme,
 } from '@mui/joy';
 import { FiberManualRecord, GitHub, Launch, VisibilityOff } from '@mui/icons-material';
 import { IconType } from '@react-icons/all-files';
@@ -36,6 +37,7 @@ interface ProjectCardProps {
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({ image, logo, title, description, technologies, status, statusText, homepage, github, pro }) => {
   const { $t } = useIntl();
+  const theme = useTheme();
   const renderIcon = useCallback((Icon: IconType) => <Icon />, []);
   return (
     <Card variant="outlined" sx={{ height: '100%' }}>
@@ -94,13 +96,13 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ image, logo, title, de
                   <GitHub color="action" />
                 </IconButton>
               ) : (
-                <Tooltip title={$t({ id: 'home.project.closedSource' })}>
-                  <span>
-                    <IconButton disabled size="sm">
-                      <VisibilityOff />
-                    </IconButton>
-                  </span>
-                </Tooltip>
+                <Stack> {/* Ugly hack around https://github.com/mui/material-ui/issues/38943 */}
+                  <Box sx={{ p: 0.1 }}>
+                    <Tooltip title={$t({ id: 'home.project.closedSource' })}>
+                      <VisibilityOff sx={{ color: theme.palette.neutral.outlinedDisabledColor }} />
+                    </Tooltip>
+                  </Box>
+                </Stack>
               )}
               {!!homepage && (
                 <IconButton component="a" href={homepage} target="_blank" rel="noopener" size="sm">
