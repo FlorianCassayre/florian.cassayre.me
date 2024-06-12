@@ -1,11 +1,10 @@
-import { Typography } from '@mui/joy';
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
+import { useIntl } from 'react-intl';
+import { NotFound } from './NotFound';
 
 export const PageNotFoundContent: React.FC = () => {
+  const { $t } = useIntl();
   return (
-    <Typography>
-      <FormattedMessage id="notFound.title" />
-    </Typography>
+    <NotFound title={$t({ id: 'notFound.title' })} />
   );
 };

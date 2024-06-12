@@ -72,6 +72,7 @@
   "home.apps.genealogy.title": "Généalogie",
   "home.apps.genealogy.description": "Statistiques de ma base de données généalogique.",
   "notFound.title": "Page introuvable",
+  "notFound.home": "Revenir à la page d'accueil ?",
   "notFoundFallback.title": "Page supprimée",
   "notFoundFallback.description": "La page à laquelle vous avez essayé d'accéder n'existe plus. Vous pouvez néanmoins retrouver son code source à cette adresse : <a>{fallback}</a>"
 }

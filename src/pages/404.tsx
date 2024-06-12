@@ -1,5 +1,4 @@
 import { PageLayout } from "../components/layout/PageLayout";
-import { Stack } from '@mui/joy';
 import { PageNotFoundContent } from '../content/layout/notfound/NotFoundContent';
 import { NotFoundFallbackContent } from '../content/layout/notfound/NotFoundFallbackContent';
 import { usePageContext } from '../../renderer/usePageContext';
@@ -14,9 +13,7 @@ export const PageNotFound = () => {
   const fallback = useMemo(() => getLegacyVisibleRedirection(extractLocale(urlPathname).urlWithoutLocale), [urlPathname]);
   return (
     <PageLayout>
-      <Stack direction="column" sx={{ height: '100%' }}>
-        {fallback === null ? <PageNotFoundContent /> : <NotFoundFallbackContent fallback={fallback} />}
-      </Stack>
+      {fallback === null ? <PageNotFoundContent /> : <NotFoundFallbackContent fallback={fallback} />}
     </PageLayout>
   )
 }

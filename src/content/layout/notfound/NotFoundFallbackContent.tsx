@@ -1,19 +1,18 @@
 import React from 'react';
-import { Typography } from '@mui/joy';
 import { SoftLink } from '../../../components/SoftLink';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
+import { NotFound } from './NotFound';
 
 interface NotFoundFallbackContentProps {
   fallback: string;
 }
 
 export const NotFoundFallbackContent: React.FC<NotFoundFallbackContentProps> = ({ fallback }) => {
+  const { $t } = useIntl();
   return (
-    <>
-      <Typography>
-        <FormattedMessage id="notFoundFallback.title" />
-      </Typography>
-      <Typography>
+    <NotFound
+      title={$t({ id: 'notFoundFallback.title' })}
+      description={
         <FormattedMessage
           id="notFoundFallback.description"
           values={{
@@ -21,7 +20,7 @@ export const NotFoundFallbackContent: React.FC<NotFoundFallbackContentProps> = (
             fallback,
           }}
         />
-      </Typography>
-    </>
+      }
+    />
   );
 };
