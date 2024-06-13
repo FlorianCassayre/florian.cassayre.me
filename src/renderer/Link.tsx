@@ -1,4 +1,4 @@
-import { usePageContext } from './usePageContext'
+import { usePageContext } from 'vike-react/usePageContext';
 
 export { Link }
 

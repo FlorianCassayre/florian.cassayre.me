@@ -1,4 +1,4 @@
-import { Locale } from '../src/i18n/Locale';
+import { Locale } from '../i18n/Locale';
 
 export type {
   PageContextServer,
@@ -12,14 +12,11 @@ export type {
   PageContextWithServerRouting as PageContext
   //*/
 } from 'vike/types'
-export type { PageProps }
 
 // https://vike.dev/pageContext#typescript
 declare global {
   namespace Vike {
     interface PageContext {
-      Page: Page
-      pageProps?: PageProps
       urlPathname: string
       urlOriginal: string;
       locale: Locale;
@@ -34,5 +31,3 @@ declare global {
   }
 }
 
-type Page = (pageProps: PageProps) => React.ReactElement
-type PageProps = Record<string, unknown>

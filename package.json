@@ -3,12 +3,9 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "dev": "npm run server:dev",
-    "prod": "npm run lint && npm run build && npm run server:prod",
+    "dev": "vite dev",
     "build": "vite build",
-    "server": "node --loader ts-node/esm ./server/index.ts",
-    "server:dev": "npm run server",
-    "server:prod": "cross-env NODE_ENV=production npm run server",
+    "preview": "npm run build && npx serve dist/client -p 8181",
     "lint": "eslint . --max-warnings 0"
   },
   "dependencies": {
@@ -43,7 +40,8 @@
     "sirv": "^2.0.4",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.5",
-    "vike": "^0.4.171",
+    "vike": "^0.4.176-commit-1442a4a",
+    "vike-react": "^0.4.14",
     "vite": "^5.2.11"
   },
   "type": "module"

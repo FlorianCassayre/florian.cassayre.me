@@ -1,8 +1,8 @@
 import React, { useMemo } from 'react';
 import { IntlProvider } from 'react-intl';
 import { Locale } from './Locale';
-import { usePageContext } from '../../renderer/usePageContext';
 import { MESSAGES } from './messages';
+import { usePageContext } from 'vike-react/usePageContext';
 
 const DEFAULT_LOCALE: Locale = Locale.English;
 

@@ -1,19 +1,18 @@
-import { DynamicNotFound } from '../../content/layout/notfound/DynamicNotFound';
-import { PageLayout } from '../../components/layout/PageLayout';
+import { usePageContext } from 'vike-react/usePageContext';
+import { ClientOnly } from 'vike-react/ClientOnly';
 
-export function Page({ is404 }: { is404: boolean }) {
+export function Page() {
+  const { is404 } = usePageContext();
   if (is404) {
     return (
-      <PageLayout>
-        <DynamicNotFound />
-      </PageLayout>
-    )
+      <ClientOnly
+        load={() => import('./PageNotFound')}
+        fallback={null}
+      >
+        {(Component) => <Component />}
+      </ClientOnly>
+    );
   } else {
-    return (
-      <>
-        <h1>500 Internal Error</h1>
-    <p>Something went wrong.</p>
-    </>
-  )
+    return null;
   }
 }

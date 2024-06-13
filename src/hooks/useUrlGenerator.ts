@@ -1,5 +1,5 @@
-import { usePageContext } from '../../renderer/usePageContext';
 import { localizeUrl } from '../i18n/utils';
+import { usePageContext } from 'vike-react/usePageContext';
 
 export const useUrlGenerator = () => {
   const { locale } = usePageContext();

@@ -1,9 +1,9 @@
-import { usePageContext } from '../../../../renderer/usePageContext';
 import { getLegacyVisibleRedirection } from '../../redirect/legacy';
 import { extractLocale } from '../../../i18n/utils';
 import { useMemo } from 'react';
 import { PageNotFoundContent } from './NotFoundContent';
 import { NotFoundFallbackContent } from './NotFoundFallbackContent';
+import { usePageContext } from 'vike-react/usePageContext';
 
 export const DynamicNotFound = () => {
   const { urlPathname } = usePageContext();

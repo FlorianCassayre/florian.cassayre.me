@@ -1,5 +1,5 @@
 import type { PageContextServer } from './types';
-import { extractLocale } from '../src/i18n/utils';
+import { extractLocale } from '../i18n/utils';
 import type { OnBeforeRouteSync } from 'vike/types';
 
 export function onBeforeRoute(pageContext: PageContextServer): ReturnType<OnBeforeRouteSync> {
