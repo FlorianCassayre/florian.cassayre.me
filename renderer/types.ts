@@ -23,6 +23,7 @@ declare global {
       urlPathname: string
       urlOriginal: string;
       locale: Locale;
+      urlLogical: string;
       exports: {
         documentProps?: {
           title?: string

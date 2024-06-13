@@ -3,6 +3,7 @@
 
 import React, { useContext } from 'react'
 import type { PageContext } from './types'
+import { extractLocale } from '../src/i18n/utils';
 
 export { PageContextProvider }
 // eslint-disable-next-line react-refresh/only-export-components
@@ -15,6 +16,10 @@ function PageContextProvider({ pageContext, children }: { pageContext: PageConte
 }
 
 function usePageContext() {
-  const pageContext = useContext(Context)
-  return pageContext
+  const pageContext = useContext(Context);
+  return {
+    ...pageContext,
+    // Strange that this is needed, otherwise the 404 page is not translated
+    ...(pageContext.locale === undefined ? { locale: extractLocale(pageContext.urlOriginal).locale } : {}),
+  } satisfies PageContext;
 }
