@@ -1,9 +1,12 @@
-import { PageNotFound } from '../404';
+import { DynamicNotFound } from '../../content/layout/notfound/DynamicNotFound';
+import { PageLayout } from '../../components/layout/PageLayout';
 
 export function Page({ is404 }: { is404: boolean }) {
   if (is404) {
     return (
-      <PageNotFound />
+      <PageLayout>
+        <DynamicNotFound />
+      </PageLayout>
     )
   } else {
     return (
