@@ -6,7 +6,8 @@
     "dev": "vite dev",
     "build": "vite build",
     "preview": "npm run build && npx serve dist/client -p 8181",
-    "lint": "eslint . --max-warnings 0"
+    "lint": "eslint . --max-warnings 0",
+    "check": "tsc --noEmit"
   },
   "dependencies": {
     "@emotion/react": "^11.11.4",
@@ -40,7 +41,7 @@
     "sirv": "^2.0.4",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.5",
-    "vike": "^0.4.176-commit-1442a4a",
+    "vike": "0.4.176-commit-1442a4a",
     "vike-react": "^0.4.14",
     "vite": "^5.2.11"
   },
