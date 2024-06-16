@@ -17,6 +17,7 @@ export const LanguageToggle: React.FC = () => {
           onClick={() => setUiLocale(locale)}
           {...{ value: locale }}
           sx={{ px: 1 }}
+          role="button"
         >
           {locale.toUpperCase()}
         </Button>

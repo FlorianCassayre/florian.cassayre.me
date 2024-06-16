@@ -61,10 +61,10 @@ export function Page() {
         <Grid xs={12}>
           <CategoryHeading icon={Flag}><FormattedMessage id="home.sections.programmingChallenges" /></CategoryHeading>
         </Grid>
-        <Grid xs={6}>
+        <Grid xs={12} md={6}>
           <AdventOfCodeCardContent />
         </Grid>
-        <Grid xs={6}>
+        <Grid xs={12} md={6}>
           <CodeGolfCardContent />
         </Grid>
         <Grid xs={12}>

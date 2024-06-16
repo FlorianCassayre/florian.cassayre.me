@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Card, CardContent, Chip, IconButton, Stack, Typography } from '@mui/joy';
 import { Launch, SvgIconComponent } from '@mui/icons-material';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 interface ContributedProjectCardProps {
   title: string;
@@ -13,6 +13,7 @@ interface ContributedProjectCardProps {
 }
 
 export const ContributedProjectCard: React.FC<ContributedProjectCardProps> = ({ title, description, icon: Icon, homepage, production, retired }) => {
+  const { $t } = useIntl();
   return (
     <Card sx={{ height: '100%' }}>
       <CardContent>
@@ -34,7 +35,7 @@ export const ContributedProjectCard: React.FC<ContributedProjectCardProps> = ({ 
               {description}
             </Typography>
           </Box>
-          <IconButton component="a" href={homepage} target="_blank" rel="noopener">
+          <IconButton component="a" href={homepage} target="_blank" rel="noopener" aria-label={$t({ id: 'common.externalLink' })}>
             <Launch color="action" />
           </IconButton>
         </Stack>

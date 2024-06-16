@@ -92,7 +92,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ image, logo, title, de
             </Stack>
             <Stack direction="row" spacing={0.5}>
               {github ? (
-                <IconButton component="a" href={github} target="_blank" rel="noopener" size="sm">
+                <IconButton component="a" href={github} target="_blank" rel="noopener" size="sm" aria-label="GitHub">
                   <GitHub color="action" />
                 </IconButton>
               ) : (
@@ -105,7 +105,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ image, logo, title, de
                 </Stack>
               )}
               {!!homepage && (
-                <IconButton component="a" href={homepage} target="_blank" rel="noopener" size="sm">
+                <IconButton component="a" href={homepage} target="_blank" rel="noopener" size="sm" aria-label={$t({ id: 'common.externalLink' })}>
                   <Launch color="action" />
                 </IconButton>
               )}

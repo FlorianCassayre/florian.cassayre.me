@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Card, CardContent, IconButton, Stack, Typography } from '@mui/joy';
 import { Launch, SvgIconComponent } from '@mui/icons-material';
+import { useIntl } from 'react-intl';
 
 interface AppCardProps {
   name: string;
@@ -10,6 +11,7 @@ interface AppCardProps {
 }
 
 export const AppCard: React.FC<AppCardProps> = ({ name, icon: Icon, description, homepage }) => {
+  const { $t } = useIntl();
   return (
     <Card sx={{ height: '100%' }}>
       <CardContent>
@@ -23,7 +25,7 @@ export const AppCard: React.FC<AppCardProps> = ({ name, icon: Icon, description,
               {description}
             </Typography>
           </Box>
-          <IconButton component="a" href={homepage} target="_blank" rel="noopener">
+          <IconButton component="a" href={homepage} target="_blank" rel="noopener" aria-label={$t({ id: 'common.externalLink' })}>
             <Launch color="action" />
           </IconButton>
         </Stack>

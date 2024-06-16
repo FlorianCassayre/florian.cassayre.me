@@ -10,6 +10,7 @@ import {
   Typography,
 } from '@mui/joy';
 import { Launch } from '@mui/icons-material';
+import { useIntl } from 'react-intl';
 
 interface Publication {
   title: string;
@@ -26,13 +27,14 @@ interface PublicationsCardProps {
 }
 
 export const PublicationsCard: React.FC<PublicationsCardProps> = ({ publications }) => {
+  const { $t } = useIntl();
   return (
     <Card sx={{ p: 0, overflow: 'hidden' }}>
       <AccordionGroup>
         {publications.map(({ title, year, conference, authors, context, description, link }, i) => (
           <Accordion key={i}>
             <AccordionSummary>
-              <Stack direction="row" spacing={1}>
+              <Stack direction="row" spacing={1} alignItems="center">
                 <Chip variant="outlined">{year}</Chip>
                 <Typography>
                   {title}
@@ -49,7 +51,7 @@ export const PublicationsCard: React.FC<PublicationsCardProps> = ({ publications
                   <Typography textAlign="justify">{description}</Typography>
                   {!!context && <Typography level="body-sm" fontStyle="italic">{context}</Typography>}
                 </Stack>
-                <IconButton component="a" href={link} target="_blank" rel="noopener" sx={{ flexShrink: 0 }}>
+                <IconButton component="a" href={link} target="_blank" rel="noopener" sx={{ flexShrink: 0 }} aria-label={$t({ id: 'common.externalLink' })}>
                   <Launch color="action" />
                 </IconButton>
               </Stack>

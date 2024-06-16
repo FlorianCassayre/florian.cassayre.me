@@ -41,6 +41,7 @@ export const ProfessionalTimelineStatic: React.FC<ProfessionalTimelineProps> = (
   return (
     <Timeline
       sx={{
+        px: 0,
         [`& .${timelineOppositeContentClasses.root}`]: isDesktop ? undefined : {
           flex: 0.2,
         },
@@ -48,7 +49,7 @@ export const ProfessionalTimelineStatic: React.FC<ProfessionalTimelineProps> = (
     >
       {events.map(({ date, institution, title }, i) => (
         <TimelineItem key={i}>
-          <TimelineOppositeContent sx={{ py: { sm: 4 }, maxWidth: '34vw', ml: 'auto', mr: 0 }}>
+          <TimelineOppositeContent sx={{ py: { sm: 4 }, maxWidth: '40vw', ml: 'auto', mr: 0 }}>
             <Chip variant="outlined" sx={{ mb: 0.5 }}>{date}</Chip>
             <Typography level="title-sm" sx={{ color: theme.palette.text.tertiary }}>
               <Typography sx={{ display: { xs: 'none', sm: 'inline' } }}>
