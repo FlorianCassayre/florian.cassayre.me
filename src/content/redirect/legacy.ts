@@ -1,10 +1,14 @@
 // https://github.com/FlorianCassayre/Website/blob/master/src/FlorianCassayre/Florian/RoutingController.php
 
+export const REDIRECT_PAGE_NAME = '_redirect';
+
 /**
  * The user is automatically redirected to the page.
  */
 export const INVISIBLE_REDIRECTIONS: Record<string, string> = {
-  '/test2': 'https://google.com'
+  '/gpg': '/pgp',
+  '/projects': '/',
+  '/realisations': '/',
 };
 
 const legacyGithubFile = (path: string) => `https://github.com/FlorianCassayre/Website/blob/master/${path}`;

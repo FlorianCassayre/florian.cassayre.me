@@ -1,14 +1,14 @@
 import react from '@vitejs/plugin-react'
 import vike from 'vike/plugin'
 import { UserConfig } from 'vite'
-import { INVISIBLE_REDIRECTIONS } from './src/content/redirect/legacy';
 
 const config: UserConfig = {
   plugins: [
     react(),
     vike({
       prerender: true,
-      redirects: INVISIBLE_REDIRECTIONS,
+      // Doesn't seem to work anymore with `vike-react`; instead we re-implement it with a meta refresh tag (also `redirect` doesn't support SSG anyways)
+      //redirects: INVISIBLE_REDIRECTIONS,
     })
   ]
 }

@@ -17,10 +17,11 @@ export type {
 declare global {
   namespace Vike {
     interface PageContext {
-      urlPathname: string
+      urlPathname: string;
       urlOriginal: string;
       locale: Locale;
       urlLogical: string;
+      urlRedirect?: string;
       exports: {
         documentProps?: {
           title?: string
