@@ -20,7 +20,7 @@ export const ContributedProjectsCard: React.FC<ContributedProjectsCardProps> = (
         ))}
         {!expanded && (
           <Grid xs={12} sx={{ textAlign: 'center' }}>
-            <Button variant="plain" startDecorator={<Add />} onClick={() => setExpanded(true)}><FormattedMessage id="common.action.viewMore" /></Button>
+            <Button variant="plain" startDecorator={<Add />} onClick={() => setExpanded(true)} sx={{ width: '100%' }}><FormattedMessage id="common.action.viewMore" /></Button>
           </Grid>
         )}
       </Grid>

@@ -9,7 +9,7 @@ import { CodeGolfCardContent } from '../../content/home/card/CodeGolfCardContent
 import { HighlightsCardContent } from '../../content/home/card/HighlightsCardContent';
 import { LanguageCardContent } from '../../content/home/card/LanguageCardContent';
 import { EmailCardContent } from '../../content/home/card/EmailCardContent';
-import { PgpCardContent } from '../../content/home/card/PgpCardContent';
+import { PgpFingerprintCardContent } from '../../content/home/card/PgpFingerprintCardContent';
 import { AppCardsContent } from '../../content/home/card/AppCardsContent';
 import { ProfessionalTimelineContent } from '../../content/home/ProfessionalTimelineContent';
 import { ContributedProjectsCardContent } from '../../content/home/card/ContributedProjectsCardContent';
@@ -80,10 +80,10 @@ export function Page() {
           <LanguageCardContent />
         </Grid>
         <Grid xs={12} sm={7} md={8} lg={9}>
-          <EmailCardContent />
+          <EmailCardContent link />
         </Grid>
         <Grid xs={12}>
-          <PgpCardContent />
+          <PgpFingerprintCardContent link />
         </Grid>
         <Grid xs={12}>
           <CernVisitCardContent />

@@ -67,7 +67,8 @@
   "home.social.contact.description": "N'hésitez pas à m'envoyer un message à :",
   "home.social.contact.label": "Adresse e-mail",
   "home.social.contact.disclaimer": "Je reçois près d'un message par jour, je fais de mon mieux pour y répondre rapidement mais ce n'est pas toujours le cas. N'hésitez pas à me le rappeler si j'ai manqué le vôtre.",
-  "home.social.pgp.title": "Clé PGP",
+  "home.social.pgp.title": "Empreinte PGP",
+  "home.social.pgp.accessKey": "Clé PGP ?",
   "home.social.visitCern.title": "Visiter le CERN",
   "home.social.visitCern.description1": "Vous êtes curieux de savoir ce qu'il se passe au <a>CERN</a>, et vous êtes localisé près de Genève ?",
   "home.social.visitCern.description2": "Je peux proposer des visites guidées privées à l'intérieur de certains complexes. Merci de me contacter si vous êtes intéressé, j'essaie de satisfaire toutes les demandes !",
@@ -79,5 +80,6 @@
   "notFound.title": "Page introuvable",
   "notFound.home": "Revenir à la page d'accueil ?",
   "notFoundFallback.title": "Page supprimée",
-  "notFoundFallback.description": "La page à laquelle vous avez essayé d'accéder n'existe plus. Vous pouvez néanmoins retrouver son code source à cette adresse : <a>{fallback}</a>"
+  "notFoundFallback.description": "La page à laquelle vous avez essayé d'accéder n'existe plus. Vous pouvez néanmoins retrouver son code source à cette adresse : <a>{fallback}</a>",
+  "pgp.key.title": "Clé PGP"
 }
