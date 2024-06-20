@@ -19,6 +19,7 @@
   "home.sections.highlights": "Highlights",
   "home.sections.social": "Social",
   "home.sections.apps": "Apps",
+  "home.sections.config": "Setup",
   "home.logoAlt": "Logo",
   "home.biography": "I am currently employed by <aCern>CERN</aCern> as a full-stack web developer. I graduated in 2022 from <aEpfl>EPFL</aEpfl> as a computer scientist, with a focus on formal methods. I have a diverse range of interests including (but not limited to) open source, genealogy and sustainability.",
   "home.projects.yogaSofa.description": "Local association website to manage registrations, schedule classes and handle payments",

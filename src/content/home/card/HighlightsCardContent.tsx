@@ -122,11 +122,11 @@ export const HighlightsCardContent: React.FC = () => {
                     </ListItem>
                     <ListItem>
                       {/* eslint-disable-next-line react/no-unescaped-entities */}
-                      <SoftLink href="https://www.rfgenealogie.com/le-magazine/247-les-logiciels-et-applications-made-in-france" target="_blank" rel="noopener">"Les logiciels et applications Made in France" (n°247), p. 50</SoftLink>
+                      <SoftLink href="https://www.rfgenealogie.com/magazine/247" target="_blank" rel="noopener">"Les logiciels et applications Made in France" (n°247), p. 50</SoftLink>
                     </ListItem>
                     <ListItem>
                       {/* eslint-disable-next-line react/no-unescaped-entities */}
-                      <SoftLink href="https://www.rfgenealogie.com/le-magazine/244-corse-les-archives-a-consulter" target="_blank" rel="noopener">"Corse : les archives à consulter" (n°244), p. 58</SoftLink>
+                      <SoftLink href="https://www.rfgenealogie.com/magazine/244" target="_blank" rel="noopener">"Corse : les archives à consulter" (n°244), p. 58</SoftLink>
                     </ListItem>
                   </DenseList>
                 </ListItem>

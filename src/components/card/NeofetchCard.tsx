@@ -1,5 +1,6 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import { Box, Card } from '@mui/joy';
+import { useIntersectionObserver, useInterval } from 'usehooks-ts';
 
 // See https://oatcookies.neocities.org/ubuntu-terminal-colors
 
@@ -274,14 +275,63 @@ interface NeofetchCardProps {
 }
 
 export const NeofetchCard: React.FC<NeofetchCardProps> = ({ neofetchRaw }) => {
-  const parsed = useMemo(() => reassembleCommands(splitTags(parseAnsi(neofetchRaw))), [neofetchRaw]);
+  const tags = useMemo(() => reassembleCommands(splitTags(parseAnsi(neofetchRaw))), [neofetchRaw]);
+  const lengths = useMemo(() => {
+    const lengths = [0];
+    for (let i = 0; i < tags.length; i++) {
+      lengths.push(lengths[lengths.length - 1] + tags[i].text.length);
+    }
+    return lengths;
+  }, [tags]);
+  const totalLength = useMemo(() => lengths[lengths.length - 1], [lengths]);
+  const [maxLineLength, totalLines] = useMemo(() => {
+    const lines = tags.map(({ text }) => text).join('').split('\n')
+    return [Math.max(...lines.map(s => s.length)), lines.length];
+  }, [tags]);
+
+  const delay = 10;
+  const step = 10;
+  const [progress, setProgress] = useState(0);
+  const [play, setPlay] = useState(false);
+
+  const { ref } = useIntersectionObserver({
+    threshold: 0.5,
+    onChange: (isIntersecting) => {
+      if (isIntersecting) {
+        setPlay(true);
+      }
+    }
+  })
+
+  useInterval(() => {
+    setProgress(progress + step);
+  }, play && progress < totalLength ? delay : null);
+
   return (
-    <Card sx={{ color: DEFAULT_TEXT_COLOR, backgroundColor: DEFAULT_BACKGROUND_COLOR }}>
+    <Card ref={ref} sx={{ color: DEFAULT_TEXT_COLOR, backgroundColor: DEFAULT_BACKGROUND_COLOR, overflow: 'auto', fontSize: { xs: 10, sm: 12, md: 16 } }}>
       <Box sx={{ textAlign: 'center' , fontFamily: 'monospace', lineHeight: 1.175 }}>
         <Box component="pre" sx={{ display: 'inline-block', textAlign: 'left' }}>
-          {parsed.map(({ format: { bold, colorForeground, colorBackground }, text }, i) => (
-            <span key={i} style={{ fontWeight: bold ? 'bold' : undefined, color: colorForeground !== DEFAULT_TEXT_COLOR ? colorForeground : undefined, backgroundColor: colorBackground !== DEFAULT_BACKGROUND_COLOR ? colorBackground : undefined }}>{text}</span>
-          ))}
+          <span style={{ userSelect: 'none' }}>
+            {' '.repeat(maxLineLength) + '\n'.repeat(totalLines - 1)}
+          </span>
+          <span style={{ position: 'absolute', top: 24 }}>
+            {tags
+              .filter((_, i) => progress >= lengths[i])
+              .map(({ format: { bold, colorForeground, colorBackground }, text }, i) =>
+                (
+                  <span
+                    key={i}
+                    style={{
+                      fontWeight: bold ? 'bold' : undefined,
+                      color: colorForeground !== DEFAULT_TEXT_COLOR ? colorForeground : undefined,
+                      backgroundColor: colorBackground !== DEFAULT_BACKGROUND_COLOR ? colorBackground : undefined
+                    }}
+                  >
+                  {text.slice(0, Math.min(progress - lengths[i], text.length))}
+                </span>
+                )
+              )}
+          </span>
         </Box>
       </Box>
     </Card>

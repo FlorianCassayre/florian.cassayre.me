@@ -14,7 +14,7 @@ import { AppCardsContent } from '../../content/home/card/AppCardsContent';
 import { ProfessionalTimelineContent } from '../../content/home/ProfessionalTimelineContent';
 import { ContributedProjectsCardContent } from '../../content/home/card/ContributedProjectsCardContent';
 import {
-  Apps,
+  Apps, Computer,
   EmojiObjects, Flag,
   Flare,
   Group,
@@ -25,6 +25,7 @@ import {
 import { CategoryHeading } from '../../components/CategoryHeading';
 import { FormattedMessage } from 'react-intl';
 import { CernVisitCardContent } from '../../content/home/card/CernVisitCardContent';
+import { NeofetchCardContent } from '../../content/home/card/NeofetchCardContent';
 
 export function Page() {
   return (
@@ -93,6 +94,12 @@ export function Page() {
         </Grid>
         <Grid xs={12}>
           <AppCardsContent />
+        </Grid>
+        <Grid xs={12}>
+          <CategoryHeading icon={Computer}><FormattedMessage id="home.sections.config" /></CategoryHeading>
+        </Grid>
+        <Grid xs={12}>
+          <NeofetchCardContent />
         </Grid>
       </Grid>
     </PageLayout>
