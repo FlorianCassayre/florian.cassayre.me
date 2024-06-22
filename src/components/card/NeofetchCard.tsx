@@ -1,4 +1,5 @@
 import React, { useMemo, useState } from 'react';
+
 import { Box, Card } from '@mui/joy';
 import { useIntersectionObserver, useInterval } from 'usehooks-ts';
 
@@ -42,17 +43,22 @@ const enum AnsiEscapeType {
   MoveColumn,
 }
 
-type ParsedAnsi = { type: AnsiEscapeType } & ({
-  type: AnsiEscapeType.Reset | AnsiEscapeType.Bold;
-} | {
-  type: AnsiEscapeType.ColorForeground | AnsiEscapeType.ColorBackground;
-  color: string;
-} | {
-  type: AnsiEscapeType.MoveRow;
-} | {
-  type: AnsiEscapeType.MoveColumn;
-  offset: number;
-});
+type ParsedAnsi = { type: AnsiEscapeType } & (
+  | {
+      type: AnsiEscapeType.Reset | AnsiEscapeType.Bold;
+    }
+  | {
+      type: AnsiEscapeType.ColorForeground | AnsiEscapeType.ColorBackground;
+      color: string;
+    }
+  | {
+      type: AnsiEscapeType.MoveRow;
+    }
+  | {
+      type: AnsiEscapeType.MoveColumn;
+      offset: number;
+    }
+);
 
 type CharOrParsedAnsi = string | ParsedAnsi;
 
@@ -61,7 +67,7 @@ const parseAnsi = (s: string): CharOrParsedAnsi[] => {
   let i = 0;
   const error = (error: ParseError): never => {
     throw new Error(`${i}: ${error}`);
-  }
+  };
   const checkUnderflow = () => {
     if (i >= s.length) {
       error(ParseError.Underflow);
@@ -125,24 +131,33 @@ const parseAnsi = (s: string): CharOrParsedAnsi[] => {
             }
             // Disable/enable wrapping/cursor
             // (ignored)
-          } else if (c === 'C') { // Move cursor by columns
+          } else if (c === 'C') {
+            // Move cursor by columns
             result.push({ type: AnsiEscapeType.MoveColumn, offset: n });
-          } else if (c === 'D') { // Reset row (?)
+          } else if (c === 'D') {
+            // Reset row (?)
             result.push({ type: AnsiEscapeType.MoveRow });
-          } else if (n === 0 && isM) { // Reset
+          } else if (n === 0 && isM) {
+            // Reset
             result.push({ type: AnsiEscapeType.Reset });
-          } else if (n === 1 && isM) { // Bold
+          } else if (n === 1 && isM) {
+            // Bold
             result.push({ type: AnsiEscapeType.Bold });
-          } else if (n === 20 && c === 'A') { // "Fraktur" font
+          } else if (n === 20 && c === 'A') {
+            // "Fraktur" font
             // (ignored)
-          } else if (30 <= n && n < 38 && isM) { // Color foreground
+          } else if (30 <= n && n < 38 && isM) {
+            // Color foreground
             result.push({ type: AnsiEscapeType.ColorForeground, color: COLORS[n - 30] });
-          } else if (n === 38 && c === ';') { // Color foreground (8-bit)
+          } else if (n === 38 && c === ';') {
+            // Color foreground (8-bit)
             const color = parseLargeColor();
             result.push({ type: AnsiEscapeType.ColorForeground, color: COLORS[color] });
-          } else if (40 <= n && n < 48 && isM) { // Color background
+          } else if (40 <= n && n < 48 && isM) {
+            // Color background
             result.push({ type: AnsiEscapeType.ColorBackground, color: COLORS[n - 40] });
-          } else if (n === 48 && c === ';') { // Color background (8-bit)
+          } else if (n === 48 && c === ';') {
+            // Color background (8-bit)
             const color = parseLargeColor();
             result.push({ type: AnsiEscapeType.ColorBackground, color: COLORS[color] });
           } else {
@@ -158,7 +173,7 @@ const parseAnsi = (s: string): CharOrParsedAnsi[] => {
     }
   }
   return result;
-}
+};
 
 interface TextFormat {
   bold: boolean;
@@ -189,9 +204,11 @@ const splitTags = (tokens: CharOrParsedAnsi[]): Command[] => {
   let format = DEFAULT_TEXT_FORMAT;
   for (let i = 0; i < tokens.length; i++) {
     const token = tokens[i];
-    if (typeof token === 'string') { // Character
+    if (typeof token === 'string') {
+      // Character
       stringBuffer.push(token);
-    } else { // Control
+    } else {
+      // Control
       if (stringBuffer.length > 0) {
         commands.push({ format, text: stringBuffer.join('') });
         stringBuffer = [];
@@ -218,7 +235,8 @@ const splitTags = (tokens: CharOrParsedAnsi[]): Command[] => {
       }
     }
   }
-  if (stringBuffer.length > 0) { // Last case
+  if (stringBuffer.length > 0) {
+    // Last case
     commands.push({ format, text: stringBuffer.join('') });
   }
   return commands;
@@ -228,9 +246,11 @@ const reassembleCommands = (commands: Command[]): TextCommand[] => {
   // This is not exactly how that mode works, but it's simple enough and just works in this case
   const lines: TextCommand[][] = [];
   const clean = new Set<number>();
-  let offsetRow = 0, offsetColumn = 0;
+  let offsetRow = 0,
+    offsetColumn = 0;
   commands.forEach(command => {
-    if (!('offset' in command)) { // Normal
+    if (!('offset' in command)) {
+      // Normal
       const subLines = command.text.split('\n');
       for (let i = 0; i < subLines.length; i++) {
         const line = subLines[i];
@@ -245,11 +265,18 @@ const reassembleCommands = (commands: Command[]): TextCommand[] => {
         currentRow.push(
           clean.has(offsetRow)
             ? value
-            : { ...command, text: ' '.repeat(Math.max(offsetColumn - currentRow.map(({ text }) => text.length).reduce((a, b) => a + b, 0), 0)) + line }
+            : {
+                ...command,
+                text:
+                  ' '.repeat(
+                    Math.max(offsetColumn - currentRow.map(({ text }) => text.length).reduce((a, b) => a + b, 0), 0)
+                  ) + line,
+              }
         );
         clean.add(offsetRow);
       }
-    } else { // Move
+    } else {
+      // Move
       const offset = command.offset;
       if (offset !== null) {
         offsetColumn = offset;
@@ -259,16 +286,18 @@ const reassembleCommands = (commands: Command[]): TextCommand[] => {
       clean.clear();
     }
   });
-  const result = lines.flatMap(line => {
-    if (line.length > 0) {
-      const last = line[line.length - 1];
-      return [...line.slice(0, line.length - 1), { format: last.format, text: last.text.trimEnd() + '\n' }];
-    } else {
-      return line;
-    }
-  }).filter(({ text }) => !!text.length);
+  const result = lines
+    .flatMap(line => {
+      if (line.length > 0) {
+        const last = line[line.length - 1];
+        return [...line.slice(0, line.length - 1), { format: last.format, text: last.text.trimEnd() + '\n' }];
+      } else {
+        return line;
+      }
+    })
+    .filter(({ text }) => !!text.length);
   return result.slice(0, result.length - 2); // Remove the last 4 tags which are empty
-}
+};
 
 interface NeofetchCardProps {
   neofetchRaw: string;
@@ -285,7 +314,10 @@ export const NeofetchCard: React.FC<NeofetchCardProps> = ({ neofetchRaw }) => {
   }, [tags]);
   const totalLength = useMemo(() => lengths[lengths.length - 1], [lengths]);
   const [maxLineLength, totalLines] = useMemo(() => {
-    const lines = tags.map(({ text }) => text).join('').split('\n')
+    const lines = tags
+      .map(({ text }) => text)
+      .join('')
+      .split('\n');
     return [Math.max(...lines.map(s => s.length)), lines.length];
   }, [tags]);
 
@@ -296,44 +328,51 @@ export const NeofetchCard: React.FC<NeofetchCardProps> = ({ neofetchRaw }) => {
 
   const { ref } = useIntersectionObserver({
     threshold: 0.5,
-    onChange: (isIntersecting) => {
+    onChange: isIntersecting => {
       if (isIntersecting) {
         setPlay(true);
       }
-    }
-  })
+    },
+  });
 
-  useInterval(() => {
-    setProgress(progress + step);
-  }, play && progress < totalLength ? delay : null);
+  useInterval(
+    () => {
+      setProgress(progress + step);
+    },
+    play && progress < totalLength ? delay : null
+  );
 
   return (
-    <Card ref={ref} sx={{ color: DEFAULT_TEXT_COLOR, backgroundColor: DEFAULT_BACKGROUND_COLOR, overflow: 'auto', fontSize: { xs: 10, sm: 12, md: 16 } }}>
-      <Box sx={{ textAlign: 'center' , fontFamily: 'monospace', lineHeight: 1.175 }}>
+    <Card
+      ref={ref}
+      sx={{
+        color: DEFAULT_TEXT_COLOR,
+        backgroundColor: DEFAULT_BACKGROUND_COLOR,
+        overflow: 'auto',
+        fontSize: { xs: 10, sm: 12, md: 16 },
+      }}
+    >
+      <Box sx={{ textAlign: 'center', fontFamily: 'monospace', lineHeight: 1.175 }}>
         <Box component="pre" sx={{ display: 'inline-block', textAlign: 'left' }}>
-          <span style={{ userSelect: 'none' }}>
-            {' '.repeat(maxLineLength) + '\n'.repeat(totalLines - 1)}
-          </span>
+          <span style={{ userSelect: 'none' }}>{' '.repeat(maxLineLength) + '\n'.repeat(totalLines - 1)}</span>
           <span style={{ position: 'absolute', top: 24 }}>
             {tags
               .filter((_, i) => progress >= lengths[i])
-              .map(({ format: { bold, colorForeground, colorBackground }, text }, i) =>
-                (
-                  <span
-                    key={i}
-                    style={{
-                      fontWeight: bold ? 'bold' : undefined,
-                      color: colorForeground !== DEFAULT_TEXT_COLOR ? colorForeground : undefined,
-                      backgroundColor: colorBackground !== DEFAULT_BACKGROUND_COLOR ? colorBackground : undefined
-                    }}
-                  >
+              .map(({ format: { bold, colorForeground, colorBackground }, text }, i) => (
+                <span
+                  key={i}
+                  style={{
+                    fontWeight: bold ? 'bold' : undefined,
+                    color: colorForeground !== DEFAULT_TEXT_COLOR ? colorForeground : undefined,
+                    backgroundColor: colorBackground !== DEFAULT_BACKGROUND_COLOR ? colorBackground : undefined,
+                  }}
+                >
                   {text.slice(0, Math.min(progress - lengths[i], text.length))}
                 </span>
-                )
-              )}
+              ))}
           </span>
         </Box>
       </Box>
     </Card>
   );
-}
+};

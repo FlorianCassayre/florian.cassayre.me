@@ -1,6 +1,9 @@
 import React, { useCallback } from 'react';
+
+import { FiberManualRecord, GitHub, Launch, VisibilityOff } from '@mui/icons-material';
 import {
-  AspectRatio, Box,
+  AspectRatio,
+  Box,
   Card,
   CardContent,
   CardOverflow,
@@ -8,19 +11,21 @@ import {
   ChipProps,
   Divider,
   IconButton,
-  Stack, Tooltip,
+  Stack,
+  Tooltip,
   Typography,
   useTheme,
 } from '@mui/joy';
-import { FiberManualRecord, GitHub, Launch, VisibilityOff } from '@mui/icons-material';
 import { IconType } from '@react-icons/all-files';
 import { FormattedMessage, useIntl } from 'react-intl';
 
-type Technology = string | {
-  name: string;
-  icon: IconType;
-  color?: ChipProps['color'];
-};
+type Technology =
+  | string
+  | {
+      name: string;
+      icon: IconType;
+      color?: ChipProps['color'];
+    };
 
 interface ProjectCardProps {
   image?: string;
@@ -35,7 +40,18 @@ interface ProjectCardProps {
   pro?: boolean;
 }
 
-export const ProjectCard: React.FC<ProjectCardProps> = ({ image, logo, title, description, technologies, status, statusText, homepage, github, pro }) => {
+export const ProjectCard: React.FC<ProjectCardProps> = ({
+  image,
+  logo,
+  title,
+  description,
+  technologies,
+  status,
+  statusText,
+  homepage,
+  github,
+  pro,
+}) => {
   const { $t } = useIntl();
   const theme = useTheme();
   const renderIcon = useCallback((Icon: IconType) => <Icon />, []);
@@ -44,13 +60,34 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ image, logo, title, de
       <CardOverflow sx={{ mb: logo ? { xs: 3, sm: 2 } : undefined }}>
         <AspectRatio ratio="2">
           {!!image && (
-            <img src={image} alt={$t({ id: 'home.project.illustrationAlt' })} style={{ pointerEvents: 'none', userSelect: 'none' }} />
+            <img
+              src={image}
+              alt={$t({ id: 'home.project.illustrationAlt' })}
+              style={{ pointerEvents: 'none', userSelect: 'none' }}
+            />
           )}
         </AspectRatio>
         {!!logo && (
           <Box sx={{ position: 'relative', mx: 'auto' }}>
-            <Box sx={{ p: 1, position: 'absolute', transform: 'translate(-50%, -50%)', backgroundColor: 'white', borderRadius: '100%', border: '2px solid #f0f4f8', height: '68px', filter: 'drop-shadow(0px 2px 4px #00000030)' }}>
-              <img src={logo} alt={$t({ id: 'home.logoAlt' })} width="48px" height="48px" style={{ pointerEvents: 'none', userSelect: 'none' }} />
+            <Box
+              sx={{
+                p: 1,
+                position: 'absolute',
+                transform: 'translate(-50%, -50%)',
+                backgroundColor: 'white',
+                borderRadius: '100%',
+                border: '2px solid #f0f4f8',
+                height: '68px',
+                filter: 'drop-shadow(0px 2px 4px #00000030)',
+              }}
+            >
+              <img
+                src={logo}
+                alt={$t({ id: 'home.logoAlt' })}
+                width="48px"
+                height="48px"
+                style={{ pointerEvents: 'none', userSelect: 'none' }}
+              />
             </Box>
           </Box>
         )}
@@ -60,7 +97,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ image, logo, title, de
           <Typography level="title-md">{title}</Typography>
           {!!pro && (
             <Tooltip title={$t({ id: 'home.project.types.pro.description' })} sx={{ cursor: 'help' }}>
-              <Chip variant="soft" color="primary"><FormattedMessage id="home.project.types.pro.label" /></Chip>
+              <Chip variant="soft" color="primary">
+                <FormattedMessage id="home.project.types.pro.label" />
+              </Chip>
             </Tooltip>
           )}
         </Stack>
@@ -85,7 +124,10 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ image, logo, title, de
         <CardContent orientation="horizontal" sx={{ py: 1 }}>
           <Stack direction="row" justifyContent="space-between" alignItems="center" width="100%">
             <Stack direction="row" spacing={0.5} alignItems="center">
-              <FiberManualRecord color={status === true ? 'success' : status === false ? 'error' : 'warning'} sx={{ fontSize: 16 }} />
+              <FiberManualRecord
+                color={status === true ? 'success' : status === false ? 'error' : 'warning'}
+                sx={{ fontSize: 16 }}
+              />
               <Typography level="body-xs" fontWeight="md" textColor="text.secondary">
                 {statusText}
               </Typography>
@@ -96,7 +138,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ image, logo, title, de
                   <GitHub color="action" />
                 </IconButton>
               ) : (
-                <Stack> {/* Ugly hack around https://github.com/mui/material-ui/issues/38943 */}
+                <Stack>
+                  {' '}
+                  {/* Ugly hack around https://github.com/mui/material-ui/issues/38943 */}
                   <Box sx={{ p: 0.1 }}>
                     <Tooltip title={$t({ id: 'home.project.closedSource' })}>
                       <VisibilityOff sx={{ color: theme.palette.neutral.outlinedDisabledColor }} />
@@ -105,7 +149,14 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ image, logo, title, de
                 </Stack>
               )}
               {!!homepage && (
-                <IconButton component="a" href={homepage} target="_blank" rel="noopener" size="sm" aria-label={$t({ id: 'common.externalLink' })}>
+                <IconButton
+                  component="a"
+                  href={homepage}
+                  target="_blank"
+                  rel="noopener"
+                  size="sm"
+                  aria-label={$t({ id: 'common.externalLink' })}
+                >
                   <Launch color="action" />
                 </IconButton>
               )}

@@ -1,6 +1,7 @@
 import React from 'react';
-import { Box, Card, CardContent, Chip, IconButton, Stack, Typography } from '@mui/joy';
+
 import { Launch, SvgIconComponent } from '@mui/icons-material';
+import { Box, Card, CardContent, Chip, IconButton, Stack, Typography } from '@mui/joy';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 interface ContributedProjectCardProps {
@@ -12,7 +13,14 @@ interface ContributedProjectCardProps {
   retired?: boolean;
 }
 
-export const ContributedProjectCard: React.FC<ContributedProjectCardProps> = ({ title, description, icon: Icon, homepage, production, retired }) => {
+export const ContributedProjectCard: React.FC<ContributedProjectCardProps> = ({
+  title,
+  description,
+  icon: Icon,
+  homepage,
+  production,
+  retired,
+}) => {
   const { $t } = useIntl();
   return (
     <Card sx={{ height: '100%' }}>
@@ -21,21 +29,27 @@ export const ContributedProjectCard: React.FC<ContributedProjectCardProps> = ({ 
           <Box sx={{ flexGrow: 1 }}>
             <Stack direction="row" spacing={1} alignItems="center">
               <Icon color="action" />
-              <Typography level="title-md">
-                {title}
-              </Typography>
+              <Typography level="title-md">{title}</Typography>
               {production && (
-                <Chip variant="soft" color="success"><FormattedMessage id="home.project.status.production" /></Chip>
+                <Chip variant="soft" color="success">
+                  <FormattedMessage id="home.project.status.production" />
+                </Chip>
               )}
               {retired && (
-                <Chip variant="soft" color="warning"><FormattedMessage id="home.project.status.retired" /></Chip>
+                <Chip variant="soft" color="warning">
+                  <FormattedMessage id="home.project.status.retired" />
+                </Chip>
               )}
             </Stack>
-            <Typography>
-              {description}
-            </Typography>
+            <Typography>{description}</Typography>
           </Box>
-          <IconButton component="a" href={homepage} target="_blank" rel="noopener" aria-label={$t({ id: 'common.externalLink' })}>
+          <IconButton
+            component="a"
+            href={homepage}
+            target="_blank"
+            rel="noopener"
+            aria-label={$t({ id: 'common.externalLink' })}
+          >
             <Launch color="action" />
           </IconButton>
         </Stack>

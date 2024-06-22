@@ -1,6 +1,8 @@
 import React from 'react';
-import { EmailCard } from '../../../components/card/EmailCard';
+
 import { useIntl } from 'react-intl';
+
+import { EmailCard } from '../../../components/card/EmailCard';
 
 const Key = 'home.social.contact';
 

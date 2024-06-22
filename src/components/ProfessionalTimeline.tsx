@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+
+import { Add } from '@mui/icons-material';
+import { Box, Button, Chip, Typography, useTheme } from '@mui/joy';
 import {
   Timeline,
   TimelineConnector,
@@ -6,12 +9,10 @@ import {
   TimelineDot,
   TimelineItem,
   TimelineOppositeContent,
-  timelineOppositeContentClasses,
   TimelineSeparator,
+  timelineOppositeContentClasses,
 } from '@mui/lab';
-import { Box, Button, Chip, Typography, useTheme } from '@mui/joy';
 import { Collapse, Fade, useMediaQuery } from '@mui/material';
-import { Add } from '@mui/icons-material';
 import { FormattedMessage } from 'react-intl';
 
 interface TimelineEventInstitution {
@@ -42,36 +43,50 @@ export const ProfessionalTimelineStatic: React.FC<ProfessionalTimelineProps> = (
     <Timeline
       sx={{
         px: 0,
-        [`& .${timelineOppositeContentClasses.root}`]: isDesktop ? undefined : {
-          flex: 0.2,
-        },
+        [`& .${timelineOppositeContentClasses.root}`]: isDesktop
+          ? undefined
+          : {
+              flex: 0.2,
+            },
       }}
     >
       {events.map(({ date, institution, title }, i) => (
         <TimelineItem key={i}>
           <TimelineOppositeContent sx={{ py: { sm: 4 }, maxWidth: '40vw', ml: 'auto', mr: 0 }}>
-            <Chip variant="outlined" sx={{ mb: 0.5 }}>{date}</Chip>
+            <Chip variant="outlined" sx={{ mb: 0.5 }}>
+              {date}
+            </Chip>
             <Typography level="title-sm" sx={{ color: theme.palette.text.tertiary }}>
-              <Typography sx={{ display: { xs: 'none', sm: 'inline' } }}>
-                {institution.fullname}
-              </Typography>
-              <Typography sx={{ display: { sm: 'none' } }}>
-                {institution.name}
-              </Typography>
+              <Typography sx={{ display: { xs: 'none', sm: 'inline' } }}>{institution.fullname}</Typography>
+              <Typography sx={{ display: { sm: 'none' } }}>{institution.name}</Typography>
             </Typography>
           </TimelineOppositeContent>
           <TimelineSeparator>
             <TimelineDot sx={{ backgroundColor: { sm: 'white' } }}>
-                <Box sx={{ display: { xs: 'none', sm: 'flex' }, borderRadius: '100%', width: '48px', height: '48px', backgroundColor: 'white', justifyContent: 'center', alignItems: 'center' }}>
-                  <img src={institution.logo} alt={institution.fullname} width={computeSize(institution.logoScale)} height={computeSize(institution.logoScale)}  style={{ pointerEvents: 'none', userSelect: 'none' }} />
-                </Box>
+              <Box
+                sx={{
+                  display: { xs: 'none', sm: 'flex' },
+                  borderRadius: '100%',
+                  width: '48px',
+                  height: '48px',
+                  backgroundColor: 'white',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}
+              >
+                <img
+                  src={institution.logo}
+                  alt={institution.fullname}
+                  width={computeSize(institution.logoScale)}
+                  height={computeSize(institution.logoScale)}
+                  style={{ pointerEvents: 'none', userSelect: 'none' }}
+                />
+              </Box>
             </TimelineDot>
             <TimelineConnector />
           </TimelineSeparator>
           <TimelineContent sx={{ py: { sm: 4 }, maxWidth: '45vw' }}>
-            <Typography>
-              {title}
-            </Typography>
+            <Typography>{title}</Typography>
           </TimelineContent>
         </TimelineItem>
       ))}
@@ -79,7 +94,7 @@ export const ProfessionalTimelineStatic: React.FC<ProfessionalTimelineProps> = (
   );
 };
 
-export const ProfessionalTimeline: React.FC<ProfessionalTimelineProps> = (props) => {
+export const ProfessionalTimeline: React.FC<ProfessionalTimelineProps> = props => {
   const [expanded, setExpanded] = useState(false);
   return (
     <Box>
@@ -88,12 +103,27 @@ export const ProfessionalTimeline: React.FC<ProfessionalTimelineProps> = (props)
           <ProfessionalTimelineStatic {...props} />
         </Collapse>
         <Fade in={!expanded} appear={false}>
-          <Box sx={{ width: '100%', height: '100px', position: 'absolute', bottom: 0, background: 'linear-gradient(0deg, #f0f4f8 0%, rgba(0,0,0,0) 100%)' }} />
+          <Box
+            sx={{
+              width: '100%',
+              height: '100px',
+              position: 'absolute',
+              bottom: 0,
+              background: 'linear-gradient(0deg, #f0f4f8 0%, rgba(0,0,0,0) 100%)',
+            }}
+          />
         </Fade>
       </Box>
       <Collapse in={!expanded} unmountOnExit>
-        <Button variant="plain" startDecorator={<Add />} onClick={() => setExpanded(true)} sx={{ mt: 2, width: '100%' }}><FormattedMessage id="common.action.viewMore" /></Button>
+        <Button
+          variant="plain"
+          startDecorator={<Add />}
+          onClick={() => setExpanded(true)}
+          sx={{ mt: 2, width: '100%' }}
+        >
+          <FormattedMessage id="common.action.viewMore" />
+        </Button>
       </Collapse>
     </Box>
-  )
-}
+  );
+};

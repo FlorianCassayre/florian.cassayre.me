@@ -1,7 +1,9 @@
 import React from 'react';
-import { LanguageCard } from '../../../components/card/LanguageCard';
+
 import { DE, FR, GB, SE } from 'country-flag-icons/react/3x2';
 import { useIntl } from 'react-intl';
+
+import { LanguageCard } from '../../../components/card/LanguageCard';
 import { I18nMessageIds } from '../../../i18n/messages';
 
 const LanguageKey = 'language';
@@ -29,5 +31,5 @@ export const LanguageCardContent: React.FC = () => {
         { name: $t({ id: LanguageSwedish }), flag: SE, level: $t({ id: LevelBasics }) },
       ]}
     />
-  )
+  );
 };

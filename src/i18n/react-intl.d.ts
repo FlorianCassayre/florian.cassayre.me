@@ -1,5 +1,5 @@
-import { I18nMessageIds } from './messages';
 import { Locale } from './Locale';
+import { I18nMessageIds } from './messages';
 
 declare global {
   namespace FormatjsIntl {
@@ -9,7 +9,6 @@ declare global {
     interface IntlConfig {
       locale: Locale;
     }
-    interface Formats {
-    }
+    interface Formats {}
   }
 }

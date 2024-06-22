@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { Box, Card, CardContent, Chip, Stack, SvgIcon, Table, Typography } from '@mui/joy';
 import { FlagComponent } from 'country-flag-icons/react/3x2';
 import { FormattedMessage } from 'react-intl';
@@ -29,16 +30,12 @@ export const LanguageCard: React.FC<LanguageCardProps> = ({ languages }) => {
                     <SvgIcon>
                       <Flag />
                     </SvgIcon>
-                    <Typography>
-                      {name}
-                    </Typography>
+                    <Typography>{name}</Typography>
                   </Stack>
                 </td>
                 <td>
                   <Box textAlign="right">
-                    <Chip variant="outlined">
-                      {level}
-                    </Chip>
+                    <Chip variant="outlined">{level}</Chip>
                   </Box>
                 </td>
               </tr>

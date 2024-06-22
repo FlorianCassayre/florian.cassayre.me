@@ -1,15 +1,13 @@
 import React from 'react';
-import { ProfileLogo } from '../../components/ProfileLogo';
+
 import { Stack, Typography } from '@mui/joy';
+
+import { ProfileLogo } from '../../components/ProfileLogo';
 
 export const ProfileContent: React.FC = () => {
   return (
     <Stack direction="column" spacing={1} alignItems="center" sx={{ mt: 2, mb: 2 }}>
-      <ProfileLogo
-        image1="/profile.jpg"
-        image2="/profile_infinity.png"
-        alt="Florian Cassayre"
-      />
+      <ProfileLogo image1="/profile.jpg" image2="/profile_infinity.png" alt="Florian Cassayre" />
       <Typography level="h1" fontWeight="sm" fontFamily="Bitter">
         Florian Cassayre
       </Typography>

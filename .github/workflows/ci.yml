@@ -27,7 +27,7 @@ jobs:
       - run: npm ci
       - run: npm run generate-favicons
       - run: npm run build
-      - run: npm run check
+      - run: npm run compile
       - run: npm run lint
       - name: Merge to master
         if: github.ref == 'refs/heads/develop'

@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import { ProjectCards } from '../../../components/card/ProjectCards';
+
 import { DiJava } from '@react-icons/all-files/di/DiJava';
 import { DiReact } from '@react-icons/all-files/di/DiReact';
 import { DiScala } from '@react-icons/all-files/di/DiScala';
@@ -7,6 +7,8 @@ import { FaProjectDiagram } from '@react-icons/all-files/fa/FaProjectDiagram';
 import { GrMysql } from '@react-icons/all-files/gr/GrMysql';
 import { GrOracle } from '@react-icons/all-files/gr/GrOracle';
 import { useIntl } from 'react-intl';
+
+import { ProjectCards } from '../../../components/card/ProjectCards';
 
 export const ProjectCardsContent: React.FC = () => {
   const intl = useIntl();
@@ -19,10 +21,17 @@ export const ProjectCardsContent: React.FC = () => {
   const CAMUNDA = { name: 'Camunda', icon: FaProjectDiagram, color: 'neutral' } as const;
   const NEXTJS = { name: 'Next.js', icon: DiReact, color: 'neutral' } as const;
 
-  const status = useCallback((status: boolean | null): Pick<Parameters<typeof ProjectCards>[0]['projects'][number], 'status' | 'statusText'> => ({
-    status,
-    statusText: intl.$t({ id: status === true ? 'home.project.status.production' : 'home.project.status.incrementalDeployment' }),
-  }), [intl]);
+  const status = useCallback(
+    (
+      status: boolean | null
+    ): Pick<Parameters<typeof ProjectCards>[0]['projects'][number], 'status' | 'statusText'> => ({
+      status,
+      statusText: intl.$t({
+        id: status === true ? 'home.project.status.production' : 'home.project.status.incrementalDeployment',
+      }),
+    }),
+    [intl]
+  );
 
   return (
     <ProjectCards
@@ -59,4 +68,4 @@ export const ProjectCardsContent: React.FC = () => {
       ]}
     />
   );
-}
+};

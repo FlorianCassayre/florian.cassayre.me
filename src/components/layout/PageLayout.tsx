@@ -1,7 +1,9 @@
 import React from 'react';
+
 import { Box, Container, CssBaseline, CssVarsProvider, Stack } from '@mui/joy';
-import { HeaderContent } from '../../content/layout/HeaderContent';
+
 import { FooterContent } from '../../content/layout/FooterContent';
+import { HeaderContent } from '../../content/layout/HeaderContent';
 
 interface PageLayoutProps {
   children: React.ReactNode;

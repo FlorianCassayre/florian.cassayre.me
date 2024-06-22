@@ -1,6 +1,8 @@
 import React from 'react';
-import { ProfessionalTimeline } from '../../components/ProfessionalTimeline';
+
 import { useIntl } from 'react-intl';
+
+import { ProfessionalTimeline } from '../../components/ProfessionalTimeline';
 
 const Key = 'home.career';
 

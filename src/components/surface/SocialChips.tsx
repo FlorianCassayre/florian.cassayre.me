@@ -1,6 +1,8 @@
-import { SocialChip } from '../SocialChip';
 import React from 'react';
+
 import { Stack } from '@mui/joy';
+
+import { SocialChip } from '../SocialChip';
 
 type SocialItem = Parameters<typeof SocialChip>[0];
 
@@ -16,4 +18,4 @@ export const SocialChips: React.FC<SocialChipsProps> = ({ items }) => {
       ))}
     </Stack>
   );
-}
+};

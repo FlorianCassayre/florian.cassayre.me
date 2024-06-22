@@ -1,7 +1,9 @@
 import React from 'react';
-import { SoftLink } from '../../../components/SoftLink';
+
 import { FormattedMessage, useIntl } from 'react-intl';
+
 import { NotFound } from './NotFound';
+import { SoftLink } from '../../../components/SoftLink';
 
 interface NotFoundFallbackContentProps {
   fallback: string;
@@ -16,7 +18,11 @@ export const NotFoundFallbackContent: React.FC<NotFoundFallbackContentProps> = (
         <FormattedMessage
           id="notFoundFallback.description"
           values={{
-            a: chunk => <SoftLink href={fallback} target="_blank" rel="noopener">{chunk}</SoftLink>,
+            a: chunk => (
+              <SoftLink href={fallback} target="_blank" rel="noopener">
+                {chunk}
+              </SoftLink>
+            ),
             fallback,
           }}
         />

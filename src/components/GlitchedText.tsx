@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { styled } from '@mui/joy';
 
 const Keyframes = 'blink';
@@ -21,7 +22,7 @@ export const GlitchedText: React.FC<GlitchedTextProps> = styled('span')(({ theme
     },
     '100%': {
       backgroundPosition: '100% 50%',
-    }
+    },
   },
   animation: `${Keyframes} 3s infinite ease`,
 }));

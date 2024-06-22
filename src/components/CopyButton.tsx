@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { IconButton, Tooltip } from '@mui/joy';
+
 import { Check, ContentCopy } from '@mui/icons-material';
+import { IconButton, Tooltip } from '@mui/joy';
 import { useIntl } from 'react-intl';
 
 const Key = 'common.copy';

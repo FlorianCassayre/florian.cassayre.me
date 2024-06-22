@@ -1,6 +1,9 @@
+import React from 'react';
+
+import { Grid } from '@mui/joy';
+
 import { PageLayout } from '../../components/layout/PageLayout';
 import { PgpFingerprintCardContent } from '../../content/home/card/PgpFingerprintCardContent';
-import { Grid } from '@mui/joy';
 import { PgpKeyCardContent } from '../../content/home/card/PgpKeyCardContent';
 
 export function Page() {

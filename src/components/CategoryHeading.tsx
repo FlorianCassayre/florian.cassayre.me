@@ -1,6 +1,7 @@
-import SvgIcon from '@mui/material/SvgIcon';
 import React from 'react';
-import { Divider, Stack, styled, Typography, useTheme } from '@mui/joy';
+
+import { Divider, Stack, Typography, styled, useTheme } from '@mui/joy';
+import SvgIcon from '@mui/material/SvgIcon';
 
 const StyledDivider = styled(Divider)(() => {
   const originalColor = 'rgba(99, 107, 116, 0.2)';
@@ -32,4 +33,4 @@ export const CategoryHeading: React.FC<CategoryHeadingProps> = ({ children, icon
       </StyledDivider>
     </Stack>
   );
-}
+};

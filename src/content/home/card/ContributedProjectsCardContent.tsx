@@ -1,7 +1,9 @@
 import React from 'react';
-import { ContributedProjectsCard } from '../../../components/card/ContributedProjectsCard';
+
 import { Architecture, Games, Hexagon, Lightbulb, LocalLibrary, LocationOn } from '@mui/icons-material';
 import { useIntl } from 'react-intl';
+
+import { ContributedProjectsCard } from '../../../components/card/ContributedProjectsCard';
 
 const Key = 'home.contributed';
 

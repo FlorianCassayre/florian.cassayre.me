@@ -1,7 +1,8 @@
 import type { PageContextServer } from './types';
-import { extractLocale, localizeUrl } from '../i18n/utils';
 import type { OnBeforeRouteSync } from 'vike/types';
+
 import { INVISIBLE_REDIRECTIONS, REDIRECT_PAGE_NAME } from '../content/redirect/legacy';
+import { extractLocale, localizeUrl } from '../i18n/utils';
 
 export function onBeforeRoute(pageContext: PageContextServer): ReturnType<OnBeforeRouteSync> {
   const { urlWithoutLocale, locale } = extractLocale(pageContext.urlOriginal);
@@ -13,6 +14,6 @@ export function onBeforeRoute(pageContext: PageContextServer): ReturnType<OnBefo
       // We overwrite `pageContext.urlOriginal`
       urlLogical: redirect === undefined ? urlWithoutLocale : `/${REDIRECT_PAGE_NAME}`,
       urlRedirect: redirect !== undefined ? localizeUrl(redirect, locale) : undefined,
-    }
-  }
+    },
+  };
 }

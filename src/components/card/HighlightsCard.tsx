@@ -1,14 +1,7 @@
 import React from 'react';
-import {
-  Accordion,
-  AccordionDetails,
-  AccordionGroup,
-  AccordionSummary,
-  Card,
-  Stack,
-  Typography,
-} from '@mui/joy';
+
 import { SvgIconComponent } from '@mui/icons-material';
+import { Accordion, AccordionDetails, AccordionGroup, AccordionSummary, Card, Stack, Typography } from '@mui/joy';
 
 interface Highlight {
   title: string;
@@ -32,9 +25,7 @@ export const HighlightsCard: React.FC<HighlightsCardProps> = ({ highlights }) =>
                 <Typography>{title}</Typography>
               </Stack>
             </AccordionSummary>
-            <AccordionDetails sx={{ px: 2 }}>
-              {content}
-            </AccordionDetails>
+            <AccordionDetails sx={{ px: 2 }}>{content}</AccordionDetails>
           </Accordion>
         ))}
       </AccordionGroup>

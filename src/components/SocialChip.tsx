@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { Chip } from '@mui/joy';
 import SvgIcon from '@mui/material/SvgIcon';
 
@@ -23,10 +24,10 @@ export const SocialChip: React.FC<SocialChipProps> = ({ name, icon: Icon, color,
       size="lg"
       onClick={() => {}}
       sx={{
-        "--Chip-minHeight": "48px"
+        '--Chip-minHeight': '48px',
       }}
     >
       {name}
     </Chip>
   );
-}
+};

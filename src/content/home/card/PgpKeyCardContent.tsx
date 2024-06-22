@@ -1,8 +1,8 @@
 import React from 'react';
+
 import { PgpKeyCard } from '../../../components/card/PgpKeyCard';
 
-const PGP_KEY: string =
-  `-----BEGIN PGP PUBLIC KEY BLOCK-----
+const PGP_KEY: string = `-----BEGIN PGP PUBLIC KEY BLOCK-----
 Version: GnuPG v1
 
 mQINBFiwvE4BEADDqk4JchctQJKsNiXjoTfnuaOv0gbNBg2KzK+MhzLqp/TZlbox
@@ -56,10 +56,5 @@ xLdcThS/nFlnT6rDq7k8
 -----END PGP PUBLIC KEY BLOCK-----`;
 
 export const PgpKeyCardContent: React.FC = () => {
-  return (
-    <PgpKeyCard
-      pgpKey={PGP_KEY}
-      scheme="4096-bit RSA"
-    />
-  )
-}
+  return <PgpKeyCard pgpKey={PGP_KEY} scheme="4096-bit RSA" />;
+};

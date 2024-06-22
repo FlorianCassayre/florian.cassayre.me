@@ -1,5 +1,7 @@
 import React from 'react';
+
 import { GitHub, LinkedIn, School } from '@mui/icons-material';
+
 import { SocialChips } from '../../components/surface/SocialChips';
 
 export const SocialChipsContent: React.FC = () => {
@@ -20,8 +22,8 @@ export const SocialChipsContent: React.FC = () => {
           name: 'ORCID',
           icon: School, // TODO use `SiOrcid`
           url: 'https://orcid.org/0000-0001-5784-8051',
-        }
+        },
       ]}
     />
   );
-}
+};

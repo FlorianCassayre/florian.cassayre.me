@@ -1,6 +1,8 @@
 import React from 'react';
-import { AdventOfCodeCard } from '../../../components/card/AdventOfCodeCard';
+
 import { useIntl } from 'react-intl';
+
+import { AdventOfCodeCard } from '../../../components/card/AdventOfCodeCard';
 
 const Key = 'home.challenges.adventOfCode';
 

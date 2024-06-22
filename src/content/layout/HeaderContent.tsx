@@ -1,9 +1,11 @@
 import React from 'react';
-import { IconButton, Stack, Typography } from '@mui/joy';
+
 import { Email, GitHub, LinkedIn } from '@mui/icons-material';
+import { IconButton, Stack, Typography } from '@mui/joy';
+import { useIntl } from 'react-intl';
+
 import { LanguageToggle } from '../../components/LanguageToggle';
 import { useUrlGenerator } from '../../hooks/useUrlGenerator';
-import { useIntl } from 'react-intl';
 
 export const HeaderContent: React.FC = () => {
   const { $t } = useIntl();
@@ -14,13 +16,31 @@ export const HeaderContent: React.FC = () => {
         Florian Cassayre
       </Typography>
       <Stack direction="row" spacing={0.5}>
-        <IconButton component="a" href="https://github.com/FlorianCassayre" target="_blank" rel="noopener" aria-label="GitHub">
+        <IconButton
+          component="a"
+          href="https://github.com/FlorianCassayre"
+          target="_blank"
+          rel="noopener"
+          aria-label="GitHub"
+        >
           <GitHub color="action" />
         </IconButton>
-        <IconButton component="a" href="https://www.linkedin.com/in/florian-cassayre" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <IconButton
+          component="a"
+          href="https://www.linkedin.com/in/florian-cassayre"
+          target="_blank"
+          rel="noopener"
+          aria-label="LinkedIn"
+        >
           <LinkedIn color="action" />
         </IconButton>
-        <IconButton component="a" href="mailto:florian@cassayre.me" target="_blank" rel="noopener" aria-label={$t({ id: 'header.emailAddress' })}>
+        <IconButton
+          component="a"
+          href="mailto:florian@cassayre.me"
+          target="_blank"
+          rel="noopener"
+          aria-label={$t({ id: 'header.emailAddress' })}
+        >
           <Email color="action" />
         </IconButton>
         <LanguageToggle />

@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+
 import { Button, ToggleButtonGroup } from '@mui/joy';
-import { LOCALES, localizeUrl } from '../i18n/utils';
 import { usePageContext } from 'vike-react/usePageContext';
+
+import { LOCALES, localizeUrl } from '../i18n/utils';
 
 export const LanguageToggle: React.FC = () => {
   const { locale, urlPathname } = usePageContext();

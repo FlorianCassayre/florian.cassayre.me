@@ -1,6 +1,7 @@
 import React from 'react';
-import { Box, Card, CardContent, IconButton, Stack, Typography } from '@mui/joy';
+
 import { Launch, SvgIconComponent } from '@mui/icons-material';
+import { Box, Card, CardContent, IconButton, Stack, Typography } from '@mui/joy';
 import { useIntl } from 'react-intl';
 
 interface AppCardProps {
@@ -21,11 +22,15 @@ export const AppCard: React.FC<AppCardProps> = ({ name, icon: Icon, description,
               <Icon color="action" />
               <Typography level="title-md">{name}</Typography>
             </Stack>
-            <Typography>
-              {description}
-            </Typography>
+            <Typography>{description}</Typography>
           </Box>
-          <IconButton component="a" href={homepage} target="_blank" rel="noopener" aria-label={$t({ id: 'common.externalLink' })}>
+          <IconButton
+            component="a"
+            href={homepage}
+            target="_blank"
+            rel="noopener"
+            aria-label={$t({ id: 'common.externalLink' })}
+          >
             <Launch color="action" />
           </IconButton>
         </Stack>

@@ -9,12 +9,13 @@ export type {
   /*/
   // When using Server Routing
   PageContextClientWithServerRouting as PageContextClient,
-  PageContextWithServerRouting as PageContext
+  PageContextWithServerRouting as PageContext,
   //*/
-} from 'vike/types'
+} from 'vike/types';
 
 // https://vike.dev/pageContext#typescript
 declare global {
+  // eslint-disable-next-line @typescript-eslint/no-namespace
   namespace Vike {
     interface PageContext {
       urlPathname: string;
@@ -24,11 +25,10 @@ declare global {
       urlRedirect?: string;
       exports: {
         documentProps?: {
-          title?: string
-          description?: string
-        }
-      }
+          title?: string;
+          description?: string;
+        };
+      };
     }
   }
 }
-

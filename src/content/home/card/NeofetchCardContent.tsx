@@ -1,10 +1,10 @@
 import React from 'react';
+
 import { NeofetchCard } from '../../../components/card/NeofetchCard';
 
 // $ neofetch --disable uptime packages icons
 
-const NEOFETCH_RAW: string =
-  `[?25l[?7l[0m[31m[1m            .-/+oossssoo+/-.
+const NEOFETCH_RAW: string = `[?25l[?7l[0m[31m[1m            .-/+oossssoo+/-.
         \`:+ssssssssssssssssss+:\`
       -+ssssssssssssssssssyyssss+-
     .ossssssssssssssssss[37m[0m[1mdMMMNy[0m[31m[1msssso.
@@ -46,7 +46,5 @@ oss[37m[0m[1myNMMMNyMMh[0m[31m[1msssssssssssssshmmmh[0m[31m[1mssssssso
 [?25h[?7h`;
 
 export const NeofetchCardContent: React.FC = () => {
-  return (
-    <NeofetchCard neofetchRaw={NEOFETCH_RAW} />
-  );
-}
+  return <NeofetchCard neofetchRaw={NEOFETCH_RAW} />;
+};

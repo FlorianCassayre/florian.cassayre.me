@@ -25,12 +25,10 @@ const VISIBLE_REDIRECTIONS: [path: RegExp | string, fallback: string][] = [
 ];
 
 export const getLegacyVisibleRedirection = (urlPathname: string): string | null =>
-  VISIBLE_REDIRECTIONS
-    .filter(([expr]) => {
-      if (typeof expr === 'string') {
-        return expr === urlPathname;
-      } else {
-        return expr.exec(urlPathname);
-      }
-    })
-    .map(([, fallback]) => fallback)[0] ?? null;
+  VISIBLE_REDIRECTIONS.filter(([expr]) => {
+    if (typeof expr === 'string') {
+      return expr === urlPathname;
+    } else {
+      return expr.exec(urlPathname);
+    }
+  }).map(([, fallback]) => fallback)[0] ?? null;

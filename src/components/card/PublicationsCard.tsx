@@ -1,15 +1,17 @@
 import React from 'react';
+
+import { Launch } from '@mui/icons-material';
 import {
   Accordion,
   AccordionDetails,
   AccordionGroup,
   AccordionSummary,
   Card,
-  Chip, IconButton,
+  Chip,
+  IconButton,
   Stack,
   Typography,
 } from '@mui/joy';
-import { Launch } from '@mui/icons-material';
 import { useIntl } from 'react-intl';
 
 interface Publication {
@@ -36,12 +38,8 @@ export const PublicationsCard: React.FC<PublicationsCardProps> = ({ publications
             <AccordionSummary>
               <Stack direction="row" spacing={1} alignItems="center">
                 <Chip variant="outlined">{year}</Chip>
-                <Typography>
-                  {title}
-                </Typography>
-                {!!conference && (
-                  <Chip color="primary">{conference}</Chip>
-                )}
+                <Typography>{title}</Typography>
+                {!!conference && <Chip color="primary">{conference}</Chip>}
               </Stack>
             </AccordionSummary>
             <AccordionDetails>
@@ -49,9 +47,20 @@ export const PublicationsCard: React.FC<PublicationsCardProps> = ({ publications
                 <Stack direction="column" spacing={1} sx={{ width: '100%' }}>
                   <Typography level="body-sm">{authors.join(', ')}</Typography>
                   <Typography textAlign="justify">{description}</Typography>
-                  {!!context && <Typography level="body-sm" fontStyle="italic">{context}</Typography>}
+                  {!!context && (
+                    <Typography level="body-sm" fontStyle="italic">
+                      {context}
+                    </Typography>
+                  )}
                 </Stack>
-                <IconButton component="a" href={link} target="_blank" rel="noopener" sx={{ flexShrink: 0 }} aria-label={$t({ id: 'common.externalLink' })}>
+                <IconButton
+                  component="a"
+                  href={link}
+                  target="_blank"
+                  rel="noopener"
+                  sx={{ flexShrink: 0 }}
+                  aria-label={$t({ id: 'common.externalLink' })}
+                >
                   <Launch color="action" />
                 </IconButton>
               </Stack>
@@ -61,4 +70,4 @@ export const PublicationsCard: React.FC<PublicationsCardProps> = ({ publications
       </AccordionGroup>
     </Card>
   );
-}
+};

@@ -1,6 +1,6 @@
-import react from '@vitejs/plugin-react'
-import vike from 'vike/plugin'
-import { UserConfig } from 'vite'
+import react from '@vitejs/plugin-react';
+import vike from 'vike/plugin';
+import { UserConfig } from 'vite';
 
 const config: UserConfig = {
   plugins: [
@@ -9,8 +9,8 @@ const config: UserConfig = {
       prerender: true,
       // Doesn't seem to work anymore with `vike-react`; instead we re-implement it with a meta refresh tag (also `redirect` doesn't support SSG anyways)
       //redirects: INVISIBLE_REDIRECTIONS,
-    })
-  ]
-}
+    }),
+  ],
+};
 
-export default config
+export default config;

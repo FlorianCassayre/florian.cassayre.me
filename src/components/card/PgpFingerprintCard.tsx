@@ -1,8 +1,10 @@
 import React from 'react';
-import { Card, CardContent, Input, Typography } from '@mui/joy';
+
 import { Key } from '@mui/icons-material';
-import { CopyButton } from '../CopyButton';
+import { Card, CardContent, Input, Typography } from '@mui/joy';
 import { FormattedMessage, useIntl } from 'react-intl';
+
+import { CopyButton } from '../CopyButton';
 
 interface PgpFingerprintCardProps {
   fingerprint: string;

@@ -1,8 +1,10 @@
 import React from 'react';
-import { Card, Stack, Textarea, Typography } from '@mui/joy';
-import { CopyButton } from '../CopyButton';
-import { FormattedMessage, useIntl } from 'react-intl';
+
 import { Lock } from '@mui/icons-material';
+import { Card, Stack, Textarea, Typography } from '@mui/joy';
+import { FormattedMessage, useIntl } from 'react-intl';
+
+import { CopyButton } from '../CopyButton';
 
 interface PgpKeyCardProps {
   pgpKey: string;
@@ -17,7 +19,7 @@ export const PgpKeyCard: React.FC<PgpKeyCardProps> = ({ pgpKey, scheme }) => {
         <FormattedMessage id="pgp.key.title" />
       </Typography>
       <Textarea
-        startDecorator={(
+        startDecorator={
           <Stack direction="row" spacing={1} justifyContent="space-between" alignItems="center" sx={{ width: '100%' }}>
             <Typography level="body-xs" sx={{ pl: 1 }}>
               <Stack direction="row" spacing={0.5} alignItems="center">
@@ -27,7 +29,7 @@ export const PgpKeyCard: React.FC<PgpKeyCardProps> = ({ pgpKey, scheme }) => {
             </Typography>
             <CopyButton content={pgpKey} />
           </Stack>
-        )}
+        }
         value={pgpKey}
         readOnly
         aria-label={$t({ id: 'home.social.pgp.title' })}

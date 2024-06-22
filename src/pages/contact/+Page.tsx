@@ -1,6 +1,9 @@
+import React from 'react';
+
+import { Grid } from '@mui/joy';
+
 import { PageLayout } from '../../components/layout/PageLayout';
 import { EmailCardContent } from '../../content/home/card/EmailCardContent';
-import { Grid } from '@mui/joy';
 import { SocialChipsContent } from '../../content/misc/SocialChipsContent';
 
 export function Page() {

@@ -1,6 +1,7 @@
 import React from 'react';
-import { Box, Card, CardContent } from '@mui/joy';
+
 import { FormatQuote } from '@mui/icons-material';
+import { Box, Card, CardContent } from '@mui/joy';
 
 interface QuoteCardProps {
   children: React.ReactNode;

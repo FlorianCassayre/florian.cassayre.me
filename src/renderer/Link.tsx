@@ -1,9 +1,11 @@
+import React from 'react';
+
 import { usePageContext } from 'vike-react/usePageContext';
 
-export { Link }
+export { Link };
 
 function Link(props: { href?: string; className?: string; children: React.ReactNode }) {
-  const pageContext = usePageContext()
-  const className = [props.className, pageContext.urlPathname === props.href && 'is-active'].filter(Boolean).join(' ')
-  return <a {...props} className={className} />
+  const pageContext = usePageContext();
+  const className = [props.className, pageContext.urlPathname === props.href && 'is-active'].filter(Boolean).join(' ');
+  return <a {...props} className={className} />;
 }

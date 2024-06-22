@@ -1,5 +1,6 @@
-import { Avatar, Box, styled } from '@mui/joy';
 import React, { useState } from 'react';
+
+import { Avatar, Box, styled } from '@mui/joy';
 
 const StyledBox = styled(Box)({
   transformStyle: 'preserve-3d',
