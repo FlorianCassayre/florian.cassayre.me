@@ -11,7 +11,7 @@ export const ProfileContent: React.FC = () => {
       <Typography level="h1" fontWeight="sm" fontFamily="Bitter">
         Florian Cassayre
       </Typography>
-      <Typography level="title-lg" fontWeight="sm">
+      <Typography level="title-lg" fontWeight={400}>
         \<em>flɔ.ʁi.ɑ̃ ka.sɛʁ</em>\
       </Typography>
     </Stack>

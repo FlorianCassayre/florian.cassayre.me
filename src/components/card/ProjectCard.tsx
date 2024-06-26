@@ -103,7 +103,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
             </Tooltip>
           )}
         </Stack>
-        <Typography level="body-sm">{description}</Typography>
+        <Typography>{description}</Typography>
         {!!technologies?.length && (
           <Stack direction="row" spacing={1} useFlexGap flexWrap="wrap" sx={{ mt: 1 }}>
             {(technologies ?? []).map((technology, i) => (
@@ -128,7 +128,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                 color={status === true ? 'success' : status === false ? 'error' : 'warning'}
                 sx={{ fontSize: 16 }}
               />
-              <Typography level="body-xs" fontWeight="md" textColor="text.secondary">
+              <Typography level="body-xs" fontWeight={300} textColor="text.secondary">
                 {statusText}
               </Typography>
             </Stack>

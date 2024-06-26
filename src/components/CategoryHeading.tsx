@@ -27,7 +27,7 @@ export const CategoryHeading: React.FC<CategoryHeadingProps> = ({ children, icon
     <Stack direction="column" spacing={0.5} alignItems="center" sx={{ mt: { xs: 2, sm: 4 }, mb: { xs: 1, sm: 2 } }}>
       <Icon sx={{ color: theme.palette.neutral[500], fontSize: 32 }} />
       <StyledDivider>
-        <Typography level="h2" fontSize="xl" sx={{ fontWeight: 1 }}>
+        <Typography level="h2" fontSize="xl" sx={{ fontWeight: 200 }}>
           {children}
         </Typography>
       </StyledDivider>

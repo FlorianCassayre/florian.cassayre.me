@@ -17,7 +17,7 @@ interface LanguageCardProps {
 export const LanguageCard: React.FC<LanguageCardProps> = ({ languages }) => {
   return (
     <Card>
-      <Typography level="title-lg" fontWeight="sm">
+      <Typography level="title-lg">
         <FormattedMessage id="home.social.languages.title" />
       </Typography>
       <CardContent>

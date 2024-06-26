@@ -22,7 +22,7 @@
   "home.sections.config": "Configuration",
   "home.logoAlt": "Logo",
   "home.biography": "Je suis actuellement employé par le <aCern>CERN</aCern> en tant que développeur web full-stack. Je suis diplômé ingénieur informaticien à l''<aEpfl>EPFL</aEpfl> en 2022, avec une spécialisation en méthodes formelles. J'ai un large éventail d'intérêts incluant (mais sans s'y limiter) l'open source, la généalogie et la durabilité.",
-  "home.projects.yogaSofa.description": "Site d'association locale pour gérer les inscriptions, planifier les séance et enregistrer les paiements",
+  "home.projects.yogaSof.description": "Site d'association locale pour gérer les inscriptions, planifier les séance et enregistrer les paiements",
   "home.projects.impact.description": "Outil de planification et de coordination des interventions au CERN",
   "home.projects.arbre.description": "Outils pour généalogistes : moteur de recherche open data, lecteur et visualiseur de fichier Gedcom, etc.",
   "home.project.status.production": "En production",

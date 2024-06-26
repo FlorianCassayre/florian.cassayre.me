@@ -9,7 +9,7 @@ const Key = 'home.challenges.codeGolf';
 
 export const CodeGolfCardContent: React.FC = () => (
   <Card sx={{ height: '100%' }}>
-    <Typography level="title-lg" fontWeight="sm">
+    <Typography level="title-lg">
       <SoftLink href="https://code.golf" target="_blank" rel="noopener">
         Code Golf
       </SoftLink>

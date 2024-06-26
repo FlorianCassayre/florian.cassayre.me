@@ -19,7 +19,7 @@ export const EmailCard: React.FC<EmailCardProps> = ({ description, email, smallt
   const urlGenerator = useUrlGenerator();
   return (
     <Card sx={{ height: '100%' }}>
-      <Typography level="title-lg" fontWeight="sm">
+      <Typography level="title-lg">
         <FormattedMessage id="home.social.contact.title" />
       </Typography>
       <CardContent>
@@ -31,7 +31,9 @@ export const EmailCard: React.FC<EmailCardProps> = ({ description, email, smallt
           endDecorator={<CopyButton content={email} />}
           aria-label={$t({ id: 'home.social.contact.label' })}
         />
-        <Typography level="body-xs">{smalltext}</Typography>
+        <Typography level="body-xs" fontWeight={300}>
+          {smalltext}
+        </Typography>
         {link && (
           <Box sx={{ mt: 'auto' }}>
             <Button

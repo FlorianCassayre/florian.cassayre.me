@@ -40,7 +40,7 @@ export const ProjectCardsContent: React.FC = () => {
           image: '/projects/yoga-sof.fr.png',
           logo: '/projects/yoga-sof.fr-logo.svg',
           title: 'Yoga Sof',
-          description: intl.$t({ id: 'home.projects.yogaSofa.description' }),
+          description: intl.$t({ id: 'home.projects.yogaSof.description' }),
           technologies: [NEXTJS, MYSQL],
           ...status(true),
           homepage: 'https://yoga-sof.fr',

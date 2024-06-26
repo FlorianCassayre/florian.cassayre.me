@@ -13,7 +13,7 @@ interface AdventOfCodeCardProps {
 export const AdventOfCodeCard: React.FC<AdventOfCodeCardProps> = ({ description, years, repository }) => {
   return (
     <Card sx={{ height: '100%' }}>
-      <Typography level="title-lg" fontWeight="sm">
+      <Typography level="title-lg">
         <SoftLink href="https://adventofcode.com" target="_blank" rel="noopener">
           Advent of Code
         </SoftLink>

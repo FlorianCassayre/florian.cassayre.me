@@ -15,13 +15,13 @@ export const PgpKeyCard: React.FC<PgpKeyCardProps> = ({ pgpKey, scheme }) => {
   const { $t } = useIntl();
   return (
     <Card>
-      <Typography level="title-lg" fontWeight="sm">
+      <Typography level="title-lg">
         <FormattedMessage id="pgp.key.title" />
       </Typography>
       <Textarea
         startDecorator={
           <Stack direction="row" spacing={1} justifyContent="space-between" alignItems="center" sx={{ width: '100%' }}>
-            <Typography level="body-xs" sx={{ pl: 1 }}>
+            <Typography level="body-xs" fontWeight={300} sx={{ pl: 1 }}>
               <Stack direction="row" spacing={0.5} alignItems="center">
                 <Lock fontSize="inherit" />
                 <span>{scheme}</span>

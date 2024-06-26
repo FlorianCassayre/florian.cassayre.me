@@ -15,7 +15,7 @@ export const PgpFingerprintCard: React.FC<PgpFingerprintCardProps> = ({ fingerpr
   const { $t } = useIntl();
   return (
     <Card>
-      <Typography level="title-lg" fontWeight="sm">
+      <Typography level="title-lg">
         <FormattedMessage id="home.social.pgp.title" />
       </Typography>
       <CardContent>
@@ -27,7 +27,7 @@ export const PgpFingerprintCard: React.FC<PgpFingerprintCardProps> = ({ fingerpr
           aria-label={$t({ id: 'home.social.pgp.title' })}
         />
         {!!smalltext && (
-          <Typography level="body-xs" textAlign="right">
+          <Typography level="body-xs" fontWeight={300} textAlign="right">
             {smalltext}
           </Typography>
         )}

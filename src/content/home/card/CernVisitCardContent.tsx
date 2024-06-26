@@ -10,7 +10,7 @@ const Key = 'home.social.visitCern';
 export const CernVisitCardContent: React.FC = () => {
   return (
     <Card>
-      <Typography level="title-lg" fontWeight="sm">
+      <Typography level="title-lg">
         <FormattedMessage id={`${Key}.title`} />
       </Typography>
       <Typography>
@@ -28,7 +28,7 @@ export const CernVisitCardContent: React.FC = () => {
       <Typography>
         <FormattedMessage id={`${Key}.description2`} />
       </Typography>
-      <Typography level="body-xs" textAlign="right">
+      <Typography level="body-xs" fontWeight={300} textAlign="right">
         <FormattedMessage
           id={`${Key}.disclaimer`}
           values={{
