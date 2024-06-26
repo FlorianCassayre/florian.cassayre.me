@@ -1,6 +1,7 @@
 import React from 'react';
 
 import '@fontsource/inter';
+import '@fontsource/bitter';
 import './Layout.css';
 
 import { CssVarsProvider as JoyCssVarsProvider } from '@mui/joy';
