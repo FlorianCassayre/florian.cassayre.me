@@ -9,7 +9,7 @@ export const localizeUrl = (urlPathname: string, locale: Locale): string => {
   return target !== '/' && target.endsWith('/') ? target.slice(0, target.length - 1) : target;
 };
 
-export function extractLocale(url: string) {
+export const extractLocale = (url: string) => {
   const result = LOCALES.flatMap(locale => {
     const regex = new RegExp(`^/${locale}($|/.*)`);
     const matches = regex.exec(url);
@@ -30,4 +30,4 @@ export function extractLocale(url: string) {
       urlWithoutLocale: url,
     };
   }
-}
+};

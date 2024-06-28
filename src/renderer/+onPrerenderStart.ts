@@ -2,9 +2,11 @@ import { PageContext } from './types';
 import { INVISIBLE_REDIRECTIONS, REDIRECT_PAGE_NAME } from '../content/redirect/legacy';
 import { LOCALES, localizeUrl } from '../i18n/utils';
 
-export function onPrerenderStart(prerenderContext: { pageContexts: PageContext[] }): {
+export const onPrerenderStart = (prerenderContext: {
+  pageContexts: PageContext[];
+}): {
   prerenderContext: { pageContexts: PageContext[] };
-} {
+} => {
   const redirectUrlOriginal = `/${REDIRECT_PAGE_NAME}`;
   const pageContextsWithoutRedirect = prerenderContext.pageContexts.filter(
     ({ urlOriginal }) => urlOriginal !== redirectUrlOriginal
@@ -37,4 +39,4 @@ export function onPrerenderStart(prerenderContext: { pageContexts: PageContext[]
       pageContexts: newPagesContexts,
     },
   };
-}
+};

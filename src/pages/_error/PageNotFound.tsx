@@ -7,7 +7,7 @@ import { PageLayout } from '../../components/layout/PageLayout';
 import { DynamicNotFound } from '../../content/layout/notfound/DynamicNotFound';
 import { extractLocale } from '../../i18n/utils';
 
-export default function PageNotFound() {
+export const PageNotFound = () => {
   const context = usePageContext();
   const { pathname } = window.document.location;
   return (
@@ -19,4 +19,4 @@ export default function PageNotFound() {
       </Layout>
     </PageContextProvider>
   );
-}
+};

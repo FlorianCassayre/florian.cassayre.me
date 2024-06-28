@@ -6,7 +6,7 @@ import { PageLayout } from '../../components/layout/PageLayout';
 import { EmailCardContent } from '../../content/home/card/EmailCardContent';
 import { SocialChipsContent } from '../../content/misc/SocialChipsContent';
 
-export function Page() {
+export const Page = () => {
   return (
     <PageLayout>
       <Grid container spacing={2}>
@@ -19,4 +19,4 @@ export function Page() {
       </Grid>
     </PageLayout>
   );
-}
+};

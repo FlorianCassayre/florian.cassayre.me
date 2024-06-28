@@ -22,7 +22,7 @@ import { PublicationsCardContent } from '../../content/home/card/PublicationsCar
 import { ProfessionalTimelineContent } from '../../content/home/ProfessionalTimelineContent';
 import { ProfileContent } from '../../content/home/ProfileContent';
 
-export function Page() {
+export const Page = () => {
   return (
     <PageLayout>
       <ProfileContent />
@@ -117,4 +117,4 @@ export function Page() {
       </Grid>
     </PageLayout>
   );
-}
+};

@@ -18,7 +18,7 @@ import {
 
 import { I18nProvider } from '../i18n/I18nProvider';
 
-export function Layout({ children }: { children: React.ReactNode }) {
+export const Layout = ({ children }: { children: React.ReactNode }) => {
   const materialTheme = materialExtendTheme();
   return (
     <MaterialCssVarsProvider theme={{ [MATERIAL_THEME_ID]: materialTheme }}>
@@ -27,4 +27,4 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </JoyCssVarsProvider>
     </MaterialCssVarsProvider>
   );
-}
+};

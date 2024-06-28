@@ -4,7 +4,7 @@ import type { OnBeforeRouteSync } from 'vike/types';
 import { INVISIBLE_REDIRECTIONS, REDIRECT_PAGE_NAME } from '../content/redirect/legacy';
 import { extractLocale, localizeUrl } from '../i18n/utils';
 
-export function onBeforeRoute(pageContext: PageContextServer): ReturnType<OnBeforeRouteSync> {
+export const onBeforeRoute = (pageContext: PageContextServer): ReturnType<OnBeforeRouteSync> => {
   const { urlWithoutLocale, locale } = extractLocale(pageContext.urlOriginal);
   const redirect: string | undefined = INVISIBLE_REDIRECTIONS[urlWithoutLocale];
   return {
@@ -16,4 +16,4 @@ export function onBeforeRoute(pageContext: PageContextServer): ReturnType<OnBefo
       urlRedirect: redirect !== undefined ? localizeUrl(redirect, locale) : undefined,
     },
   };
-}
+};
