@@ -24,7 +24,7 @@ import { ProfileContent } from '../../content/home/ProfileContent';
 
 export const Page = () => {
   return (
-    <PageLayout>
+    <PageLayout title={null}>
       <ProfileContent />
       <Box sx={{ mb: 1 }}>
         <BioQuoteCardContent />

@@ -78,6 +78,8 @@
   "home.apps.bike.description": "Automatic tracker for my bike trips.",
   "home.apps.genealogy.title": "Genealogy",
   "home.apps.genealogy.description": "Statistics from my genealogical database.",
+  "contact.title": "Contact",
+  "pgp.title": "PGP",
   "notFound.title": "Page not found",
   "notFound.home": "Back to the home page?",
   "notFoundFallback.title": "Page deleted",

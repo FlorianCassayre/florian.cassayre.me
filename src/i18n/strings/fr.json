@@ -78,6 +78,8 @@
   "home.apps.bike.description": "Suivi automatique de mes trajets à vélo.",
   "home.apps.genealogy.title": "Généalogie",
   "home.apps.genealogy.description": "Statistiques de ma base de données généalogique.",
+  "contact.title": "Contact",
+  "pgp.title": "PGP",
   "notFound.title": "Page introuvable",
   "notFound.home": "Revenir à la page d'accueil ?",
   "notFoundFallback.title": "Page supprimée",

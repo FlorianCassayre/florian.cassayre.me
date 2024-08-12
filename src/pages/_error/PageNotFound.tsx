@@ -13,7 +13,7 @@ export const PageNotFound = () => {
   return (
     <PageContextProvider pageContext={{ ...context, urlPathname: pathname, locale: extractLocale(pathname).locale }}>
       <Layout>
-        <PageLayout>
+        <PageLayout title="404">
           <DynamicNotFound />
         </PageLayout>
       </Layout>
