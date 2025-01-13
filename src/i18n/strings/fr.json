@@ -25,6 +25,7 @@
   "home.projects.yogaSof.description": "Site d'association locale pour gérer les inscriptions, planifier les séance et enregistrer les paiements",
   "home.projects.impact.description": "Outil de planification et de coordination des interventions au CERN",
   "home.projects.arbre.description": "Outils pour généalogistes : moteur de recherche open data, lecteur et visualiseur de fichier Gedcom, etc.",
+  "home.projects.argine.description": "Jeu Android de logique basé sur le célèbre problème des 8 dames",
   "home.project.status.production": "En production",
   "home.project.status.incrementalDeployment": "Déploiement incrémental",
   "home.project.status.retired": "Décommissionné",

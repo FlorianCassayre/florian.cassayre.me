@@ -11,7 +11,7 @@ export const AdventOfCodeCardContent: React.FC = () => {
   return (
     <AdventOfCodeCard
       description={$t({ id: `${Key}.description` })}
-      years={[2023, 2022, 2021, 2020, 2019, 2018, 2017]}
+      years={[2024, 2023, 2022, 2021, 2020, 2019, 2018, 2017]}
       repository={year => `https://github.com/FlorianCassayre/AdventOfCode-${year}`}
     />
   );

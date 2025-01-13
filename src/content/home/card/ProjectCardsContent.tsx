@@ -20,6 +20,7 @@ export const ProjectCardsContent: React.FC = () => {
   const REACT = { name: 'React', icon: DiReact, color: 'primary' } as const;
   const CAMUNDA = { name: 'Camunda', icon: FaProjectDiagram, color: 'neutral' } as const;
   const NEXTJS = { name: 'Next.js', icon: DiReact, color: 'neutral' } as const;
+  const REACT_NATIVE = { name: 'React Native', icon: DiReact, color: 'neutral' } as const;
 
   const status = useCallback(
     (
@@ -64,6 +65,15 @@ export const ProjectCardsContent: React.FC = () => {
           ...status(true),
           homepage: 'https://arbre.app',
           github: 'https://github.com/arbre-app',
+        },
+        {
+          image: '/projects/argine.png',
+          logo: '/projects/argine-logo.svg',
+          title: 'Argine',
+          description: intl.$t({ id: 'home.projects.argine.description' }),
+          technologies: [REACT_NATIVE, JAVA],
+          ...status(true),
+          homepage: 'https://play.google.com/store/apps/details?id=me.cassayre.florian.crownedrooks&hl=fr',
         },
       ]}
     />

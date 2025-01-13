@@ -25,6 +25,7 @@
   "home.projects.yogaSof.description": "Local association website to manage registrations, schedule classes and handle payments",
   "home.projects.impact.description": "CERN's intervention management planning and coordination tool",
   "home.projects.arbre.description": "Tools for genealogists: open data search engine, Gedcom file reader and visualizer, etc.",
+  "home.projects.argine.description": "Android puzzle game based on the famous 8-queens problem",
   "home.project.status.production": "In production",
   "home.project.status.incrementalDeployment": "Incremental deployment",
   "home.project.status.retired": "Retired",
