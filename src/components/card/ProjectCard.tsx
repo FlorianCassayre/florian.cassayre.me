@@ -138,15 +138,13 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                   <GitHub color="action" />
                 </IconButton>
               ) : (
-                <Stack>
-                  {' '}
-                  {/* Ugly hack around https://github.com/mui/material-ui/issues/38943 */}
-                  <Box sx={{ p: 0.1 }}>
-                    <Tooltip title={$t({ id: 'home.project.closedSource' })}>
+                <Tooltip title={$t({ id: 'home.project.closedSource' })}>
+                  <Stack direction="row">
+                    <IconButton size="sm" aria-label="-" disabled>
                       <VisibilityOff sx={{ color: theme.palette.neutral.outlinedDisabledColor }} />
-                    </Tooltip>
-                  </Box>
-                </Stack>
+                    </IconButton>
+                  </Stack>
+                </Tooltip>
               )}
               {!!homepage && (
                 <IconButton
