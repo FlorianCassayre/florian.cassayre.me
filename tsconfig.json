@@ -12,6 +12,8 @@
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx",
-    "test/**/*.ts"
+    "src/**/*.json",
+    "test/**/*.ts",
+    "vite.config.ts"
   ]
 }

@@ -1,5 +1,6 @@
 import fs from 'fs';
 
+// eslint-disable-next-line import/no-named-as-default
 import favicons from 'favicons';
 
 const source = 'public/favicon.svg',

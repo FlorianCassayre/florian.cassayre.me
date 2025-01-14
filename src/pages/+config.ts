@@ -5,5 +5,6 @@ import vikeReact from 'vike-react/config';
 
 const config = {
   passToClient: ['locale'],
+  stream: true,
   extends: vikeReact,
 } satisfies Config;
