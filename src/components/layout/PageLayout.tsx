@@ -20,7 +20,15 @@ export const PageLayout: React.FC<PageLayoutProps> = ({ children, title }) => {
 
       <Config title={getTitle(title)} />
 
-      <Stack direction="column" sx={{ minHeight: '100vh' }}>
+      <Stack
+        direction="column"
+        sx={{
+          minHeight: '100vh',
+          backgroundImage: 'url("background.svg")',
+          backgroundRepeat: 'repeat',
+          backgroundPosition: 'center top',
+        }}
+      >
         <Container sx={{ py: 2, flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
           <HeaderContent />
           <Box component="main" sx={{ flexGrow: 1, mt: 2 }}>
