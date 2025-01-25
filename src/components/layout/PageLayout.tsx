@@ -10,21 +10,22 @@ import { getTitle } from '../../content/meta/getTitle';
 interface PageLayoutProps {
   children: React.ReactNode;
   title: string | null;
+  description?: string;
 }
 
-export const PageLayout: React.FC<PageLayoutProps> = ({ children, title }) => {
+export const PageLayout: React.FC<PageLayoutProps> = ({ children, title, description }) => {
   return (
     <CssVarsProvider>
       {/* CssBaseline must appear as the first child */}
       <CssBaseline />
 
-      <Config title={getTitle(title)} />
+      <Config title={getTitle(title)} description={description} />
 
       <Stack
         direction="column"
         sx={{
           minHeight: '100vh',
-          backgroundImage: 'url("background.svg")',
+          backgroundImage: 'url("/background.svg")',
           backgroundRepeat: 'repeat',
           backgroundPosition: 'center top',
         }}

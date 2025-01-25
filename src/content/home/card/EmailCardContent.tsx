@@ -3,6 +3,7 @@ import React from 'react';
 import { useIntl } from 'react-intl';
 
 import { EmailCard } from '../../../components/card/EmailCard';
+import { EMAIL } from '../../../config';
 
 const Key = 'home.social.contact';
 
@@ -15,7 +16,7 @@ export const EmailCardContent: React.FC<EmailCardContentProps> = ({ link }) => {
   return (
     <EmailCard
       description={$t({ id: `${Key}.description` })}
-      email={'florian' + '@' + 'cassayre.me'}
+      email={EMAIL}
       smalltext={$t({ id: `${Key}.disclaimer` })}
       link={link}
     />

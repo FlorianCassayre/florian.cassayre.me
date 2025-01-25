@@ -61,6 +61,9 @@
   "home.highlights.competitionsAndAwards.items.lauzhack19": "{sentimentU}, organizers' favourite hack, Logitech prize",
   "home.highlights.competitionsAndAwards.items.hashcode22": "fastest submission of the competition",
   "home.highlights.citations.title": "They mention my work",
+  "home.social.blog.title": "Blog",
+  "home.social.blog.description": "I have created a blog on which I intend to express my thoughts on different topics, including non-technical ones. Stay tuned!",
+  "home.social.blog.go": "Read",
   "home.social.languages.title": "Languages",
   "home.social.languages.level.proficient": "Proficient",
   "home.social.languages.level.native": "Native",
@@ -86,5 +89,16 @@
   "notFound.home": "Back to the home page?",
   "notFoundFallback.title": "Page deleted",
   "notFoundFallback.description": "The page you are trying to access does not exists anymore. However, you may access its source code at the following address: <a>{fallback}</a>",
-  "pgp.key.title": "PGP key"
+  "pgp.key.title": "PGP key",
+  "blog.title": "Blog",
+  "blog.filterBy.keywords": "Keywords",
+  "blog.filterBy.language": "Language",
+  "blog.keywords.list.personal": "Personal",
+  "blog.keywords.list.technical": "Technical",
+  "blog.filtering.enabled": "You are now filtering the posts.",
+  "blog.filtering.empty": "There are no posts that match the query.",
+  "blog.filtering.clear": "Clear",
+  "blog.post.published": "Published on {date}",
+  "blog.post.otherLanguage": "This post is written in {language}.",
+  "blog.post.back": "Back"
 }

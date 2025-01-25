@@ -3,11 +3,14 @@
   "compilerOptions": {
     "rootDir": ".",
     "outDir": "dist",
-    "lib": ["DOM"],
+    "lib": ["esnext", "dom"],
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "skipLibCheck": true,
-    "jsx": "react"
+    "jsx": "react",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "types": ["vite/client"]
   },
   "include": [
     "src/**/*.ts",

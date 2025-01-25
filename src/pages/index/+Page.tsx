@@ -9,6 +9,7 @@ import { PageLayout } from '../../components/layout/PageLayout';
 import { AdventOfCodeCardContent } from '../../content/home/card/AdventOfCodeCardContent';
 import { AppCardsContent } from '../../content/home/card/AppCardsContent';
 import { BioQuoteCardContent } from '../../content/home/card/BioQuoteCardContent';
+import { BlogCardContent } from '../../content/home/card/BlogCardContent';
 import { CernVisitCardContent } from '../../content/home/card/CernVisitCardContent';
 import { CodeGolfCardContent } from '../../content/home/card/CodeGolfCardContent';
 import { ContributedProjectsCardContent } from '../../content/home/card/ContributedProjectsCardContent';
@@ -85,6 +86,9 @@ export const Page = () => {
           <CategoryHeading icon={Group}>
             <FormattedMessage id="home.sections.social" />
           </CategoryHeading>
+        </Grid>
+        <Grid xs={12}>
+          <BlogCardContent />
         </Grid>
         <Grid xs={12} sm={5} md={4} lg={3}>
           <LanguageCardContent />

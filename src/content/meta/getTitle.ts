@@ -1,4 +1,6 @@
-const SITE_TITLE = 'Florian Cassayre';
+import { AUTHOR } from '../../config';
+
+const SITE_TITLE = AUTHOR;
 const TITLE_SEPARATOR = '·';
 
 export const getTitle = (title: string | null): string =>

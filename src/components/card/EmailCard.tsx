@@ -4,7 +4,7 @@ import { Add, Email } from '@mui/icons-material';
 import { Box, Button, Card, CardContent, Input, Typography } from '@mui/joy';
 import { FormattedMessage, useIntl } from 'react-intl';
 
-import { useUrlGenerator } from '../../hooks/useUrlGenerator';
+import { useUrlGenerator } from '../../route/useUrlGenerator';
 import { CopyButton } from '../CopyButton';
 
 interface EmailCardProps {

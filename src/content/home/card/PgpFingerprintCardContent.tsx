@@ -4,7 +4,7 @@ import { FormattedMessage } from 'react-intl';
 
 import { PgpFingerprintCard } from '../../../components/card/PgpFingerprintCard';
 import { SoftLink } from '../../../components/SoftLink';
-import { useUrlGenerator } from '../../../hooks/useUrlGenerator';
+import { useUrlGenerator } from '../../../route/useUrlGenerator';
 
 interface PgpFingerprintCardContentProps {
   link?: boolean;

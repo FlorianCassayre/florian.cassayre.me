@@ -5,7 +5,8 @@ import { IconButton, Stack, Typography } from '@mui/joy';
 import { useIntl } from 'react-intl';
 
 import { LanguageToggle } from '../../components/LanguageToggle';
-import { useUrlGenerator } from '../../hooks/useUrlGenerator';
+import { AUTHOR } from '../../config';
+import { useUrlGenerator } from '../../route/useUrlGenerator';
 
 export const HeaderContent: React.FC = () => {
   const { $t } = useIntl();
@@ -13,7 +14,7 @@ export const HeaderContent: React.FC = () => {
   return (
     <Stack component="header" direction="row" alignItems="center" justifyContent="space-between">
       <Typography fontFamily="Bitter" component="a" href={urlGenerator('/')} sx={{ textDecoration: 'none' }}>
-        Florian Cassayre
+        {AUTHOR}
       </Typography>
       <Stack direction="row" spacing={0.5}>
         <IconButton

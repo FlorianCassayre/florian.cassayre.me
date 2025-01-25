@@ -61,6 +61,9 @@
   "home.highlights.competitionsAndAwards.items.lauzhack19": "{sentimentU}, prix du hack préféré des organisateurs, prix Logitech",
   "home.highlights.competitionsAndAwards.items.hashcode22": "soumission la plus rapide de la compétition",
   "home.highlights.citations.title": "Ils évoquent mon travail",
+  "home.social.blog.title": "Blog",
+  "home.social.blog.description": "J'ai créé un blog sur lequel je souhaite partager mes pensées sur différents sujets, et pas seulement techniques. Restez à l'écoute !",
+  "home.social.blog.go": "Lire",
   "home.social.languages.title": "Langues",
   "home.social.languages.level.proficient": "Courant",
   "home.social.languages.level.native": "Maternelle",
@@ -86,5 +89,16 @@
   "notFound.home": "Revenir à la page d'accueil ?",
   "notFoundFallback.title": "Page supprimée",
   "notFoundFallback.description": "La page à laquelle vous avez essayé d'accéder n'existe plus. Vous pouvez néanmoins retrouver son code source à cette adresse : <a>{fallback}</a>",
-  "pgp.key.title": "Clé PGP"
+  "pgp.key.title": "Clé PGP",
+  "blog.title": "Blog",
+  "blog.filterBy.keywords": "Mots-clés",
+  "blog.filterBy.language": "Langue",
+  "blog.keywords.list.personal": "Personnel",
+  "blog.keywords.list.technical": "Technique",
+  "blog.filtering.enabled": "Vous êtes en train de filtrer les articles.",
+  "blog.filtering.empty": "Il n'y a pas d'articles correspondant à la requête.",
+  "blog.filtering.clear": "Réinitialiser",
+  "blog.post.published": "Publié le {date}",
+  "blog.post.otherLanguage": "Cet article est écrit en {language}.",
+  "blog.post.back": "Retour"
 }

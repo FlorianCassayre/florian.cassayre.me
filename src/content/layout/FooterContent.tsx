@@ -4,6 +4,8 @@ import { Code, Straight } from '@mui/icons-material';
 import { Box, Container, IconButton, Stack, Typography } from '@mui/joy';
 import { useIntl } from 'react-intl';
 
+import { AUTHOR } from '../../config';
+
 export const FooterContent: React.FC = () => {
   const { $t } = useIntl();
   return (
@@ -11,7 +13,7 @@ export const FooterContent: React.FC = () => {
       <Container>
         <Stack direction="row" alignItems="center">
           <Box sx={{ flexGrow: 1, flexBasis: 0 }}>
-            <Typography>Florian Cassayre</Typography>
+            <Typography>{AUTHOR}</Typography>
           </Box>
           <IconButton
             component="a"

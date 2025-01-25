@@ -4,12 +4,14 @@ import { DE, FR, GB, SE } from 'country-flag-icons/react/3x2';
 import { useIntl } from 'react-intl';
 
 import { LanguageCard } from '../../../components/card/LanguageCard';
+import { Locale } from '../../../i18n/Locale';
+import { LocaleNameKey } from '../../../i18n/LocaleNameKey';
 import { I18nMessageIds } from '../../../i18n/messages';
 
 const LanguageKey = 'language';
 
-const LanguageEnglish: I18nMessageIds = `${LanguageKey}.english`;
-const LanguageFrench: I18nMessageIds = `${LanguageKey}.french`;
+const LanguageEnglish: I18nMessageIds = LocaleNameKey[Locale.English];
+const LanguageFrench: I18nMessageIds = LocaleNameKey[Locale.French];
 const LanguageGerman: I18nMessageIds = `${LanguageKey}.german`;
 const LanguageSwedish: I18nMessageIds = `${LanguageKey}.swedish`;
 
