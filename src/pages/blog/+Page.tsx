@@ -18,6 +18,7 @@ import { Locale } from '../../i18n/Locale';
 import { LocaleNameKey } from '../../i18n/LocaleNameKey';
 import { LOCALES } from '../../i18n/utils';
 import { useUrlGenerator } from '../../route/useUrlGenerator';
+import { homeBreadcrumbs } from '../breadcrumbs';
 
 const postsMeta = Object.entries(import.meta.glob('./post/*/+config.ts', { eager: true }))
   .map(([name, properties]) => {
@@ -116,10 +117,7 @@ export const Page = () => {
     setSelectedKeywords('keyword' in pageContext && pageContext.keyword !== undefined ? [pageContext.keyword] : []);
   }, [setSelectedKeywords, pageContext]);
   return (
-    <PageLayout title={$t({ id: 'blog.title' })}>
-      <Typography level="h1" sx={{ mb: 2 }}>
-        <FormattedMessage id="blog.title" />
-      </Typography>
+    <PageLayout title={$t({ id: 'blog.title' })} parentBreadcrumbs={homeBreadcrumbs}>
       <Grid container spacing={2}>
         <Grid xs={12} md={2}>
           <Card>

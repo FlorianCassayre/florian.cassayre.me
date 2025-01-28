@@ -11,6 +11,7 @@
   "header.emailAddress": "Email",
   "footer.sourceCode": "Source code",
   "footer.scrollToTop": "Scroll to top",
+  "home.title": "Home",
   "home.sections.currentProjects": "Current projects",
   "home.sections.careerPath": "Career path",
   "home.sections.contributedProjects": "Contributed projects",
@@ -69,7 +70,7 @@
   "home.social.languages.level.native": "Native",
   "home.social.languages.level.experienced": "Experienced",
   "home.social.languages.level.basics": "Basics",
-  "home.social.contact.title": "Contact",
+  "home.social.contact.title": "Address",
   "home.social.contact.description": "You can write me at:",
   "home.social.contact.label": "Email address",
   "home.social.contact.disclaimer": "I receive about one message a day, I try my best to reply quickly but don't always manage. Please do not hesitate to remind me if I missed yours.",
@@ -99,6 +100,5 @@
   "blog.filtering.empty": "There are no posts that match the query.",
   "blog.filtering.clear": "Clear",
   "blog.post.published": "Published on {date}",
-  "blog.post.otherLanguage": "This post is written in {language}.",
-  "blog.post.back": "Back"
+  "blog.post.otherLanguage": "This post is written in {language}."
 }

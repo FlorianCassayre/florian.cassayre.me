@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 
-import { ArrowBack, Warning } from '@mui/icons-material';
-import { Alert, Box, Button, Card, CardContent, Chip, Stack, Typography } from '@mui/joy';
+import { Warning } from '@mui/icons-material';
+import { Alert, Box, Card, CardContent, Chip, Stack, Typography } from '@mui/joy';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { navigate } from 'vike/client/router';
 import { Config } from 'vike-react/Config';
@@ -10,23 +10,78 @@ import { usePageContext } from 'vike-react/usePageContext';
 import { BlogPageContext } from '../../../blog/BlogPageContext';
 import { getKeywordMessageId } from '../../../blog/getKeywordMessageId';
 import { JoyMDXProvider } from '../../../blog/mdx/JoyMDXProvider';
+import { PostKeyword } from '../../../blog/PostKeyword';
 import { usePostMeta } from '../../../blog/usePostMeta';
 import { PageLayout } from '../../../components/layout/PageLayout';
+import { Locale } from '../../../i18n/Locale';
 import { LocaleNameKey } from '../../../i18n/LocaleNameKey';
 import { canonicalizeUrlPathname } from '../../../route/canonicalizeUrlPathname';
 import { useUrlGenerator } from '../../../route/useUrlGenerator';
+import { blogBreadcrumbs } from '../breadcrumbs';
 
-const BackButton = () => {
+interface PostHeaderProps {
+  title: string;
+  date: Date;
+  keywords: PostKeyword[];
+  otherLocale: Locale | null;
+}
+
+const PostHeader: React.FC<PostHeaderProps> = ({ title, date, keywords, otherLocale }) => {
+  const { formatDate, $t } = useIntl();
   const urlGenerator = useUrlGenerator();
   return (
-    <Button variant="outlined" startDecorator={<ArrowBack />} size="sm" component="a" href={urlGenerator('/blog')}>
-      <FormattedMessage id="blog.post.back" />
-    </Button>
+    <Box>
+      <Typography level="h1" sx={{ mb: 0 }}>
+        {title}
+      </Typography>
+      <Typography level="body-xs" sx={{ mb: 1 }}>
+        <FormattedMessage
+          id="blog.post.published"
+          values={{
+            date: formatDate(date, {
+              timeZone: 'utc' /* Important, date is in UTC */,
+              day: '2-digit',
+              month: '2-digit',
+              year: 'numeric',
+            }),
+          }}
+        />
+      </Typography>
+      <Stack direction="column" spacing={2}>
+        <Stack direction="row" spacing={1} useFlexGap sx={{ flexWrap: 'wrap' }}>
+          {keywords.map(keyword => (
+            <Chip
+              key={keyword}
+              color="primary"
+              component="a"
+              href={urlGenerator('/blog')}
+              onClick={e => {
+                e.preventDefault(); // Without this, the page refreshes
+                e.stopPropagation(); // Without this, the context is not passed
+                return navigate('/blog', { pageContext: { keyword } satisfies Partial<BlogPageContext> });
+              }}
+            >
+              <FormattedMessage id={getKeywordMessageId(keyword)} />
+            </Chip>
+          ))}
+        </Stack>
+        {otherLocale !== null && (
+          <Alert startDecorator={<Warning />} variant="soft" color="warning">
+            <Typography>
+              <FormattedMessage
+                id="blog.post.otherLanguage"
+                values={{ language: $t({ id: LocaleNameKey[otherLocale] }).toLowerCase() }}
+              />
+            </Typography>
+          </Alert>
+        )}
+      </Stack>
+    </Box>
   );
 };
 
 export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const { formatDate, formatMessage } = useIntl();
+  const { formatMessage } = useIntl();
   const { locale } = usePageContext();
   const urlGenerator = useUrlGenerator();
   const { title, locale: postLocale, description, keywords = [], date } = usePostMeta();
@@ -43,7 +98,7 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
     [locale, postLocale]
   );
   return (
-    <PageLayout title={title} description={description}>
+    <PageLayout title={title} hideTitle parentBreadcrumbs={blogBreadcrumbs} description={description}>
       <JoyMDXProvider>
         <Config
           Head={
@@ -59,9 +114,6 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
             </>
           }
         />
-        <Box sx={{ mb: 2 }}>
-          <BackButton />
-        </Box>
         <Card
           lang={otherLocale ?? undefined}
           sx={{
@@ -72,58 +124,9 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
             borderRadius: { xs: 0, sm: 8 },
           }}
         >
-          <Box>
-            <Typography level="h1" sx={{ mb: 0 }}>
-              {title}
-            </Typography>
-            <Typography level="body-xs" sx={{ mb: 1 }}>
-              <FormattedMessage
-                id="blog.post.published"
-                values={{
-                  date: formatDate(date, {
-                    timeZone: 'utc' /* Important, date is in UTC */,
-                    day: '2-digit',
-                    month: '2-digit',
-                    year: 'numeric',
-                  }),
-                }}
-              />
-            </Typography>
-            <Stack direction="column" spacing={2}>
-              <Stack direction="row" spacing={1} useFlexGap sx={{ flexWrap: 'wrap' }}>
-                {keywords.map(keyword => (
-                  <Chip
-                    key={keyword}
-                    color="primary"
-                    component="a"
-                    href={urlGenerator('/blog')}
-                    onClick={e => {
-                      e.preventDefault(); // Without this, the page refreshes
-                      e.stopPropagation(); // Without this, the context is not passed
-                      return navigate('/blog', { pageContext: { keyword } satisfies Partial<BlogPageContext> });
-                    }}
-                  >
-                    <FormattedMessage id={getKeywordMessageId(keyword)} />
-                  </Chip>
-                ))}
-              </Stack>
-              {otherLocale !== null && (
-                <Alert startDecorator={<Warning />} variant="soft" color="warning">
-                  <Typography>
-                    <FormattedMessage
-                      id="blog.post.otherLanguage"
-                      values={{ language: formatMessage({ id: LocaleNameKey[otherLocale] }).toLowerCase() }}
-                    />
-                  </Typography>
-                </Alert>
-              )}
-            </Stack>
-          </Box>
+          <PostHeader title={title} date={date} keywords={keywords} otherLocale={otherLocale} />
           <CardContent>{children}</CardContent>
         </Card>
-        <Box sx={{ mt: 2 }}>
-          <BackButton />
-        </Box>
       </JoyMDXProvider>
     </PageLayout>
   );

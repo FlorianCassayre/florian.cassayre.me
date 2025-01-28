@@ -11,6 +11,7 @@
   "header.emailAddress": "E-mail",
   "footer.sourceCode": "Code source",
   "footer.scrollToTop": "Revenir en haut",
+  "home.title": "Accueil",
   "home.sections.currentProjects": "Projets actifs",
   "home.sections.careerPath": "Carrière",
   "home.sections.contributedProjects": "Projets contribués",
@@ -69,7 +70,7 @@
   "home.social.languages.level.native": "Maternelle",
   "home.social.languages.level.experienced": "Avancé",
   "home.social.languages.level.basics": "Bases",
-  "home.social.contact.title": "Contact",
+  "home.social.contact.title": "Adresse",
   "home.social.contact.description": "Vous pouvez m'écrire à :",
   "home.social.contact.label": "Adresse e-mail",
   "home.social.contact.disclaimer": "Je reçois près d'un message par jour, je fais de mon mieux pour y répondre rapidement mais ce n'est pas toujours le cas. N'hésitez pas à me le rappeler si j'ai manqué le vôtre.",
@@ -99,6 +100,5 @@
   "blog.filtering.empty": "Il n'y a pas d'articles correspondant à la requête.",
   "blog.filtering.clear": "Réinitialiser",
   "blog.post.published": "Publié le {date}",
-  "blog.post.otherLanguage": "Cet article est écrit en {language}.",
-  "blog.post.back": "Retour"
+  "blog.post.otherLanguage": "Cet article est écrit en {language}."
 }
