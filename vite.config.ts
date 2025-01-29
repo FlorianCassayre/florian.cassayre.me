@@ -29,12 +29,17 @@ const remarkPlugins = [
 
 const config: UserConfig = {
   plugins: [
-    mdx({
-      providerImportSource: '@mdx-js/react',
-      rehypePlugins,
-      remarkPlugins,
-    }),
-    react(),
+    // Both `enforce: 'pre'` and React `include` are needed to achieve HMR when modifying .mdx files
+    // See https://github.com/mdx-js/mdx/pull/2474
+    {
+      enforce: 'pre',
+      ...mdx({
+        providerImportSource: '@mdx-js/react',
+        rehypePlugins,
+        remarkPlugins,
+      }),
+    },
+    react({ include: /\.(jsx|js|mdx|md|tsx|ts)$/ }),
     vike({
       prerender: true,
       // Doesn't seem to work anymore with `vike-react`; instead we re-implement it with a meta refresh tag (also `redirect` doesn't support SSG anyways)
