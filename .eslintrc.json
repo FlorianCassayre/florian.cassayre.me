@@ -7,7 +7,8 @@
     "plugin:react-hooks/recommended"
   ],
   "plugins": [
-    "prefer-arrow"
+    "prefer-arrow",
+    "eslint-plugin-react-compiler"
   ],
   "rules": {
     "object-curly-spacing": ["error", "always"],
@@ -72,7 +73,8 @@
         "singleReturnOnly": false,
         "classPropertiesAllowed": false
       }
-    ]
+    ],
+    "react-compiler/react-compiler": "error"
   },
   "settings": {
     "react": {

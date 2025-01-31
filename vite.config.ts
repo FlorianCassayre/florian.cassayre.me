@@ -27,6 +27,10 @@ const remarkPlugins = [
   remarkGfm,
 ];
 
+const ReactCompilerConfig = {
+  target: '18',
+};
+
 const config: UserConfig = {
   plugins: [
     // Both `enforce: 'pre'` and React `include` are needed to achieve HMR when modifying .mdx files
@@ -39,7 +43,12 @@ const config: UserConfig = {
         remarkPlugins,
       }),
     },
-    react({ include: /\.(jsx|js|mdx|md|tsx|ts)$/ }),
+    react({
+      include: /\.(jsx|js|mdx|md|tsx|ts)$/,
+      babel: {
+        plugins: [['babel-plugin-react-compiler', ReactCompilerConfig]],
+      },
+    }),
     vike({
       prerender: true,
       // Doesn't seem to work anymore with `vike-react`; instead we re-implement it with a meta refresh tag (also `redirect` doesn't support SSG anyways)
