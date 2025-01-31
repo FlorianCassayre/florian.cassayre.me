@@ -10,7 +10,8 @@
     "jsx": "react",
     "module": "esnext",
     "moduleResolution": "node",
-    "types": ["vite/client"]
+    "types": ["vite/client"],
+    "incremental": true
   },
   "include": [
     "src/**/*.ts",
