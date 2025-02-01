@@ -2,7 +2,7 @@ import React, { useCallback, useMemo, useState } from 'react';
 
 import { Close, East, FilterList, Info } from '@mui/icons-material';
 import { Alert, Badge, Box, Button, Card, CardContent, Chip, Grid, Stack, Typography, useTheme } from '@mui/joy';
-import { CardActionArea } from '@mui/material';
+import { CardActionArea, Collapse } from '@mui/material';
 import { FormattedDate, FormattedMessage, useIntl } from 'react-intl';
 import { usePageContext } from 'vike-react/usePageContext';
 
@@ -13,7 +13,6 @@ import { PostConfig } from '../../blog/PostConfig';
 import { PostKeyword } from '../../blog/PostKeyword';
 import { PostSlug } from '../../blog/PostSlug';
 import { PageLayout } from '../../components/layout/PageLayout';
-import { useIsomorphicLayoutEffect } from '../../hooks/useIsomorphicLayoutEffect';
 import { Locale } from '../../i18n/Locale';
 import { LocaleNameKey } from '../../i18n/LocaleNameKey';
 import { LOCALES } from '../../i18n/utils';
@@ -88,7 +87,9 @@ export const Page = () => {
   const { $t } = useIntl();
   const urlGenerator = useUrlGenerator();
   const theme = useTheme();
-  const [selectedKeywords, setSelectedKeywords] = useState<PostKeyword[]>([]);
+  const [selectedKeywords, setSelectedKeywords] = useState<PostKeyword[]>(() =>
+    'keyword' in pageContext && pageContext.keyword !== undefined ? [pageContext.keyword] : []
+  );
   const [selectedLocale, setSelectedLocale] = useState<Locale | null>(null);
   const selectedLocales = useMemo(() => (selectedLocale !== null ? [selectedLocale] : []), [selectedLocale]);
   const handleKeywordClick = useCallback(
@@ -105,17 +106,17 @@ export const Page = () => {
     (clickedLocale: Locale) => setSelectedLocale(selectedLocale !== clickedLocale ? clickedLocale : null),
     [setSelectedLocale, selectedLocale]
   );
-  const filteredPosts = useMemo(
-    () =>
-      postsMeta
-        .filter(({ keywords }) => selectedKeywords.every(keyword => !!keywords?.includes(keyword)))
-        .filter(({ locale }) => locale === null || selectedLocale === null || selectedLocale === locale),
+  const isPostVisible = useCallback(
+    ({ keywords, locale }: Pick<(typeof postsMeta)[number], 'keywords' | 'locale'>) =>
+      selectedKeywords.every(keyword => !!keywords?.includes(keyword)) &&
+      (locale === null || selectedLocale === null || selectedLocale === locale),
     [selectedKeywords, selectedLocale]
   );
-  useIsomorphicLayoutEffect(() => {
-    // https://vike.dev/passToClient#error
-    setSelectedKeywords('keyword' in pageContext && pageContext.keyword !== undefined ? [pageContext.keyword] : []);
-  }, [setSelectedKeywords, pageContext]);
+  const hasResults = useMemo(() => postsMeta.some(isPostVisible), [isPostVisible]);
+  const isFiltering = useMemo(
+    () => selectedKeywords.length > 0 || selectedLocale !== null,
+    [selectedKeywords, selectedLocale]
+  );
   return (
     <PageLayout title={$t({ id: 'blog.title' })} parentBreadcrumbs={homeBreadcrumbs}>
       <Grid container spacing={2}>
@@ -140,44 +141,42 @@ export const Page = () => {
           </Card>
         </Grid>
         <Grid xs={12} md={10}>
-          <Stack direction="column" spacing={2}>
-            {(selectedKeywords.length > 0 || selectedLocale !== null) && (
-              <>
-                <Alert
-                  variant="soft"
-                  color="primary"
-                  startDecorator={<FilterList />}
-                  endDecorator={
-                    <Button
-                      size="sm"
-                      variant="outlined"
-                      color="primary"
-                      startDecorator={<Close />}
-                      onClick={() => {
-                        setSelectedKeywords([]);
-                        setSelectedLocale(null);
-                      }}
-                    >
-                      <FormattedMessage id="blog.filtering.clear" />
-                    </Button>
-                  }
-                >
-                  <FormattedMessage id="blog.filtering.enabled" />
-                </Alert>
-                {filteredPosts.length === 0 && (
-                  <Alert variant="outlined" color="warning" startDecorator={<Info />}>
-                    <FormattedMessage id="blog.filtering.empty" />
-                  </Alert>
-                )}
-              </>
-            )}
-            <Stack direction="column" spacing={2}>
-              {filteredPosts.map(({ title, description, keywords, date, locale: postLocale, rawSlug }) => (
+          <Stack direction="column" sx={{ mt: -2 }}>
+            <Collapse in={isFiltering}>
+              <Alert
+                variant="soft"
+                color="primary"
+                startDecorator={<FilterList />}
+                endDecorator={
+                  <Button
+                    size="sm"
+                    variant="outlined"
+                    color="primary"
+                    startDecorator={<Close />}
+                    onClick={() => {
+                      setSelectedKeywords([]);
+                      setSelectedLocale(null);
+                    }}
+                  >
+                    <FormattedMessage id="blog.filtering.clear" />
+                  </Button>
+                }
+                sx={{ mt: 2 }}
+              >
+                <FormattedMessage id="blog.filtering.enabled" />
+              </Alert>
+            </Collapse>
+            <Collapse in={isFiltering && !hasResults}>
+              <Alert variant="outlined" color="warning" startDecorator={<Info />} sx={{ mt: 2 }}>
+                <FormattedMessage id="blog.filtering.empty" />
+              </Alert>
+            </Collapse>
+            {postsMeta.map(({ title, description, keywords, date, locale: postLocale, rawSlug }) => (
+              <Collapse key={rawSlug} in={isPostVisible({ keywords, locale: postLocale })}>
                 <CardActionArea
-                  key={rawSlug}
                   component="a"
                   href={urlGenerator(`/blog/post/${rawSlug}`)}
-                  sx={{ borderRadius: 2 }}
+                  sx={{ borderRadius: 2, mt: 2 }}
                 >
                   <Card key={rawSlug} sx={{ width: '100%' }}>
                     <CardContent>
@@ -214,8 +213,8 @@ export const Page = () => {
                     </CardContent>
                   </Card>
                 </CardActionArea>
-              ))}
-            </Stack>
+              </Collapse>
+            ))}
           </Stack>
         </Grid>
       </Grid>

@@ -55,6 +55,12 @@ const config: UserConfig = {
       //redirects: INVISIBLE_REDIRECTIONS,
     }),
   ],
+  build: {
+    modulePreload: {
+      // See https://github.com/quasarframework/quasar/issues/12866
+      polyfill: true,
+    },
+  },
 };
 
 // eslint-disable-next-line import/no-default-export

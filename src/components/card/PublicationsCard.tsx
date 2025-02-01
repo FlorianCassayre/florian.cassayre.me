@@ -39,13 +39,17 @@ export const PublicationsCard: React.FC<PublicationsCardProps> = ({ publications
             <AccordionSummary>
               <Stack direction="row" spacing={1} alignItems="center">
                 <Chip variant="outlined">{year}</Chip>
-                <Typography>{title}</Typography>
-                {!!conference && <Chip color="primary">{conference}</Chip>}
-                {!!upcoming && (
-                  <Chip color="warning">
-                    <FormattedMessage id="home.publications.future" />
-                  </Chip>
-                )}
+                <Stack direction={{ xs: 'column', sm: 'row' }} spacing={{ xs: 0.5, sm: 1 }}>
+                  <Typography>{title}</Typography>
+                  <Stack direction="row" spacing={1} alignItems="center">
+                    {!!conference && <Chip color="primary">{conference}</Chip>}
+                    {!!upcoming && (
+                      <Chip color="warning">
+                        <FormattedMessage id="home.publications.future" />
+                      </Chip>
+                    )}
+                  </Stack>
+                </Stack>
               </Stack>
             </AccordionSummary>
             <AccordionDetails>
