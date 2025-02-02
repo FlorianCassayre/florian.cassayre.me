@@ -1,0 +1,30 @@
+import {
+  BeforeAfterTable
+} from './BeforeAfterTable';
+
+**I am pleased to unveil the fourth version of my personal website, [florian.cassayre.me](/)!**
+
+Its predecessor was released <strong>on this day</strong>, 8 years ago. As I am writing these words, it currently holds the record for the longest-running application that I have designed! I had just begun my studies when I first published it; since then, I have graduated, landed my first job and achieved many other milestones.
+
+As much as I favor maintenance over rewrite, an application eventually reaches a state where the former becomes more costly than the latter (and also _not fun_). Any significant change would prove to be daunting, discouraging me from updating anything. Moreover, the content had also become outdated and no longer reflected who I am. Finally, such a project serves as a _pilot_ to test and (in)validate new things; therefore, a rewrite can still provide significant intellectual value.
+
+Those reasons pushed me towards a complete rewrite of the website. This new version maintains a minimalistic design that aligns with my personal interpretation of affordability. Also, I am bringing back some of the features from previous versions, such as:
+- Blog: having stayed quite away from social media, I finally have a proper space to share my thoughts.
+- Localization: even though this requires extra effort, this is important to me as my readers are evenly split between English and French.
+
+Regarding the technology stack, there have been improvements across every single aspect, summarized in the table below (for the curious):
+
+<BeforeAfterTable />
+
+I am particularly excited about **static-site generation** (SSG). This technique minimizes the costs of hosting while being at the same time highly efficient to serve. It also dramatically reduces the attack surface, as the web server is reduced to serving static resources. I believe that this approach can scale well to hundreds of pages, and a personal website is in fact the ideal use case for it.
+
+Major website updates often lead to broken links, and this site is no exception.
+To mitigate the inconvenience for users, I have put in place the following strategy when attempting to access a page that does not exist anymore:
+- If a similar page exists on the new site, the user is transparently redirected to it
+- Otherwise, the 404 page includes a link to the legacy source code for reference. It should be technically possible to re-build the missing page locally (and this is left as an exercise to the reader)
+
+I hope you like it, as much as I did assembling the different components together and writing the content.
+
+Should you notice anything strange, do not hesitate to open an issue or contact me directly.
+
+Florian.
