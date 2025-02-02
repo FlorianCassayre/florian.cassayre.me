@@ -38,7 +38,7 @@ export const PageLayout: React.FC<PageLayoutProps> = ({
       {/* CssBaseline must appear as the first child */}
       <CssBaseline />
 
-      <Config title={getTitle(title)} description={description} />
+      <Config title={getTitle(title)} description={description ?? intl.$t({ id: 'general.description' })} />
 
       <Stack
         direction="column"

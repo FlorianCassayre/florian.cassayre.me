@@ -12,6 +12,7 @@ export const INVISIBLE_REDIRECTIONS: Record<string, string> = {
   '/articles/genealogy': 'https://genealogy.florian.cassayre.me',
   '/about': '/',
   '/netherrail': 'https://zeps.carrade.eu',
+  '/articles': '/blog', // Not a valid legacy URL, but part of a path
 };
 
 const legacyGithubFile = (path: string) => `https://github.com/FlorianCassayre/Website/blob/master/${path}`;

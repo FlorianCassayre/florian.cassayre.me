@@ -9,11 +9,18 @@ import { canonicalizeUrlPathname } from '../route/canonicalizeUrlPathname';
 export const Head: React.FC = () => {
   const { urlPathname } = usePageContext();
   const name = AUTHOR;
+  const is404 = urlPathname === '/fake-404-url';
   return (
     <>
       <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-      <link rel="canonical" href={canonicalizeUrlPathname(urlPathname)} />
-      <meta property="og:url" content={canonicalizeUrlPathname(urlPathname)} />
+      {!is404 && (
+        <>
+          <link rel="canonical" href={canonicalizeUrlPathname(urlPathname)} />
+          <meta property="og:url" content={canonicalizeUrlPathname(urlPathname)} />
+        </>
+      )}
+      <meta property="og:image" content="/og-banner.png" />
+      <meta name="twitter:card" content="summary_large_image" />
       <meta name="robots" content="index, follow" />
       <meta name="mobile-web-app-capable" content="yes" />
       <meta name="theme-color" content="#fff" />
