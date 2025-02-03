@@ -13,7 +13,7 @@ export const usePostMeta = (): PostConfig['post'] & PostSlug => {
     urlPathname,
   } = usePageContext() as PageContext & { config: PostConfig };
   const postSlug = useMemo(() => {
-    const parts = urlPathname.split('/');
+    const parts = urlPathname.split('/').filter(s => !!s);
     const parsed = parsePostSlug(parts[parts.length - 1]);
     if (parsed === null) {
       throw new Error(); // Shouldn't happen
