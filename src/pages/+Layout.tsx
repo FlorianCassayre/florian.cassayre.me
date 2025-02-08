@@ -1,10 +1,11 @@
 import React from 'react';
 
-import '@fontsource/inter/200.css';
-import '@fontsource/inter/300.css';
-import '@fontsource/inter/400.css';
-import '@fontsource/inter/500.css';
-import '@fontsource/inter/600.css';
+import '@fontsource/inter/latin-200.css';
+import '@fontsource/inter/latin-300.css';
+import '@fontsource/inter/latin-ext-400.css'; // For the subtitle
+import '@fontsource/inter/latin-400.css';
+import '@fontsource/inter/latin-500.css';
+import '@fontsource/inter/latin-600.css';
 import '@fontsource/bitter/latin-300.css';
 import '@fontsource/bitter/latin-400.css';
 import './Layout.css';

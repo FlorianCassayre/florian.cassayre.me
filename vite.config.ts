@@ -50,7 +50,6 @@ const config: UserConfig = {
       },
     }),
     vike({
-      prerender: true,
       // Doesn't seem to work anymore with `vike-react`; instead we re-implement it with a meta refresh tag (also `redirect` doesn't support SSG anyways)
       //redirects: INVISIBLE_REDIRECTIONS,
     }),
