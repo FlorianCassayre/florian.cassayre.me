@@ -3,11 +3,11 @@ import React from 'react';
 import { usePageContext } from 'vike-react/usePageContext';
 
 import { AUTHOR } from '../config';
-import { LOCALES, localizeUrl } from '../i18n/utils';
+import { DEFAULT_LOCALE, LOCALES, localizeUrl } from '../i18n/utils';
 import { canonicalizeUrlPathname } from '../route/canonicalizeUrlPathname';
 
 export const Head: React.FC = () => {
-  const { urlPathname } = usePageContext();
+  const { urlPathname, locale } = usePageContext();
   const name = AUTHOR;
   const is404 = urlPathname === '/fake-404-url';
   return (
@@ -15,8 +15,8 @@ export const Head: React.FC = () => {
       <link rel="icon" type="image/x-icon" href="/favicon.ico" />
       {!is404 && (
         <>
-          <link rel="canonical" href={canonicalizeUrlPathname(urlPathname)} />
-          <meta property="og:url" content={canonicalizeUrlPathname(urlPathname)} />
+          <link rel="canonical" href={canonicalizeUrlPathname(localizeUrl(urlPathname, locale))} />
+          <meta property="og:url" content={canonicalizeUrlPathname(localizeUrl(urlPathname, locale))} />
         </>
       )}
       <meta property="og:image" content="/og-banner.png" />
@@ -36,6 +36,11 @@ export const Head: React.FC = () => {
           href={canonicalizeUrlPathname(localizeUrl(urlPathname, locale))}
         />
       ))}
+      <link
+        rel="alternate"
+        hrefLang="x-default"
+        href={canonicalizeUrlPathname(localizeUrl(urlPathname, DEFAULT_LOCALE))}
+      />
     </>
   );
 };
