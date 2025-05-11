@@ -97,6 +97,7 @@
   "blog.filterBy.language": "Language",
   "blog.keywords.list.personal": "Personal",
   "blog.keywords.list.technical": "Technical",
+  "blog.keywords.list.cycling": "Cycling",
   "blog.filtering.enabled": "You are now filtering the posts.",
   "blog.filtering.empty": "There are no posts that match the query.",
   "blog.filtering.clear": "Clear",

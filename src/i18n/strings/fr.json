@@ -97,6 +97,7 @@
   "blog.filterBy.language": "Langue",
   "blog.keywords.list.personal": "Personnel",
   "blog.keywords.list.technical": "Technique",
+  "blog.keywords.list.cycling": "Vélo",
   "blog.filtering.enabled": "Vous êtes en train de filtrer les articles.",
   "blog.filtering.empty": "Il n'y a pas d'articles correspondant à la requête.",
   "blog.filtering.clear": "Réinitialiser",
