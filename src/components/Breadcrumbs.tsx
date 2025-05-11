@@ -4,7 +4,8 @@ import { Breadcrumbs as JoyBreadcrumbs, Stack, Typography } from '@mui/joy';
 import { useIntl } from 'react-intl';
 
 import { SoftLink } from './SoftLink';
-import { BreadcrumbArray, LocalizedBreadcrumbArray } from '../route/Breadcrumb';
+import { Breadcrumb, LocalizedBreadcrumbArray } from '../route/Breadcrumb';
+import { useUrlGenerator } from '../route/useUrlGenerator';
 
 interface BreadcrumbsProps {
   breadcrumbs: LocalizedBreadcrumbArray;
@@ -12,9 +13,14 @@ interface BreadcrumbsProps {
 
 export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ breadcrumbs }) => {
   const intl = useIntl();
-  const resolvedBreadcrumbs: BreadcrumbArray = useMemo(
-    () => (typeof breadcrumbs === 'function' ? breadcrumbs(intl) : breadcrumbs),
-    [breadcrumbs, intl]
+  const urlGenerator = useUrlGenerator();
+  const resolvedBreadcrumbs: Breadcrumb[] = useMemo(
+    () =>
+      (typeof breadcrumbs === 'function' ? breadcrumbs(intl) : breadcrumbs).map(breadcrumb => ({
+        ...breadcrumb,
+        url: breadcrumb.url !== undefined ? urlGenerator(breadcrumb.url) : undefined,
+      })),
+    [breadcrumbs, intl, urlGenerator]
   );
   return (
     <JoyBreadcrumbs size="sm" sx={{ px: 0, pt: 2 }}>
