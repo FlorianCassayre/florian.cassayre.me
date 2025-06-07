@@ -7,5 +7,6 @@ export const config = {
     description: 'Début du voyage sur la ViaRhôna.',
     locale: Locale.French,
     keywords: ['personal', 'cycling'],
+    image: '/articles/viarhona/stuff.jpg',
   },
 } satisfies PostConfig;

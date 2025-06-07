@@ -8,6 +8,7 @@ import { FooterContent } from '../../content/layout/FooterContent';
 import { HeaderContent } from '../../content/layout/HeaderContent';
 import { getTitle } from '../../content/meta/getTitle';
 import { LocalizedBreadcrumbArray } from '../../route/Breadcrumb';
+import { canonicalizeUrlPathname } from '../../route/canonicalizeUrlPathname';
 import { Breadcrumbs } from '../Breadcrumbs';
 
 interface PageLayoutProps {
@@ -16,6 +17,7 @@ interface PageLayoutProps {
   hideTitle?: boolean;
   parentBreadcrumbs?: LocalizedBreadcrumbArray;
   description?: string;
+  image?: string;
 }
 
 export const PageLayout: React.FC<PageLayoutProps> = ({
@@ -24,6 +26,7 @@ export const PageLayout: React.FC<PageLayoutProps> = ({
   hideTitle,
   parentBreadcrumbs,
   description,
+  image,
 }) => {
   const intl = useIntl();
   const breadcrumbs: LocalizedBreadcrumbArray | undefined = useMemo(
@@ -38,7 +41,16 @@ export const PageLayout: React.FC<PageLayoutProps> = ({
       {/* CssBaseline must appear as the first child */}
       <CssBaseline />
 
-      <Config title={getTitle(title)} description={description ?? intl.$t({ id: 'general.description' })} />
+      <Config
+        title={getTitle(title)}
+        description={description ?? intl.$t({ id: 'general.description' })}
+        Head={
+          <>
+            <meta property="og:image" content={canonicalizeUrlPathname(image ?? '/og-banner.png')} />
+            <meta name="twitter:card" content="summary_large_image" />
+          </>
+        }
+      />
 
       <Stack
         direction="column"

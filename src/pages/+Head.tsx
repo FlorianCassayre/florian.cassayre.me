@@ -19,8 +19,6 @@ export const Head: React.FC = () => {
           <meta property="og:url" content={canonicalizeUrlPathname(localizeUrl(urlPathname, locale))} />
         </>
       )}
-      <meta property="og:image" content="/og-banner.png" />
-      <meta name="twitter:card" content="summary_large_image" />
       <meta name="robots" content="index, follow" />
       <meta name="mobile-web-app-capable" content="yes" />
       <meta name="theme-color" content="#fff" />

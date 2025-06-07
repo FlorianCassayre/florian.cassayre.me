@@ -84,7 +84,7 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
   const { formatMessage } = useIntl();
   const { locale } = usePageContext();
   const urlGenerator = useUrlGenerator();
-  const { title, locale: postLocale, description, keywords = [], date } = usePostMeta();
+  const { title, locale: postLocale, description, keywords = [], date, image } = usePostMeta();
   const joinedKeywords = useMemo(
     () =>
       keywords?.length
@@ -98,7 +98,7 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
     [locale, postLocale]
   );
   return (
-    <PageLayout title={title} hideTitle parentBreadcrumbs={blogBreadcrumbs} description={description}>
+    <PageLayout title={title} hideTitle parentBreadcrumbs={blogBreadcrumbs} description={description} image={image}>
       <JoyMDXProvider>
         <Config
           Head={

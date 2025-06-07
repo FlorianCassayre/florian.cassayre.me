@@ -7,5 +7,6 @@ export interface PostConfig {
     description: string;
     locale: Locale | null;
     keywords?: PostKeyword[];
+    image?: string;
   };
 }

@@ -7,5 +7,6 @@ export const config = {
     description: 'Announcing my new website.',
     locale: Locale.English,
     keywords: ['personal', 'technical'],
+    image: '/og-banner.png',
   },
 } satisfies PostConfig;

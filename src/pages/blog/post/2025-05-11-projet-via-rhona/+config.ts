@@ -7,5 +7,6 @@ export const config = {
     description: 'Voyage sur un itinéraire cyclable le long du Rhône.',
     locale: Locale.French,
     keywords: ['personal', 'cycling'],
+    image: '/articles/viarhona/bike.jpg',
   },
 } satisfies PostConfig;

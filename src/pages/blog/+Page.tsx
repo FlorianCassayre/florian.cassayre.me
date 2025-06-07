@@ -2,7 +2,7 @@ import React, { useCallback, useMemo, useState } from 'react';
 
 import { Close, East, FilterList, Info } from '@mui/icons-material';
 import { Alert, Badge, Box, Button, Card, CardContent, Chip, Grid, Stack, Typography, useTheme } from '@mui/joy';
-import { CardActionArea, Collapse } from '@mui/material';
+import { CardActionArea, CardMedia, Collapse } from '@mui/material';
 import { FormattedDate, FormattedMessage, useIntl } from 'react-intl';
 import { usePageContext } from 'vike-react/usePageContext';
 
@@ -18,6 +18,8 @@ import { LocaleNameKey } from '../../i18n/LocaleNameKey';
 import { LOCALES } from '../../i18n/utils';
 import { useUrlGenerator } from '../../route/useUrlGenerator';
 import { homeBreadcrumbs } from '../breadcrumbs';
+
+const ANIMATION_CLASS_NAME = 'hover-reveal-image';
 
 const postsMeta = Object.entries(import.meta.glob('./post/*/+config.ts', { eager: true }))
   .map(([name, properties]) => {
@@ -171,17 +173,24 @@ export const Page = () => {
                 <FormattedMessage id="blog.filtering.empty" />
               </Alert>
             </Collapse>
-            {postsMeta.map(({ title, description, keywords, date, locale: postLocale, rawSlug }) => (
+            {postsMeta.map(({ title, description, keywords, date, locale: postLocale, image, rawSlug }) => (
               <Collapse key={rawSlug} in={isPostVisible({ keywords, locale: postLocale })}>
                 <CardActionArea
                   component="a"
                   href={urlGenerator(`/blog/post/${rawSlug}`)}
-                  sx={{ borderRadius: 2, mt: 2 }}
+                  sx={{
+                    borderRadius: 2,
+                    mt: 2,
+                    [`&:hover .${ANIMATION_CLASS_NAME}`]: {
+                      opacity: '30%',
+                      filter: 'blur(5px)',
+                    },
+                  }}
                 >
-                  <Card key={rawSlug} sx={{ width: '100%' }}>
+                  <Card key={rawSlug} sx={{ width: '100%', p: 0 }}>
                     <CardContent>
-                      <Stack direction="row" justifyContent="space-between" alignItems="center" spacing={1}>
-                        <Box>
+                      <Stack direction="row" spacing={0} justifyContent="space-between">
+                        <Box sx={{ flex: 1, p: 2 }}>
                           <Stack direction="row" spacing={1} useFlexGap sx={{ flexWrap: 'wrap' }}>
                             <Typography level="title-lg">{title}</Typography>
                             {postLocale !== null && postLocale !== pageContext.locale && (
@@ -208,7 +217,43 @@ export const Page = () => {
                             </Stack>
                           )}
                         </Box>
-                        <East sx={{ color: theme.palette.primary.plainColor }} />
+                        <Box
+                          sx={{
+                            position: 'relative',
+                            width: image !== undefined ? { xs: 100, md: 200 } : 48,
+                            overflow: 'hidden',
+                          }}
+                        >
+                          {image && (
+                            <CardMedia
+                              className={ANIMATION_CLASS_NAME}
+                              component="img"
+                              image={image}
+                              alt={title}
+                              sx={{
+                                position: 'absolute',
+                                zIndex: 2,
+                                width: '100%',
+                                height: '100%',
+                                objectFit: 'cover',
+                                pointerEvents: 'none',
+                                transition: 'opacity 200ms ease-in-out, filter 200ms ease-in-out',
+                                borderTopRightRadius: 8,
+                                borderBottomRightRadius: 8,
+                              }}
+                            />
+                          )}
+                          <East
+                            sx={{
+                              position: 'absolute',
+                              right: 16,
+                              zIndex: 1,
+                              color: theme.palette.primary.plainColor,
+                              top: '50%',
+                              transform: 'translateY(-50%)',
+                            }}
+                          />
+                        </Box>
                       </Stack>
                     </CardContent>
                   </Card>
