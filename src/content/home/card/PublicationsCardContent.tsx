@@ -15,9 +15,16 @@ export const PublicationsCardContent: React.FC = () => {
           title: 'Upgrading the IMPACT Application for Enhanced Risk Declaration and Approval Processes at CERN',
           year: 2025,
           conference: "IPAC'25",
-          authors: [],
-          abstract: '',
-          upcoming: true,
+          authors: [
+            'Giovanni Chierico',
+            'Miguel Ventura',
+            'Florian Cassayre',
+            'Agata Chadaj',
+            'Mateusz Kubicki',
+            'Aleksa Majkic',
+          ],
+          abstract:
+            "The declaration and approval of activities related to CERN's accelerator complex are critical for ensuring safety and compliance. For the past 12 years, the Intervention Management Planning and Coordination Tool (IMPACT) has been the primary system facilitating these processes, enabling approvals by domain and location experts. However, evolving requirements and advancements in technology have necessitated a significant upgrade. This paper introduces the new system, which represents a migration from the legacy IMPACT application. It preserves historical data while offering key usability improvements, especially for mobile platforms. The updated system simplifies user interactions with clearer workflows and interfaces, reducing complexity for those declaring or approving activities. The development process prioritized a user-centric approach, incorporating iterative testing with stakeholders to ensure the system meets the operational needs of CERN’s diverse activities. This paper outlines the technical architecture of the new system, strategies for data migration, and mechanisms designed to improve safety communication. This initiative aligns IMPACT with the integrated engineering platform developed by the Engineering Department (EN) and contributes to CERN’s overarching goal of advancing safety standards through robust digital solutions.",
         },
         {
           title: 'LISA: Towards a Foundational Theorem Prover',
