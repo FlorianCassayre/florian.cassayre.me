@@ -74,7 +74,8 @@
         "classPropertiesAllowed": false
       }
     ],
-    "react-compiler/react-compiler": "error"
+    "react-compiler/react-compiler": "error",
+    "react/prop-types": "off"
   },
   "settings": {
     "react": {

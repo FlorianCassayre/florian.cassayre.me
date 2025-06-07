@@ -1,20 +1,17 @@
-import React, { CSSProperties, FC } from 'react';
+import React, { FC } from 'react';
 
-export interface PreBlockProps {
-  children?: string;
-  styles?: CSSProperties;
-}
+type PreBlockProps = React.DetailedHTMLProps<React.HTMLAttributes<HTMLPreElement>, HTMLPreElement>;
 
 export const PreBlock: FC<PreBlockProps> = props => {
   // Props
-  const { children = '', styles } = props;
+  const { children = '', style } = props;
 
   return (
     <pre
       style={{
         borderRadius: '0.5rem',
         overflow: 'auto',
-        ...styles,
+        ...style,
       }}
     >
       {children}
