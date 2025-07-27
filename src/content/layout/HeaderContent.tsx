@@ -18,7 +18,7 @@ export const HeaderContent: React.FC = () => {
       </Typography>
       <Stack direction="row" spacing={0.5}>
         <Stack direction="row" spacing={{ xs: 0, sm: 0.5 }}>
-          <IconButton component="a" href="/blog" aria-label={$t({ id: 'blog.title' })}>
+          <IconButton component="a" href={urlGenerator('/blog')} aria-label={$t({ id: 'blog.title' })}>
             <RssFeed color="action" />
           </IconButton>
           <IconButton
