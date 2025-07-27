@@ -34,7 +34,7 @@ void favicons(source, configuration)
       .flat()
       .filter(({ name }) => name !== 'manifest.webmanifest')
       .forEach(({ name, contents }) => {
-        fs.writeFileSync(output + name, contents);
+        fs.writeFileSync(output + name, typeof contents === 'string' ? contents : new Uint8Array(contents.buffer));
       });
     console.log(response.html.join('\n'));
   })
