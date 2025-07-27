@@ -1,5 +1,4 @@
 {
-  "extends": "./node_modules/gts/tsconfig-google.json",
   "compilerOptions": {
     "rootDir": ".",
     "outDir": "dist",
@@ -11,13 +10,16 @@
     "module": "esnext",
     "moduleResolution": "node",
     "types": ["vite/client"],
-    "incremental": true
+    "incremental": true,
+    "allowJs": true
   },
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx",
     "src/**/*.json",
     "test/**/*.ts",
-    "vite.config.ts"
+    "vite.config.ts",
+    "eslint.config.js",
+    ".prettierrc.cjs"
   ]
 }
