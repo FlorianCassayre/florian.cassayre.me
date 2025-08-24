@@ -31,33 +31,44 @@ export const ProfessionalTimelineContent: React.FC = () => {
     <ProfessionalTimeline
       events={[
         {
-          date: `2022 - ${$t({ id: `${Key}.timeNow` })}`,
+          date: `2025 - ${$t({ id: `${Key}.timeNow` })}`,
           institution: CERN,
-          title: $t({ id: `${Key}.positions.fullStackSoftwareEngineer` }),
+          title: $t({ id: `${Key}.positions.title.fullStackSoftwareEngineer` }),
+          subtitle: $t({ id: `${Key}.positions.subtitle.staff` }),
+          work: true,
+        },
+        {
+          date: `2022 - 2025`,
+          institution: CERN,
+          title: $t({ id: `${Key}.positions.title.fullStackSoftwareEngineer` }),
+          subtitle: $t({ id: `${Key}.positions.subtitle.fellow` }),
           work: true,
         },
         {
           date: '2020',
           institution: CERN,
-          title: $t({ id: `${Key}.positions.fullStackSoftwareEngineerIntern` }),
+          title: $t({ id: `${Key}.positions.title.fullStackSoftwareEngineer` }),
+          subtitle: $t({ id: `${Key}.positions.subtitle.intern` }),
           work: true,
         },
         {
           date: '2019 - 2022',
           institution: EPFL,
-          title: $t({ id: `${Key}.positions.masterInComputerScience` }),
+          title: $t({ id: `${Key}.positions.title.master` }),
+          subtitle: $t({ id: `${Key}.positions.subtitle.computerScience` }),
           work: false,
         },
         {
           date: '2018 - 2019',
           institution: KTH,
-          title: $t({ id: `${Key}.positions.exchangeYear` }),
+          title: $t({ id: `${Key}.positions.title.academicExchange` }),
           work: false,
         },
         {
           date: '2016 - 2019',
           institution: EPFL,
-          title: $t({ id: `${Key}.positions.bachelorInComputerScience` }),
+          title: $t({ id: `${Key}.positions.title.bachelor` }),
+          subtitle: $t({ id: `${Key}.positions.subtitle.computerScience` }),
           work: false,
         },
       ]}

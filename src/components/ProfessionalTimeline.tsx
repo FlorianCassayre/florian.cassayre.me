@@ -26,7 +26,7 @@ interface TimelineEvent {
   date: string;
   institution: TimelineEventInstitution;
   title: React.ReactNode;
-  description?: React.ReactNode;
+  subtitle?: React.ReactNode;
   work: boolean;
 }
 
@@ -50,7 +50,7 @@ export const ProfessionalTimelineStatic: React.FC<ProfessionalTimelineProps> = (
             },
       }}
     >
-      {events.map(({ date, institution, title }, i) => (
+      {events.map(({ date, institution, title, subtitle }, i) => (
         <TimelineItem key={i}>
           <TimelineOppositeContent sx={{ py: { sm: 4 }, maxWidth: '40vw', ml: 'auto', mr: 0 }}>
             <Chip variant="outlined" sx={{ mb: 0.5 }}>
@@ -87,6 +87,7 @@ export const ProfessionalTimelineStatic: React.FC<ProfessionalTimelineProps> = (
           </TimelineSeparator>
           <TimelineContent sx={{ py: { sm: 4 }, maxWidth: '45vw' }}>
             <Typography>{title}</Typography>
+            <Typography level="body-sm">{subtitle}</Typography>
           </TimelineContent>
         </TimelineItem>
       ))}
