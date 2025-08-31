@@ -1,0 +1,21 @@
+**After three years of contributing to the safety of the CERN personnel through the IMPACT system, I will be moving to the IT department to work on the central network database of the organisation.**
+
+The IMPACT application is an essential system at CERN, it records the declaration of all surface and underground interventions. Since an intervention may trigger work hazards, the application also offers the possibility to declare additional safety processes. These include planning radiological work, disabling alarm systems, cryogenic and electrical lockouts, power cut notices. The system then automatically contacts the appropriate responsible persons for approval. Once approved, the system grants physical access to the facilities where the work is going to take place, during the scheduled time. This ensures that all interventions are authorized, controlled, and restricted to qualified personnel only; thereby safeguarding both the workers and the integrity of CERN's facilities.
+
+The application has been in production for over ten years and has successfully sustained two long shutdowns. It was originally written using [GWT](https://www.gwtproject.org/), in a mix of Java and Groovy, and connected to an Oracle database. Additionally, it integrated a [BPMN](https://en.wikipedia.org/wiki/Business_Process_Model_and_Notation) engine to model the lifecycle of each document.
+Due to the obsolescence of that technology stack, it was decided that the project would be transferred from one team to another, and the application rewritten from scratch. The Oracle database and its data would be kept mostly as is. One of the objectives of the project is to improve upon the old application, by removing superfluous features and enhancing its integration with third-party systems. The long-term objective of the department is to provide an integrated engineering platform, as opposed to a fragmented collection of applications.
+
+![Daily active IMPACT Activities](/articles/cern/THPB035_active-activities.svg)
+
+I joined the engineering department in 2022 to participate in this development and migration effort. The stack we opted for was a more usual one: SpringBoot and React. We would still be using a BPMN engine, Camunda specifically, but the individual processes would also be rewritten from scratch.
+
+
+We opted for an incremental migration strategy. Pages of the application would be migrated sequentially; during this period, the two systems would coexist. This strategy allowed us to minimize the risk during the transition, but introduced some maintenance challenges.
+Today, I am happy to report that the application is nearly fully migrated, with completion expected by the end of the year. The tool is going to play a crucial role during the upcoming [third long shutdown](https://home.cern/news/news/accelerators/new-schedule-cerns-accelerators), a period during which the number of interventions will be continuously high.
+
+**My collaboration with the engineering department is now coming to an end**, and I will be transitioning to the IT department as a staff member.
+There, I will work on the LanDB system, which centralizes the network configuration of the entire organisation.
+
+I am very much looking forward to this new position and its challenges. Many thanks to my previous team for their support, and to my new team for their trust.
+
+Florian.

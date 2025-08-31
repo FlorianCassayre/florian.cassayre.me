@@ -99,6 +99,7 @@
   "blog.filterBy.keywords": "Keywords",
   "blog.filterBy.language": "Language",
   "blog.keywords.list.personal": "Personal",
+  "blog.keywords.list.professional": "Professional",
   "blog.keywords.list.technical": "Technical",
   "blog.keywords.list.cycling": "Cycling",
   "blog.filtering.enabled": "You are now filtering the posts.",
