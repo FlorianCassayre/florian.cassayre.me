@@ -9,7 +9,7 @@
     "jsx": "react",
     "module": "esnext",
     "moduleResolution": "node",
-    "types": ["vite/client"],
+    "types": ["vite/client", "cypress"],
     "incremental": true,
     "allowJs": true
   },
@@ -20,6 +20,7 @@
     "test/**/*.ts",
     "vite.config.ts",
     "eslint.config.js",
-    ".prettierrc.cjs"
+    ".prettierrc.cjs",
+    "cypress.config.ts"
   ]
 }
