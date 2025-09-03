@@ -27,7 +27,7 @@ export const ProjectCardsContent: React.FC = () => {
   const status = useCallback(
     (
       status: boolean | null
-    ): Pick<Parameters<typeof ProjectCards>[0]['projects'][number], 'status' | 'statusText'> => ({
+    ): Pick<Parameters<typeof ProjectCards>[0]['projects'][number][number], 'status' | 'statusText'> => ({
       status,
       statusText: intl.$t({
         id: status === true ? 'home.project.status.production' : 'home.project.status.incrementalDeployment',
@@ -39,53 +39,57 @@ export const ProjectCardsContent: React.FC = () => {
   return (
     <ProjectCards
       projects={[
-        {
-          image: '/projects/yoga-sof.fr.png',
-          logo: '/projects/yoga-sof.fr-logo.svg',
-          title: 'Yoga Sof',
-          description: intl.$t({ id: 'home.projects.yogaSof.description' }),
-          technologies: [NEXTJS, MYSQL],
-          ...status(true),
-          homepage: 'https://yoga-sof.fr',
-          github: 'https://github.com/FlorianCassayre/yoga-sof.fr',
-        },
-        {
-          image: '/projects/cern-data-centre.jpg',
-          logo: '/projects/landb.cern.ch-logo.png',
-          title: 'LanDB',
-          description: intl.$t({ id: 'home.projects.landb.description' }),
-          technologies: [JAVA, ORACLE_DB, KUBERNETES],
-          ...status(true),
-          pro: true,
-        },
-        {
-          image: '/projects/cern-lhc.jpg',
-          logo: '/projects/impact.cern.ch-logo.svg',
-          title: 'IMPACT',
-          description: intl.$t({ id: 'home.projects.impact.description' }),
-          technologies: [JAVA, ORACLE_DB, CAMUNDA, REACT],
-          ...status(true),
-          pro: true,
-        },
-        {
-          image: '/projects/rfg-arbre.app.jpg',
-          logo: '/projects/arbre.app-logo.svg',
-          title: 'arbre.app',
-          description: intl.$t({ id: 'home.projects.arbre.description' }),
-          technologies: [SCALA, REACT],
-          ...status(true),
-          homepage: 'https://arbre.app',
-          github: 'https://github.com/arbre-app',
-        },
-        {
-          image: '/projects/argine.png',
-          logo: '/projects/argine-logo.svg',
-          title: 'Argine',
-          description: intl.$t({ id: 'home.projects.argine.description' }),
-          technologies: [REACT_NATIVE, JAVA],
-          ...status(true),
-          homepage: 'https://play.google.com/store/apps/details?id=me.cassayre.florian.crownedrooks&hl=fr',
-        },
+        [
+          {
+            image: '/projects/cern-data-centre.jpg',
+            logo: '/projects/landb.cern.ch-logo.png',
+            title: 'LanDB',
+            description: intl.$t({ id: 'home.projects.landb.description' }),
+            technologies: [JAVA, ORACLE_DB, KUBERNETES],
+            ...status(true),
+            pro: true,
+          },
+          {
+            image: '/projects/cern-lhc.jpg',
+            logo: '/projects/impact.cern.ch-logo.svg',
+            title: 'IMPACT',
+            description: intl.$t({ id: 'home.projects.impact.description' }),
+            technologies: [JAVA, ORACLE_DB, CAMUNDA, REACT],
+            ...status(true),
+            pro: true,
+          },
+        ],
+        [
+          {
+            image: '/projects/yoga-sof.fr.png',
+            logo: '/projects/yoga-sof.fr-logo.svg',
+            title: 'Yoga Sof',
+            description: intl.$t({ id: 'home.projects.yogaSof.description' }),
+            technologies: [NEXTJS, MYSQL],
+            ...status(true),
+            homepage: 'https://yoga-sof.fr',
+            github: 'https://github.com/FlorianCassayre/yoga-sof.fr',
+          },
+          {
+            image: '/projects/rfg-arbre.app.jpg',
+            logo: '/projects/arbre.app-logo.svg',
+            title: 'arbre.app',
+            description: intl.$t({ id: 'home.projects.arbre.description' }),
+            technologies: [SCALA, REACT],
+            ...status(true),
+            homepage: 'https://arbre.app',
+            github: 'https://github.com/arbre-app',
+          },
+          {
+            image: '/projects/argine.png',
+            logo: '/projects/argine-logo.svg',
+            title: 'Argine',
+            description: intl.$t({ id: 'home.projects.argine.description' }),
+            technologies: [REACT_NATIVE, JAVA],
+            ...status(true),
+            homepage: 'https://play.google.com/store/apps/details?id=me.cassayre.florian.crownedrooks&hl=fr',
+          },
+        ],
       ]}
     />
   );
