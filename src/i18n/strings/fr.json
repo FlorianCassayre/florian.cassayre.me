@@ -25,6 +25,7 @@
   "home.logoAlt": "Logo",
   "home.biography": "Je suis actuellement employé par le <aCern>CERN</aCern> en tant que développeur web full-stack. Je suis diplômé ingénieur informatique à l''<aEpfl>EPFL</aEpfl> en 2022, avec une spécialisation en méthodes formelles. J'ai un large éventail d'intérêts incluant (mais sans s'y limiter) l'open source, la généalogie et la durabilité.",
   "home.projects.yogaSof.description": "Site d'association locale pour gérer les inscriptions, planifier les séances et enregistrer les paiements",
+  "home.projects.landb.description": "Base de données de la configuration réseau du CERN",
   "home.projects.impact.description": "Outil de planification et de coordination des interventions au CERN",
   "home.projects.arbre.description": "Outils pour généalogistes : moteur de recherche open data, lecteur et visualiseur de fichier Gedcom, etc.",
   "home.projects.argine.description": "Jeu Android de logique basé sur le célèbre problème des 8 dames",

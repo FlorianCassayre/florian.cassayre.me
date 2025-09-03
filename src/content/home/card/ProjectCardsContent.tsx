@@ -6,6 +6,7 @@ import { DiScala } from '@react-icons/all-files/di/DiScala';
 import { FaProjectDiagram } from '@react-icons/all-files/fa/FaProjectDiagram';
 import { GrMysql } from '@react-icons/all-files/gr/GrMysql';
 import { GrOracle } from '@react-icons/all-files/gr/GrOracle';
+import { SiKubernetes } from '@react-icons/all-files/si/SiKubernetes';
 import { useIntl } from 'react-intl';
 
 import { ProjectCards } from '../../../components/card/ProjectCards';
@@ -21,6 +22,7 @@ export const ProjectCardsContent: React.FC = () => {
   const CAMUNDA = { name: 'Camunda', icon: FaProjectDiagram, color: 'neutral' } as const;
   const NEXTJS = { name: 'Next.js', icon: DiReact, color: 'neutral' } as const;
   const REACT_NATIVE = { name: 'React Native', icon: DiReact, color: 'neutral' } as const;
+  const KUBERNETES = { name: 'Kubernetes', icon: SiKubernetes, color: 'primary' } as const;
 
   const status = useCallback(
     (
@@ -48,12 +50,21 @@ export const ProjectCardsContent: React.FC = () => {
           github: 'https://github.com/FlorianCassayre/yoga-sof.fr',
         },
         {
+          image: '/projects/cern-data-centre.jpg',
+          logo: '/projects/landb.cern.ch-logo.png',
+          title: 'LanDB',
+          description: intl.$t({ id: 'home.projects.landb.description' }),
+          technologies: [JAVA, ORACLE_DB, KUBERNETES],
+          ...status(true),
+          pro: true,
+        },
+        {
           image: '/projects/cern-lhc.jpg',
           logo: '/projects/impact.cern.ch-logo.svg',
           title: 'IMPACT',
           description: intl.$t({ id: 'home.projects.impact.description' }),
           technologies: [JAVA, ORACLE_DB, CAMUNDA, REACT],
-          ...status(null),
+          ...status(true),
           pro: true,
         },
         {

@@ -54,7 +54,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
 }) => {
   const { $t } = useIntl();
   const theme = useTheme();
-  const renderIcon = useCallback((Icon: IconType) => <Icon />, []);
+  const renderIcon = useCallback((Icon: IconType, title: string) => <Icon title={title} />, []);
   return (
     <Card variant="outlined" sx={{ height: '100%' }}>
       <CardOverflow sx={{ mb: logo ? { xs: 3, sm: 2 } : undefined }}>
@@ -110,7 +110,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
               <Chip
                 key={i}
                 variant="outlined"
-                startDecorator={typeof technology === 'string' ? undefined : renderIcon(technology.icon)}
+                startDecorator={
+                  typeof technology === 'string' ? undefined : renderIcon(technology.icon, technology.name)
+                }
                 color={typeof technology === 'string' ? undefined : technology.color}
               >
                 {typeof technology === 'string' ? technology : technology.name}
