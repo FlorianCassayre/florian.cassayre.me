@@ -8,7 +8,7 @@
     "skipLibCheck": true,
     "jsx": "react",
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "types": ["vite/client", "cypress"],
     "incremental": true,
     "allowJs": true
