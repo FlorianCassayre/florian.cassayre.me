@@ -1,5 +1,5 @@
 import { PageContext } from './types';
-import { INVISIBLE_REDIRECTIONS, REDIRECT_PAGE_NAME } from '../content/redirect/legacy';
+import { ALL_REDIRECTIONS, REDIRECT_PAGE_NAME } from '../content/redirect';
 import { LOCALES, localizeUrl } from '../i18n/utils';
 
 export const onPrerenderStart = (prerenderContext: {
@@ -17,7 +17,7 @@ export const onPrerenderStart = (prerenderContext: {
   }
   const pageContextsWithRedirects: PageContext[] = [
     ...pageContextsWithoutRedirect,
-    ...Object.entries(INVISIBLE_REDIRECTIONS).map(([from, to]) => ({
+    ...Object.entries(ALL_REDIRECTIONS).map(([from, to]) => ({
       ...redirectContext,
       urlOriginal: from,
       urlRedirect: to,

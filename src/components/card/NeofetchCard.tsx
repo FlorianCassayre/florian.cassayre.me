@@ -359,16 +359,21 @@ export const NeofetchCard: React.FC<NeofetchCardProps> = ({ neofetchRaw }) => {
             {tags
               .filter((_, i) => progress >= lengths[i])
               .map(({ format: { bold, colorForeground, colorBackground }, text }, i) => (
-                <span
+                <Box
                   key={i}
-                  style={{
+                  component="span"
+                  sx={{
                     fontWeight: bold ? 'bold' : undefined,
                     color: colorForeground !== DEFAULT_TEXT_COLOR ? colorForeground : undefined,
                     backgroundColor: colorBackground !== DEFAULT_BACKGROUND_COLOR ? colorBackground : undefined,
+                    '::selection': {
+                      color: colorBackground !== DEFAULT_TEXT_COLOR ? colorBackground : undefined,
+                      backgroundColor: colorForeground !== DEFAULT_BACKGROUND_COLOR ? colorForeground : undefined,
+                    },
                   }}
                 >
                   {text.slice(0, Math.min(progress - lengths[i], text.length))}
-                </span>
+                </Box>
               ))}
           </span>
         </Box>

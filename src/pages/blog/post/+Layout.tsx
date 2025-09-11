@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 
-import { Warning } from '@mui/icons-material';
+import { Translate } from '@mui/icons-material';
 import { Alert, Box, Card, CardContent, Chip, Stack, Typography } from '@mui/joy';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { navigate } from 'vike/client/router';
@@ -13,7 +13,6 @@ import { JoyMDXProvider } from '../../../blog/mdx/JoyMDXProvider';
 import { PostKeyword } from '../../../blog/PostKeyword';
 import { usePostMeta } from '../../../blog/usePostMeta';
 import { PageLayout } from '../../../components/layout/PageLayout';
-import { Locale } from '../../../i18n/Locale';
 import { LocaleNameKey } from '../../../i18n/LocaleNameKey';
 import { canonicalizeUrlPathname } from '../../../route/canonicalizeUrlPathname';
 import { useUrlGenerator } from '../../../route/useUrlGenerator';
@@ -23,11 +22,10 @@ interface PostHeaderProps {
   title: string;
   date: Date;
   keywords: PostKeyword[];
-  otherLocale: Locale | null;
 }
 
-const PostHeader: React.FC<PostHeaderProps> = ({ title, date, keywords, otherLocale }) => {
-  const { formatDate, $t } = useIntl();
+const PostHeader: React.FC<PostHeaderProps> = ({ title, date, keywords }) => {
+  const { formatDate } = useIntl();
   const urlGenerator = useUrlGenerator();
   return (
     <Box>
@@ -65,32 +63,19 @@ const PostHeader: React.FC<PostHeaderProps> = ({ title, date, keywords, otherLoc
             </Chip>
           ))}
         </Stack>
-        {otherLocale !== null && (
-          <Alert startDecorator={<Warning />} variant="soft" color="warning">
-            <Typography>
-              <FormattedMessage
-                id="blog.post.otherLanguage"
-                values={{ language: $t({ id: LocaleNameKey[otherLocale] }).toLowerCase() }}
-              />
-            </Typography>
-          </Alert>
-        )}
       </Stack>
     </Box>
   );
 };
 
 export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const { formatMessage } = useIntl();
+  const { $t } = useIntl();
   const { locale } = usePageContext();
   const urlGenerator = useUrlGenerator();
   const { title, locale: postLocale, description, keywords = [], date, image } = usePostMeta();
   const joinedKeywords = useMemo(
-    () =>
-      keywords?.length
-        ? keywords.map(keyword => formatMessage({ id: getKeywordMessageId(keyword) })).join(', ')
-        : undefined,
-    [keywords, formatMessage]
+    () => (keywords?.length ? keywords.map(keyword => $t({ id: getKeywordMessageId(keyword) })).join(', ') : undefined),
+    [keywords, $t]
   );
   const site = useMemo(() => canonicalizeUrlPathname(urlGenerator('/')), [urlGenerator]);
   const otherLocale = useMemo(
@@ -114,19 +99,38 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
             </>
           }
         />
-        <Card
-          lang={otherLocale ?? undefined}
+        <Stack
+          direction="column"
+          spacing={1.5}
           sx={{
             height: '100%',
             mx: { xs: -2, sm: 0 },
-            borderLeftWidth: { xs: 0, sm: 1 },
-            borderRightWidth: { xs: 0, sm: 1 },
-            borderRadius: { xs: 0, sm: 8 },
           }}
         >
-          <PostHeader title={title} date={date} keywords={keywords} otherLocale={otherLocale} />
-          <CardContent>{children}</CardContent>
-        </Card>
+          {otherLocale !== null && (
+            <Box>
+              <Alert startDecorator={<Translate />} variant="soft" color="warning" sx={{ mx: { xs: 2, sm: 0 } }}>
+                <Typography>
+                  <FormattedMessage
+                    id="blog.post.otherLanguage"
+                    values={{ language: $t({ id: LocaleNameKey[otherLocale] }).toLowerCase() }}
+                  />
+                </Typography>
+              </Alert>
+            </Box>
+          )}
+          <Card
+            lang={otherLocale ?? undefined}
+            sx={{
+              borderLeftWidth: { xs: 0, sm: 1 },
+              borderRightWidth: { xs: 0, sm: 1 },
+              borderRadius: { xs: 0, sm: 8 },
+            }}
+          >
+            <PostHeader title={title} date={date} keywords={keywords} />
+            <CardContent>{children}</CardContent>
+          </Card>
+        </Stack>
       </JoyMDXProvider>
     </PageLayout>
   );

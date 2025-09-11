@@ -1,7 +1,4 @@
 // https://github.com/FlorianCassayre/Website/blob/master/src/FlorianCassayre/Florian/RoutingController.php
-
-export const REDIRECT_PAGE_NAME = '_redirect';
-
 /**
  * The user is automatically redirected to the page.
  */
