@@ -1,11 +1,12 @@
 import React from 'react';
 
 import { East } from '@mui/icons-material';
-import { Box, Card, CardContent, Chip, Stack, Typography, useTheme } from '@mui/joy';
+import { Box, CardContent, Chip, Stack, Typography, useTheme } from '@mui/joy';
 import { CardActionArea, CardMedia } from '@mui/material';
 import { FormattedDate, FormattedMessage } from 'react-intl';
 import { usePageContext } from 'vike-react/usePageContext';
 
+import { CardBase } from './CardBase';
 import { getKeywordMessageId } from '../../blog/getKeywordMessageId';
 import { PostConfig } from '../../blog/PostConfig';
 import { PostSlug } from '../../blog/PostSlug';
@@ -38,14 +39,13 @@ export const BlogPostCard: React.FC<BlogPostCardProps> = ({
       href={urlGenerator(`/blog/post/${rawSlug}`)}
       sx={{
         borderRadius: 2,
-        mt: 2,
         [`&:hover .${ANIMATION_CLASS_NAME}`]: {
           opacity: '30%',
           filter: 'blur(5px)',
         },
       }}
     >
-      <Card key={rawSlug} sx={{ width: '100%', p: 0 }}>
+      <CardBase key={rawSlug} sx={{ width: '100%', p: 0 }}>
         <CardContent>
           <Stack direction="row" spacing={0} justifyContent="space-between">
             <Box sx={{ flex: 1, p: 2 }}>
@@ -110,7 +110,7 @@ export const BlogPostCard: React.FC<BlogPostCardProps> = ({
             </Box>
           </Stack>
         </CardContent>
-      </Card>
+      </CardBase>
     </CardActionArea>
   );
 };

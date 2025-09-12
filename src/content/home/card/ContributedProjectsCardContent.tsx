@@ -3,14 +3,14 @@ import React from 'react';
 import { Architecture, Games, Hexagon, Lightbulb, LocalLibrary, LocationOn } from '@mui/icons-material';
 import { useIntl } from 'react-intl';
 
-import { ContributedProjectsCard } from '../../../components/card/ContributedProjectsCard';
+import { ContributedProjectCards } from '../../../components/card/ContributedProjectCards';
 
 const Key = 'home.contributed';
 
 export const ContributedProjectsCardContent: React.FC = () => {
   const { $t } = useIntl();
   return (
-    <ContributedProjectsCard
+    <ContributedProjectCards
       preview={3}
       projects={[
         {

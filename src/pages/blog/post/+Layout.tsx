@@ -119,6 +119,7 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
               </Alert>
             </Box>
           )}
+          {/* Not CardBase because the shadow would look bad */}
           <Card
             lang={otherLocale ?? undefined}
             sx={{

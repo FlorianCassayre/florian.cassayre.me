@@ -4,7 +4,6 @@ import { FiberManualRecord, GitHub, Launch, VisibilityOff } from '@mui/icons-mat
 import {
   AspectRatio,
   Box,
-  Card,
   CardContent,
   CardOverflow,
   Chip,
@@ -18,6 +17,8 @@ import {
 } from '@mui/joy';
 import { IconType } from '@react-icons/all-files';
 import { FormattedMessage, useIntl } from 'react-intl';
+
+import { CardBase } from './CardBase';
 
 type Technology =
   | string
@@ -56,7 +57,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   const theme = useTheme();
   const renderIcon = useCallback((Icon: IconType, title: string) => <Icon title={title} />, []);
   return (
-    <Card variant="outlined" sx={{ height: '100%' }}>
+    <CardBase variant="outlined" sx={{ height: '100%' }}>
       <CardOverflow sx={{ mb: logo ? { xs: 3, sm: 2 } : undefined }}>
         <AspectRatio ratio="2">
           {!!image && (
@@ -164,6 +165,6 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
           </Stack>
         </CardContent>
       </CardOverflow>
-    </Card>
+    </CardBase>
   );
 };

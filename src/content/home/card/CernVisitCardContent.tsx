@@ -1,15 +1,16 @@
 import React from 'react';
 
-import { Card, Typography } from '@mui/joy';
+import { Typography } from '@mui/joy';
 import { FormattedMessage } from 'react-intl';
 
+import { CardBase } from '../../../components/card/CardBase';
 import { SoftLink } from '../../../components/SoftLink';
 
 const Key = 'home.social.visitCern';
 
 export const CernVisitCardContent: React.FC = () => {
   return (
-    <Card>
+    <CardBase>
       <Typography level="title-lg">
         <FormattedMessage id={`${Key}.title`} />
       </Typography>
@@ -40,6 +41,6 @@ export const CernVisitCardContent: React.FC = () => {
           }}
         />
       </Typography>
-    </Card>
+    </CardBase>
   );
 };

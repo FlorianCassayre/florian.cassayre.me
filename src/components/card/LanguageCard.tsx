@@ -1,8 +1,10 @@
 import React from 'react';
 
-import { Box, Card, CardContent, Chip, Stack, SvgIcon, Table, Typography } from '@mui/joy';
+import { Box, CardContent, Chip, Stack, SvgIcon, Table, Typography } from '@mui/joy';
 import { FlagComponent } from 'country-flag-icons/react/3x2';
 import { FormattedMessage } from 'react-intl';
+
+import { CardBase } from './CardBase';
 
 interface Language {
   name: string;
@@ -16,7 +18,7 @@ interface LanguageCardProps {
 
 export const LanguageCard: React.FC<LanguageCardProps> = ({ languages }) => {
   return (
-    <Card>
+    <CardBase>
       <Typography level="title-lg">
         <FormattedMessage id="home.social.languages.title" />
       </Typography>
@@ -43,6 +45,6 @@ export const LanguageCard: React.FC<LanguageCardProps> = ({ languages }) => {
           </tbody>
         </Table>
       </CardContent>
-    </Card>
+    </CardBase>
   );
 };

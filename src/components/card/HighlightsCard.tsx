@@ -1,7 +1,9 @@
 import React from 'react';
 
 import { SvgIconComponent } from '@mui/icons-material';
-import { Accordion, AccordionDetails, AccordionGroup, AccordionSummary, Card, Stack, Typography } from '@mui/joy';
+import { Accordion, AccordionDetails, AccordionGroup, AccordionSummary, Stack, Typography } from '@mui/joy';
+
+import { CardBase } from './CardBase';
 
 interface Highlight {
   title: string;
@@ -15,7 +17,7 @@ interface HighlightsCardProps {
 
 export const HighlightsCard: React.FC<HighlightsCardProps> = ({ highlights }) => {
   return (
-    <Card sx={{ p: 0, overflow: 'hidden' }}>
+    <CardBase sx={{ p: 0, overflow: 'hidden' }}>
       <AccordionGroup>
         {highlights.map(({ title, icon: Icon, content }, i) => (
           <Accordion key={i}>
@@ -29,6 +31,6 @@ export const HighlightsCard: React.FC<HighlightsCardProps> = ({ highlights }) =>
           </Accordion>
         ))}
       </AccordionGroup>
-    </Card>
+    </CardBase>
   );
 };

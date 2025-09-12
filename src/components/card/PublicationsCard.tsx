@@ -6,13 +6,14 @@ import {
   AccordionDetails,
   AccordionGroup,
   AccordionSummary,
-  Card,
   Chip,
   IconButton,
   Stack,
   Typography,
 } from '@mui/joy';
 import { FormattedMessage, useIntl } from 'react-intl';
+
+import { CardBase } from './CardBase';
 
 interface Publication {
   title: string;
@@ -32,7 +33,7 @@ interface PublicationsCardProps {
 export const PublicationsCard: React.FC<PublicationsCardProps> = ({ publications }) => {
   const { $t } = useIntl();
   return (
-    <Card sx={{ p: 0, overflow: 'hidden' }}>
+    <CardBase sx={{ p: 0, overflow: 'hidden' }}>
       <AccordionGroup>
         {publications.map(({ title, year, conference, authors, context, abstract, link, upcoming }, i) => (
           <Accordion key={i} disabled={upcoming}>
@@ -80,6 +81,6 @@ export const PublicationsCard: React.FC<PublicationsCardProps> = ({ publications
           </Accordion>
         ))}
       </AccordionGroup>
-    </Card>
+    </CardBase>
   );
 };

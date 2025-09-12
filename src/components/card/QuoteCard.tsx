@@ -1,15 +1,18 @@
 import React from 'react';
 
 import { FormatQuote } from '@mui/icons-material';
-import { Box, Card, CardContent } from '@mui/joy';
+import { Box, CardContent, useTheme } from '@mui/joy';
+
+import { CardBase } from './CardBase';
 
 interface QuoteCardProps {
   children: React.ReactNode;
 }
 
 export const QuoteCard: React.FC<QuoteCardProps> = ({ children }) => {
+  const theme = useTheme();
   return (
-    <Card>
+    <CardBase sx={{ backgroundColor: theme.palette.background.body }}>
       <CardContent>
         <Box>
           <FormatQuote color="action" sx={{ transform: 'rotate(180deg)', mr: 1, verticalAlign: 'bottom' }} />
@@ -17,6 +20,6 @@ export const QuoteCard: React.FC<QuoteCardProps> = ({ children }) => {
           <FormatQuote color="action" sx={{ ml: 1, verticalAlign: 'bottom' }} />
         </Box>
       </CardContent>
-    </Card>
+    </CardBase>
   );
 };

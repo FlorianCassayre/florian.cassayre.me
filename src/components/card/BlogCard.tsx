@@ -1,9 +1,10 @@
 import React from 'react';
 
 import { Launch } from '@mui/icons-material';
-import { Button, Card, CardContent, Typography } from '@mui/joy';
+import { Button, CardContent, Typography } from '@mui/joy';
 import { FormattedMessage } from 'react-intl';
 
+import { CardBase } from './CardBase';
 import { useUrlGenerator } from '../../route/useUrlGenerator';
 
 interface BlogCardProps {
@@ -13,7 +14,7 @@ interface BlogCardProps {
 export const BlogCard: React.FC<BlogCardProps> = ({ description }) => {
   const urlGenerator = useUrlGenerator();
   return (
-    <Card>
+    <CardBase>
       <Typography level="title-lg">
         <FormattedMessage id="home.social.blog.title" />
       </Typography>
@@ -29,6 +30,6 @@ export const BlogCard: React.FC<BlogCardProps> = ({ description }) => {
           <FormattedMessage id="home.social.blog.go" />
         </Button>
       </CardContent>
-    </Card>
+    </CardBase>
   );
 };

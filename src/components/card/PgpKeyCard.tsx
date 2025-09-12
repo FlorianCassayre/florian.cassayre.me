@@ -1,10 +1,11 @@
 import React from 'react';
 
 import { Lock } from '@mui/icons-material';
-import { Card, Stack, Textarea, Typography } from '@mui/joy';
+import { Stack, Textarea, Typography } from '@mui/joy';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import { CopyButton } from '../CopyButton';
+import { CardBase } from './CardBase';
 
 interface PgpKeyCardProps {
   pgpKey: string;
@@ -14,7 +15,7 @@ interface PgpKeyCardProps {
 export const PgpKeyCard: React.FC<PgpKeyCardProps> = ({ pgpKey, scheme }) => {
   const { $t } = useIntl();
   return (
-    <Card>
+    <CardBase>
       <Typography level="title-lg">
         <FormattedMessage id="pgp.key.title" />
       </Typography>
@@ -35,6 +36,6 @@ export const PgpKeyCard: React.FC<PgpKeyCardProps> = ({ pgpKey, scheme }) => {
         aria-label={$t({ id: 'home.social.pgp.title' })}
         sx={{ fontFamily: 'monospace' }}
       />
-    </Card>
+    </CardBase>
   );
 };

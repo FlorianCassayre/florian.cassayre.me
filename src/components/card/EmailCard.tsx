@@ -1,11 +1,12 @@
 import React from 'react';
 
 import { Add, Email } from '@mui/icons-material';
-import { Box, Button, Card, CardContent, Input, Typography } from '@mui/joy';
+import { Box, Button, CardContent, Input, Typography } from '@mui/joy';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import { useUrlGenerator } from '../../route/useUrlGenerator';
 import { CopyButton } from '../CopyButton';
+import { CardBase } from './CardBase';
 
 interface EmailCardProps {
   description: React.ReactNode;
@@ -18,7 +19,7 @@ export const EmailCard: React.FC<EmailCardProps> = ({ description, email, smallt
   const { $t } = useIntl();
   const urlGenerator = useUrlGenerator();
   return (
-    <Card sx={{ height: '100%' }}>
+    <CardBase sx={{ height: '100%' }}>
       <Typography level="title-lg">
         <FormattedMessage id="home.social.contact.title" />
       </Typography>
@@ -48,6 +49,6 @@ export const EmailCard: React.FC<EmailCardProps> = ({ description, email, smallt
           </Box>
         )}
       </CardContent>
-    </Card>
+    </CardBase>
   );
 };

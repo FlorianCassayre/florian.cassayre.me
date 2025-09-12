@@ -1,7 +1,7 @@
 import React, { useCallback, useMemo, useState } from 'react';
 
 import { Close, FilterList, Info } from '@mui/icons-material';
-import { Alert, Badge, Box, Button, Card, Chip, Grid, Stack, Typography } from '@mui/joy';
+import { Alert, Badge, Box, Button, Chip, Grid, Stack, Typography } from '@mui/joy';
 import { Collapse } from '@mui/material';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { usePageContext } from 'vike-react/usePageContext';
@@ -13,6 +13,7 @@ import { PostConfig } from '../../blog/PostConfig';
 import { PostKeyword } from '../../blog/PostKeyword';
 import { PostSlug } from '../../blog/PostSlug';
 import { BlogPostCard } from '../../components/card/BlogPostCard';
+import { CardBase } from '../../components/card/CardBase';
 import { PageLayout } from '../../components/layout/PageLayout';
 import { Locale } from '../../i18n/Locale';
 import { LocaleNameKey } from '../../i18n/LocaleNameKey';
@@ -117,9 +118,9 @@ export const Page = () => {
   );
   return (
     <PageLayout title={$t({ id: 'blog.title' })} parentBreadcrumbs={homeBreadcrumbs}>
-      <Grid container spacing={2} direction={{ xs: 'column-reverse', md: 'row' }}>
-        <Grid xs={12} md={2}>
-          <Card>
+      <Grid container spacing={2} direction={{ xs: 'column-reverse', md: 'row' }} sx={{ mb: { md: -1 } }}>
+        <Grid xs={12} md={2} sx={{ mt: { xs: -1, md: 0 } }}>
+          <CardBase>
             <Stack direction="column" spacing={{ xs: 2, md: 4 }}>
               <FilteringCategory
                 title={$t({ id: 'blog.filterBy.keywords' })}
@@ -136,11 +137,11 @@ export const Page = () => {
                 onClick={handleLocaleClick}
               />
             </Stack>
-          </Card>
+          </CardBase>
         </Grid>
         <Grid xs={12} md={10}>
-          <Stack direction="column" sx={{ mt: -2 }}>
-            <Collapse in={isFiltering}>
+          <Stack direction="column" sx={{ mt: -1 }}>
+            <Collapse in={isFiltering} sx={{ mt: -1, mb: 1 }}>
               <Alert
                 variant="soft"
                 color="primary"
@@ -165,13 +166,19 @@ export const Page = () => {
               </Alert>
             </Collapse>
             <Collapse in={isFiltering && !hasResults}>
-              <Alert variant="outlined" color="warning" startDecorator={<Info />} sx={{ mt: 2 }}>
+              <Alert variant="outlined" color="warning" startDecorator={<Info />} sx={{ mt: 1 }}>
                 <FormattedMessage id="blog.filtering.empty" />
               </Alert>
             </Collapse>
             {postsMeta.map(post => (
-              <Collapse key={post.rawSlug} in={isPostVisible({ keywords: post.keywords, locale: post.locale })}>
-                <BlogPostCard {...post} selectedKeywordsSet={selectedKeywordsSet} />
+              <Collapse
+                key={post.rawSlug}
+                in={isPostVisible({ keywords: post.keywords, locale: post.locale })}
+                sx={{ mx: -1 }}
+              >
+                <Box sx={{ m: 1 }}>
+                  <BlogPostCard {...post} selectedKeywordsSet={selectedKeywordsSet} />
+                </Box>
               </Collapse>
             ))}
           </Stack>

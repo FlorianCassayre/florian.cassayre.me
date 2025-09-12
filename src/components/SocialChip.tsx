@@ -25,6 +25,7 @@ export const SocialChip: React.FC<SocialChipProps> = ({ name, icon: Icon, color,
       onClick={() => {}}
       sx={{
         '--Chip-minHeight': '48px',
+        boxShadow: 'lg',
       }}
     >
       {name}

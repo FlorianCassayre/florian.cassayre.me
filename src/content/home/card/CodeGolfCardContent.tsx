@@ -1,14 +1,15 @@
 import React from 'react';
 
-import { Card, Chip, Typography } from '@mui/joy';
+import { Chip, Typography } from '@mui/joy';
 import { FormattedMessage } from 'react-intl';
 
+import { CardBase } from '../../../components/card/CardBase';
 import { SoftLink } from '../../../components/SoftLink';
 
 const Key = 'home.challenges.codeGolf';
 
 export const CodeGolfCardContent: React.FC = () => (
-  <Card sx={{ height: '100%' }}>
+  <CardBase sx={{ height: '100%' }}>
     <Typography level="title-lg">
       <SoftLink href="https://code.golf" target="_blank" rel="noopener">
         Code Golf
@@ -27,5 +28,5 @@ export const CodeGolfCardContent: React.FC = () => (
         }}
       />
     </Typography>
-  </Card>
+  </CardBase>
 );

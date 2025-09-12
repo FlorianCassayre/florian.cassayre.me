@@ -7,16 +7,16 @@ import { FormattedMessage } from 'react-intl';
 
 import { ContributedProjectCard } from './ContributedProjectCard';
 
-interface ContributedProjectsCardProps {
+interface ContributedProjectCardsProps {
   projects: Parameters<typeof ContributedProjectCard>[0][];
   preview: number;
 }
 
-export const ContributedProjectsCard: React.FC<ContributedProjectsCardProps> = ({ projects, preview }) => {
+export const ContributedProjectCards: React.FC<ContributedProjectCardsProps> = ({ projects, preview }) => {
   const [expanded, setExpanded] = useState(false);
   return (
     <>
-      <Grid container direction="row" spacing={2} justifyContent="center" alignItems="stretch">
+      <Grid container direction="row" justifyContent="center" alignItems="stretch" sx={{ mt: -1, mx: -1 }}>
         {projects.map((project, i) => (
           <Grid key={i} xs={12} sm={6} md={4} sx={{ display: i < preview || expanded ? 'block' : 'none' }}>
             {i < preview ? (
@@ -29,7 +29,7 @@ export const ContributedProjectsCard: React.FC<ContributedProjectsCardProps> = (
           </Grid>
         ))}
       </Grid>
-      <Collapse in={!expanded}>
+      <Collapse in={!expanded} sx={{ mt: -1 }}>
         <Button
           variant="plain"
           startDecorator={<Add />}

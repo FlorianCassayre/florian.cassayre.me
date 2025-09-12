@@ -1,8 +1,9 @@
 import React, { Fragment } from 'react';
 
-import { Card, CardContent, Stack, Typography } from '@mui/joy';
+import { CardContent, Stack, Typography } from '@mui/joy';
 
 import { SoftLink } from '../SoftLink';
+import { CardBase } from './CardBase';
 
 interface AdventOfCodeCardProps {
   description: React.ReactNode;
@@ -12,7 +13,7 @@ interface AdventOfCodeCardProps {
 
 export const AdventOfCodeCard: React.FC<AdventOfCodeCardProps> = ({ description, years, repository }) => {
   return (
-    <Card sx={{ height: '100%' }}>
+    <CardBase sx={{ height: '100%' }}>
       <Typography level="title-lg">
         <SoftLink href="https://adventofcode.com" target="_blank" rel="noopener">
           Advent of Code
@@ -31,6 +32,6 @@ export const AdventOfCodeCard: React.FC<AdventOfCodeCardProps> = ({ description,
           ))}
         </Stack>
       </CardContent>
-    </Card>
+    </CardBase>
   );
 };

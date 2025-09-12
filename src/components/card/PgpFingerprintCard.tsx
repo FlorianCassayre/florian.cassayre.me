@@ -1,10 +1,11 @@
 import React from 'react';
 
 import { Key } from '@mui/icons-material';
-import { Card, CardContent, Input, Typography } from '@mui/joy';
+import { CardContent, Input, Typography } from '@mui/joy';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import { CopyButton } from '../CopyButton';
+import { CardBase } from './CardBase';
 
 interface PgpFingerprintCardProps {
   fingerprint: string;
@@ -14,7 +15,7 @@ interface PgpFingerprintCardProps {
 export const PgpFingerprintCard: React.FC<PgpFingerprintCardProps> = ({ fingerprint, smalltext }) => {
   const { $t } = useIntl();
   return (
-    <Card>
+    <CardBase>
       <Typography level="title-lg">
         <FormattedMessage id="home.social.pgp.title" />
       </Typography>
@@ -32,6 +33,6 @@ export const PgpFingerprintCard: React.FC<PgpFingerprintCardProps> = ({ fingerpr
           </Typography>
         )}
       </CardContent>
-    </Card>
+    </CardBase>
   );
 };
