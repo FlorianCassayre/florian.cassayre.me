@@ -64,7 +64,7 @@ export const BlogPostCard: React.FC<BlogPostCardProps> = ({
               {!!keywords?.length && (
                 <Stack direction="row" spacing={1} useFlexGap sx={{ flexWrap: 'wrap', mt: 1 }}>
                   {keywords.map(keyword => (
-                    <Chip key={keyword} color="primary" variant={!selectedKeywordsSet.has(keyword) ? 'soft' : 'solid'}>
+                    <Chip key={keyword} color="primary" variant={!selectedKeywordsSet?.has(keyword) ? 'soft' : 'solid'}>
                       <FormattedMessage id={getKeywordMessageId(keyword)} />
                     </Chip>
                   ))}

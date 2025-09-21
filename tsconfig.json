@@ -11,7 +11,8 @@
     "moduleResolution": "bundler",
     "types": ["vite/client", "cypress"],
     "incremental": true,
-    "allowJs": true
+    "allowJs": true,
+    "strict": true
   },
   "include": [
     "src/**/*.ts",
