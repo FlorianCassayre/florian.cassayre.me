@@ -2,8 +2,10 @@ import mdx from '@mdx-js/rollup';
 import { transformerNotationDiff } from '@shikijs/transformers';
 import react from '@vitejs/plugin-react';
 import type { Options as RemarkRehypeOptions } from 'mdast-util-to-hast';
+import rehypeKatex from 'rehype-katex';
 import { rehypePrettyCode } from 'rehype-pretty-code';
 import remarkGfm from 'remark-gfm';
+import remarkMath from 'remark-math';
 import remarkRehype from 'remark-rehype';
 import vike from 'vike/plugin';
 import { UserConfig } from 'vite';
@@ -13,7 +15,7 @@ const prettyCode = [
   rehypePrettyCode,
   { theme: 'github-light', transformers: [transformerNotationDiff({ matchAlgorithm: 'v3' })] },
 ];
-const rehypePlugins: any = [prettyCode]; // eslint-disable-line @typescript-eslint/no-explicit-any
+const rehypePlugins: any = [prettyCode, rehypeKatex]; // eslint-disable-line @typescript-eslint/no-explicit-any
 const remarkPlugins = [
   [
     remarkRehype,
@@ -25,6 +27,7 @@ const remarkPlugins = [
     } satisfies RemarkRehypeOptions,
   ] as any, // eslint-disable-line @typescript-eslint/no-explicit-any
   remarkGfm,
+  remarkMath,
 ];
 
 const ReactCompilerConfig = {

@@ -10,6 +10,8 @@ import { InlineCode } from './InlineCode';
 import { Link as LinkElement } from './Link';
 import { PreBlock } from './PreBlock';
 
+import 'katex/dist/katex.min.css';
+
 const mdxComponents: MDXComponents = {
   ...(defaultOverrides as any), // eslint-disable-line @typescript-eslint/no-explicit-any
   p: props => <Typography {...(props as any)} sx={{ textAlign: 'justify', my: 1 }} />, // eslint-disable-line @typescript-eslint/no-explicit-any
