@@ -26,18 +26,19 @@ oss[37m[0m[1myNMMMNyMMh[0m[31m[1msssssssssssssshmmmh[0m[31m[1mssssssso
             .-/+oossssoo+/-.[0m
 [20A[9999999D[43C[0m[1m[31m[1mflorian[0m@[31m[1mflorian-PC-Linux[0m 
 [43C[0m------------------------[0m 
-[43C[0m[31m[1mOS[0m[0m:[0m Ubuntu 22.04.1 LTS x86_64[0m 
-[43C[0m[31m[1mKernel[0m[0m:[0m 6.5.0-28-generic[0m 
-[43C[0m[31m[1mShell[0m[0m:[0m bash 5.1.16[0m 
-[43C[0m[31m[1mResolution[0m[0m:[0m 1920x1080, 1920x1080[0m 
+[43C[0m[31m[1mOS[0m[0m:[0m Ubuntu 24.04.3 LTS x86_64[0m 
+[43C[0m[31m[1mHost[0m[0m:[0m MS-7E49 1.0[0m 
+[43C[0m[31m[1mKernel[0m[0m:[0m 6.8.0-90-generic[0m 
+[43C[0m[31m[1mShell[0m[0m:[0m bash 5.2.21[0m 
+[43C[0m[31m[1mResolution[0m[0m:[0m 1920x1080[0m 
 [43C[0m[31m[1mDE[0m[0m:[0m GNOME[0m 
 [43C[0m[31m[1mWM[0m[0m:[0m Mutter[0m 
 [43C[0m[31m[1mWM Theme[0m[0m:[0m Adwaita[0m 
 [43C[0m[31m[1mTheme[0m[0m:[0m Yaru [GTK2/3][0m 
 [43C[0m[31m[1mTerminal[0m[0m:[0m gnome-terminal[0m 
-[43C[0m[31m[1mCPU[0m[0m:[0m Intel i7-4770K (8) @ 3.900GHz[0m 
-[43C[0m[31m[1mGPU[0m[0m:[0m NVIDIA GeForce GTX 770[0m 
-[43C[0m[31m[1mMemory[0m[0m:[0m 23961MiB[0m 
+[43C[0m[31m[1mCPU[0m[0m:[0m AMD Ryzen 9 9950X3D (32) @ 5.752GHz[0m 
+[43C[0m[31m[1mGPU[0m[0m:[0m AMD ATI 77:00.0 Device 13c0[0m 
+[43C[0m[31m[1mMemory[0m[0m:[0m 61828MiB[0m 
 
 [43C[30m[40m   [31m[41m   [32m[42m   [33m[43m   [34m[44m   [35m[45m   [36m[46m   [37m[47m   [m
 [43C[38;5;8m[48;5;8m   [38;5;9m[48;5;9m   [38;5;10m[48;5;10m   [38;5;11m[48;5;11m   [38;5;12m[48;5;12m   [38;5;13m[48;5;13m   [38;5;14m[48;5;14m   [38;5;15m[48;5;15m   [m
