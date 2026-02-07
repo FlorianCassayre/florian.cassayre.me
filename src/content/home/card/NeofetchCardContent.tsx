@@ -37,7 +37,8 @@ oss[37m[0m[1myNMMMNyMMh[0m[31m[1msssssssssssssshmmmh[0m[31m[1mssssssso
 [43C[0m[31m[1mTheme[0m[0m:[0m Yaru [GTK2/3][0m 
 [43C[0m[31m[1mTerminal[0m[0m:[0m gnome-terminal[0m 
 [43C[0m[31m[1mCPU[0m[0m:[0m AMD Ryzen 9 9950X3D (32) @ 5.752GHz[0m 
-[43C[0m[31m[1mGPU[0m[0m:[0m AMD ATI 77:00.0 Device 13c0[0m 
+[43C[0m[31m[1mGPU[0m[0m:[0m AMD ATI 78:00.0 Device 13c0[0m 
+[43C[0m[31m[1mGPU[0m[0m:[0m NVIDIA RTX A5000[0m 
 [43C[0m[31m[1mMemory[0m[0m:[0m 61828MiB[0m 
 
 [43C[30m[40m   [31m[41m   [32m[42m   [33m[43m   [34m[44m   [35m[45m   [36m[46m   [37m[47m   [m
