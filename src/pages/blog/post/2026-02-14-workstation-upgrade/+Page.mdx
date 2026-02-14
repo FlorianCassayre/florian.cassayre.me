@@ -1,0 +1,57 @@
+import { HardwareSpecTable } from './HardwareSpecTable';
+import { NEW_HARDWARE, OLD_HARDWARE, OLD_HARDWARE_PRICE } from './specs';
+import { YoutubePlayer } from '../../../../components/integration/YoutubePlayer';
+import { Box } from '@mui/joy';
+
+Last year, I decided to upgrade my workstation.
+
+The workstation I had been using until then was assembled in **2014**. Although the components were still in excellent working condition, I felt the hardware was beginning to show its limits for my use cases. The recent (and insane) surge in component prices, especially for memory and storage, also encouraged me to upgrade before the end of the year.
+
+These were the specs of my decade-old workstation:
+
+<HardwareSpecTable hardware={OLD_HARDWARE} price={OLD_HARDWARE_PRICE} />
+
+I had purchased it pre-built; it was a decent value at the time. I only added some memory (_green_) and disks (_green_ and _red_) a few years later.
+
+For the new build, I was looking for (reasonable) high-end components, focusing on single- and multi-threaded performance, memory, modularity, and aesthetics. When looking at pre-built PCs, I didn't find configurations that suited my needs. Some platforms offered custom build assembly for a small fee, but on the other hand component prices were artificially inflated.
+
+Ultimately, I decided that I was going to assemble it myself. With limited knowledge on the subject, I was happy to find numerous online resources to help me. This process also allowed me to translate my requirements into a thoughtful selection of components, and it made me more confident that I could upgrade or repair it myself in the future. Which is useful on large builds such as this one, where you don't want to move it around.
+
+I considered swapping components from my current workstation, but since I would be replacing almost everything except the case, it didn't seem worth it. Instead, I could give the old hardware a well-deserved second life by donating it to a relative.
+
+I ordered the parts in **October 2025** and received them shortly after. They are as follows:
+
+<HardwareSpecTable hardware={NEW_HARDWARE} />
+
+I chose the Lian Li O11 Dynamic XL case, which showcases (pun intended) the inner components through two full-size glass panels. The spacious interior offers extensive flexibility for future upgrades and experimentation. To compensate for its less effective airflow, additional (and larger) fans can be installed.
+
+The motherboard is the MSI MPG X870E Carbon, which offers numerous options, including four M.2 slots, two Ethernet ports, and multiple internal and external USB ports.
+
+For the CPU, I selected the Ryzen 9950X3D, which I found to be the best value among high-end processors. Compared to my previous CPU, it scores roughly twice as much on single-threaded benchmarks and ten times as much on multi-threaded benchmarks—a significant improvement.
+
+I opted for a 64 GB dual-stick RAM kit, roughly matching the CPU's capabilities. Memory is currently overpriced, and since I don't have a strong need for more at the moment, it didn't make sense to invest further. However, this is one component I may need to upgrade in a couple of years.
+
+The GPU has an interesting backstory and symbolic value: it was generously offered by my brother [who won it at the EAGE 2025 hackathon](https://www.linkedin.com/posts/valentin-cassayre_tb-eageannual2025-hackathon-activity-7360980067193176066-VzcD). Many thanks to him—I will definitely put it to good use! Despite minor scratches and lack of packaging, it powers on and works normally. The driver is well-supported on Linux.
+
+I estimated the power supply capacity using [PCPartPicker](https://pcpartpicker.com/) after entering all the parts individually. The exact model was chosen after reviewing [an exhaustive community spreadsheet](https://docs.google.com/spreadsheets/d/1akCHL7Vhzk_EhrpIGkz8zTEvYfLDcaSpZRB6Xt6JWkc/), which rates power supplies based on objective criteria. I didn't want to cut corners here and opted for a slightly older model that stood the test of time.
+
+The CPU is cooled by an AIO with a 3×140 mm radiator mounted at the top.
+
+There are 10 case fans in total, arranged as follows:
+- 6 as intake from the bottom and side
+- 3 as exhaust through the AIO radiator (push configuration) at the top
+- 1 as exhaust to the back
+
+Many components are ARGB and can be controlled via the excellent [OpenRGB](https://openrgb.org/) software. Only two motherboard LED areas aren't yet supported. I am installing strimer covers to hide the GPU/CPU-to-PSU cables. The configuration can be found [on this repository](https://github.com/FlorianCassayre/openrgb-config).
+
+![](/articles/pc/pc-build.jpg)
+
+The CPU typically idles at 37°C and rarely exceeds 50°C under normal workloads. Temperatures are displayed on the motherboard's old-school 7-segment display, which I find very convenient. Since the GPU was installed a few months later, I did notice a slight rise in temperatures but nothing out of the ordinary. So far, the CPU hasn't exceeded 80°C—a good figure for this model from what I could see.
+
+I recorded the assembly process and compiled it into a 2-hour video:
+
+<Box display="flex" justifyContent="center"> <YoutubePlayer id="JmvdE9E8Wrw" /> </Box>
+
+Overall, this has been a fun and interesting project, though a bit stressful. I was happy to achieve a POST on the first attempt and luckily didn't encounter any hardware issues. I upgraded my Ubuntu distribution for proper Bluetooth support and tweaked one module that prevented correct suspension. I've been using the system for a few months without issues now and have started experimenting with compute-intensive processes (AI, research).
+
+Florian
