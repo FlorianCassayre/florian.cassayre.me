@@ -11,7 +11,7 @@ const Key = 'home.challenges.codeGolf';
 export const CodeGolfCardContent: React.FC = () => (
   <CardBase sx={{ height: '100%' }}>
     <Typography level="title-lg">
-      <SoftLink href="https://code.golf" target="_blank" rel="noopener">
+      <SoftLink href="https://code.golf/golfers/FlorianCassayre" target="_blank" rel="noopener">
         Code Golf
       </SoftLink>
     </Typography>

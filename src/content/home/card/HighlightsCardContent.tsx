@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Campaign, EmojiEvents } from '@mui/icons-material';
+import { Campaign, EmojiEvents, Mic } from '@mui/icons-material';
 import { List, ListItem, Typography, styled } from '@mui/joy';
 import { FormattedMessage, useIntl } from 'react-intl';
 
@@ -20,6 +20,62 @@ export const HighlightsCardContent: React.FC = () => {
   return (
     <HighlightsCard
       highlights={[
+        {
+          title: $t({ id: `${Key}.talks.title` }),
+          icon: Mic,
+          content: (
+            <DenseList marker="disc">
+              <ListItem>
+                <FormattedMessage
+                  id="common.labelColonValue"
+                  values={{
+                    label: (
+                      <>
+                        <SoftLink href="https://indico.cern.ch/event/1580741/" target="_blank" rel="noopener">
+                          CERN Lightning Talk #27
+                        </SoftLink>{' '}
+                        (07/11/2025)
+                      </>
+                    ),
+                    value: (
+                      <SoftLink
+                        href="https://github.com/FlorianCassayre/ITLT27-scala-metaprogramming"
+                        target="_blank"
+                        rel="noopener"
+                      >
+                        Metaprogramming in Scala
+                      </SoftLink>
+                    ),
+                  }}
+                />
+              </ListItem>
+              <ListItem>
+                <FormattedMessage
+                  id="common.labelColonValue"
+                  values={{
+                    label: (
+                      <>
+                        <SoftLink href="https://clic.epfl.ch/icbd" target="_blank" rel="noopener">
+                          EPFL IC Boost Day #7
+                        </SoftLink>{' '}
+                        (11/03/2026)
+                      </>
+                    ),
+                    value: (
+                      <SoftLink
+                        href="https://github.com/FlorianCassayre/icbd-2026-open-source"
+                        target="_blank"
+                        rel="noopener"
+                      >
+                        Open Source
+                      </SoftLink>
+                    ),
+                  }}
+                />
+              </ListItem>
+            </DenseList>
+          ),
+        },
         {
           title: $t({ id: `${Key}.competitionsAndAwards.title` }),
           icon: EmojiEvents,

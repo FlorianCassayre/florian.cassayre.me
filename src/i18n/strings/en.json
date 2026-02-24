@@ -58,6 +58,7 @@
   "home.publications.lcfMscProject.context": "Semester project done at LARA (Lab for Automated Reasoning and Analysis), EPFL.",
   "home.challenges.adventOfCode.description": "My participations are all in Scala.",
   "home.challenges.codeGolf.description": "My entries are mainly targeting the languages {python} and {brainfuck}.",
+  "home.highlights.talks.title": "Talks",
   "home.highlights.competitionsAndAwards.title": "Competitions and awards",
   "home.highlights.competitionsAndAwards.honorableMentions": "Honorable mentions:",
   "home.highlights.competitionsAndAwards.items.swerc22": "qualified among 50,000 participants, ranked 35<sup>th</sup>",
