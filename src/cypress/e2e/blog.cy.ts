@@ -13,9 +13,14 @@ describe('Blog home page', () => {
   });
 
   it('is article page accessible', () => {
-    cy.visit('/blog/post/2025-09-01-career-update');
+    cy.visit('/blog/2025-09-01-career-update');
     cy.injectAxe();
     cy.checkA11y();
+  });
+
+  it('is old article page redirecting', () => {
+    cy.visit('/blog/post/2025-09-01-career-update');
+    cy.location('pathname').should('be.eq', '/blog/2025-09-01-career-update');
   });
 
   it('can filter by keyword on article and clear', () => {
@@ -40,7 +45,7 @@ describe('Blog home page', () => {
   });
 
   it('can click on keyword from article', () => {
-    cy.visit('/blog/post/2025-02-03-new-website');
+    cy.visit('/blog/2025-02-03-new-website');
     cy.wait(500); // Seems necessary
     cy.contains('Technical').click();
     cy.location('pathname').should('be.eq', '/blog');
@@ -49,7 +54,7 @@ describe('Blog home page', () => {
   });
 
   it('has a link opening in a new tab', () => {
-    cy.visit('/blog/post/2025-09-01-career-update');
+    cy.visit('/blog/2025-09-01-career-update');
     cy.get('a').contains('BPMN').should('have.attr', 'target', '_blank');
   });
 });

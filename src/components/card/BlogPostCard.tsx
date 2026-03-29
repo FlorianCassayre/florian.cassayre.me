@@ -36,7 +36,7 @@ export const BlogPostCard: React.FC<BlogPostCardProps> = ({
   return (
     <CardActionArea
       component="a"
-      href={urlGenerator(`/blog/post/${rawSlug}`)}
+      href={urlGenerator(`/blog/${rawSlug}`)}
       sx={{
         borderRadius: 2,
         [`&:hover .${ANIMATION_CLASS_NAME}`]: {

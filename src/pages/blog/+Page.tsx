@@ -20,9 +20,9 @@ import { LocaleNameKey } from '../../i18n/LocaleNameKey';
 import { LOCALES } from '../../i18n/utils';
 import { homeBreadcrumbs } from '../breadcrumbs';
 
-const postsMeta = Object.entries(import.meta.glob('./post/*/+config.ts', { eager: true }))
+const postsMeta = Object.entries(import.meta.glob('./\\(post\\)/*/+config.ts', { eager: true }))
   .map(([name, properties]) => {
-    const parsed = parsePostSlug(name.replace(/^\.\/post\//, '').replace(/\/\+config\.ts$/, ''));
+    const parsed = parsePostSlug(name.replace(/^\.\/\(post\)\//, '').replace(/\/\+config\.ts$/, ''));
     if (parsed === null) {
       throw new Error(`Invalid post name: ${name}`);
     }
