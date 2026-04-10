@@ -1,7 +1,10 @@
 import React from 'react';
 
-import { ClientOnly } from 'vike-react/ClientOnly';
+import { ClientOnly as BrokenClientOnly } from 'vike-react/ClientOnly';
 import { usePageContext } from 'vike-react/usePageContext';
+
+const ClientOnly = <T,>(parameters: Parameters<typeof BrokenClientOnly<T>>[0]) =>
+  BrokenClientOnly(parameters) as React.ReactNode;
 
 export const Page = () => {
   const { is404 } = usePageContext();
